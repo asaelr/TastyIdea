@@ -16,9 +16,7 @@
         android:summary="@string/pref_description_kosher_switch"
         android:title="@string/pref_title_kosher_switch" />
     <Preference android:title="@string/pref_title_manage_excluded_ingridaiants">
-        <intent android:targetClass="com.example.nati.uidesign.MainActivity"
-                android:action="android.intent.action.VIEW"
-                android:data="com.example.nati.uidesign.MainActivity"
+        <intent android:action="com.example.asaelr.tastyidea.MainActivity"
             />
     </Preference>
 

@@ -17,4 +17,9 @@ public class MainActivity extends AppCompatActivity {
     {
         startActivity(new Intent(this, SearchActivity.class));
     }
+
+    public void handleSettingsPressed(View view)
+    {
+        startActivity(new Intent(this, SettingsActivity.class));
+    }
 }

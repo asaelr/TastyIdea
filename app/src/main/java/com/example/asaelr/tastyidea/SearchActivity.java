@@ -12,8 +12,8 @@ public class SearchActivity extends AppCompatActivity {
         IngCategory.initialize(this);
         setContentView(R.layout.activity_search);
         //Log.e("TastyIdea", "" + getSupportActionBar());
-       // getSupportActionBar().setDisplayShowHomeEnabled(true);
-      //  getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        // getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //  getSupportActionBar().setIcon(R.mipmap.ic_launcher);
     }
 /*
     public void openDialog(View v) {

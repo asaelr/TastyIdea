@@ -91,6 +91,7 @@
                 android:id="@+id/prefrencesButton"
                 android:drawableTop="@drawable/settings_icon"
                 android:text="@string/prefrences"
+                android:onClick="handleSettingsPressed"
 
                 />
             <TextView
