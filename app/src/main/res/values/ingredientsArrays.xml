@@ -15,6 +15,11 @@
         <item>@array/cucumber</item>
         <item>@array/onion</item>
         <item>@array/tomato</item>
+        <item>@array/potato</item>
+        <item>@array/pepper</item>
+        <item>@array/garlic</item>
+        <item>@array/cabbage</item>
+        <item>@array/pumpkin</item>
     </string-array>
 
     <string-array name="carrot">
@@ -33,5 +38,26 @@
         <item>tomato</item>
         <item>@mipmap/ic_tomato</item>
     </string-array>
+    <string-array name="potato">
+        <item>potato</item>
+        <item>@mipmap/ic_potato</item>
+    </string-array>
+    <string-array name="pepper">
+        <item>pepper</item>
+        <item>@mipmap/ic_pepper</item>
+    </string-array>
+    <string-array name="garlic">
+        <item>garlic</item>
+        <item>@mipmap/ic_garlic</item>
+    </string-array>
+    <string-array name="cabbage">
+        <item>cabbage</item>
+        <item>@mipmap/ic_cabbage</item>
+    </string-array>
+    <string-array name="pumpkin">
+        <item>pumpkin</item>
+        <item>@mipmap/ic_pumpkin</item>
+    </string-array>
+
 
 </resources>
