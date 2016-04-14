@@ -12,7 +12,7 @@
         android:id="@+id/TOOLBAR"
         android:layout_gravity="left"
         android:title="@string/app_name"
-        android:logo="@drawable/logo_small"
+        android:logo="@mipmap/ic_launcher"
 
         android:background="?attr/colorPrimary"
 
@@ -38,11 +38,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,28 +96,6 @@
                 />
             <Button
                 style="@style/DashboardButton"
-                android:id="@+id/addRecepieButton"
-                android:drawableTop="@drawable/add_recepie"
-                android:text="@string/addRecepie"
-
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                />
-            <Button
-                style="@style/DashboardButton"
                 android:id="@+id/searchRecepieButton"
                 android:drawableTop="@drawable/search_icon"
                 android:text="@string/search_recepie"
@@ -133,15 +107,20 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 />
+            <Button
+                style="@style/DashboardButton"
+                android:id="@+id/addRecepieButton"
+                android:drawableTop="@drawable/add_recepie"
+                android:text="@string/addRecepie"
+
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
         </LinearLayout>
 
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
     </LinearLayout>
 
 </LinearLayout>
