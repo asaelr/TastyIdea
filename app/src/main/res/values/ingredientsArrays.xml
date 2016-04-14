@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>@array/vegetables</item>
+    </string-array>
+
+    <string-array name="vegetables">
+        <item>vegetables</item>
+        <item>@mipmap/ic_vegetables</item>
+        <item>@array/vegetablesItems</item>
+    </string-array>
+
+    <string-array name="vegetablesItems">
+        <item>@array/carrot</item>
+        <item>@array/cucumber</item>
+        <item>@array/onion</item>
+        <item>@array/tomato</item>
+    </string-array>
+
+    <string-array name="carrot">
+        <item>carrot</item>
+        <item>@mipmap/ic_carrot</item>
+    </string-array>
+    <string-array name="cucumber">
+        <item>cucumber</item>
+        <item>@mipmap/ic_cucumber</item>
+    </string-array>
+    <string-array name="onion">
+        <item>onion</item>
+        <item>@mipmap/ic_onion</item>
+    </string-array>
+    <string-array name="tomato">
+        <item>tomato</item>
+        <item>@mipmap/ic_tomato</item>
+    </string-array>
+
+</resources>
