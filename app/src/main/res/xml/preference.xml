@@ -15,9 +15,16 @@
         android:key="kosher_switch"
         android:summary="@string/pref_description_kosher_switch"
         android:title="@string/pref_title_kosher_switch" />
-    <Preference android:title="@string/pref_title_manage_excluded_ingridaiants">
-        <intent android:action="com.example.asaelr.tastyidea.MainActivity"
-            />
-    </Preference>
+
+    <com.example.asaelr.tastyidea.ExcludeIngrediantsPreference
+        android:title="@string/pref_title_manage_excluded_ingridaiants"
+        />
+    <com.example.asaelr.tastyidea.MinRatingPreference
+        android:key="min_rating"
+        android:title="@string/minRatingPreferenceTitle"
+
+        />
+
+
 
 </PreferenceScreen>

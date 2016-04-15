@@ -73,4 +73,7 @@
     <string name="pref_title_manage_excluded_ingridaiants">Manage excluded ingridaiants</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="minRatingPreferenceTitle">Minimum Rating</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 </resources>
