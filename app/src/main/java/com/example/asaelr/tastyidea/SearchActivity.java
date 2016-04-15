@@ -9,7 +9,6 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        IngCategory.initialize(this);
         setContentView(R.layout.activity_search);
         //Log.e("TastyIdea", "" + getSupportActionBar());
         // getSupportActionBar().setDisplayShowHomeEnabled(true);
