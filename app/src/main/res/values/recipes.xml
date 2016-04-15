@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="recipes">
+        <item>Spagetti Bolonez</item>
+        <item>Pancakes</item>
+        <item>Lazania</item>
+        <item>Corn Pie</item>
+        <item>Strawberry Cake</item>
+    </string-array>
+</resources>
