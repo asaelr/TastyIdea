@@ -41,12 +41,12 @@ public class IngredientList extends RelativeLayout {
 
     public IngredientList(Context context) {
         super(context);
-        init(null, 0);
+        if (!isInEditMode()) init(null, 0);
     }
 
     public IngredientList(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, 0);
+        if (!isInEditMode()) init(attrs, 0);
     }
 
     public IngredientList(Context context, AttributeSet attrs, int defStyle) {
