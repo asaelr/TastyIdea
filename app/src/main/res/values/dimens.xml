@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="dashborad_button_margin">10dp</dimen>
+    <dimen name="ingredient_selection_height">150dp</dimen>
+    <dimen name="add_recepie_steps_height">100dp</dimen>
 </resources>

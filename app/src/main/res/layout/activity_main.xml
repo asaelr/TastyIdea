@@ -104,6 +104,7 @@
                 android:id="@+id/addRecepieButton"
                 android:drawableTop="@drawable/add_recepie"
                 android:text="@string/addRecepie"
+                android:onClick="handleAddRecepiePressed"
 
                 />
             <TextView
@@ -144,5 +145,6 @@
             android:layout_weight="1"
             />
     </LinearLayout>
+
 
 </LinearLayout>

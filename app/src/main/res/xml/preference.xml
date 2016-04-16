@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <SwitchPreference
         android:defaultValue="false"
         android:key="vegeterian_switch"
@@ -18,12 +19,26 @@
 
     <com.example.asaelr.tastyidea.ExcludeIngrediantsPreference
         android:title="@string/pref_title_manage_excluded_ingridaiants"
+        android:summary="@string/pref_excluded_ingrediants_summary"
         />
     <com.example.asaelr.tastyidea.MinRatingPreference
         android:key="min_rating"
         android:title="@string/minRatingPreferenceTitle"
 
         />
+    <EditTextPreference
+        android:key="timeKey"
+        android:title="@string/pref_max_time_title"
+        android:summary="@string/pref_max_time_summary"
+        android:inputType="time"
+        />
+    <ListPreference
+        android:key="prefDifficultyLevel"
+        android:entries="@array/DifficultyLevel"
+        android:summary="@string/pref_DifficultyLevel_summary"
+        android:entryValues="@array/DifficultyLevelValues"
+        android:title="@string/pref_DifficultyLevel" />
+
 
 
 

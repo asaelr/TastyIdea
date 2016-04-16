@@ -113,6 +113,7 @@
                 android:id="@+id/addRecepieButton"
                 android:drawableTop="@drawable/add_recepie"
                 android:text="@string/addRecepie"
+                android:onClick="handleAddRecepiePressed"
 
                 />
             <TextView

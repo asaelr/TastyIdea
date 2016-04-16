@@ -76,4 +76,17 @@
     <string name="minRatingPreferenceTitle">Minimum Rating</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="pref_display_name_summary">Select username for display</string>
+    <string name="pref_display_name_title">Username</string>
+    <string name="pref_max_time_summary">Set maximum cooking time hh:mm</string>
+    <string name="pref_max_time_title">Max Cooking Time</string>
+    <string name="set">Set</string>
+    <string name="pref_DifficultyLevel_summary">Select max difficulty level</string>
+    <string name="pref_DifficultyLevel">Max Difficulty level</string>
+    <string name="pref_excluded_ingrediants_summary">Search will not show recipes containing excluded ingrediants</string>
+    <string name="name_field">Name:</string>
+    <string name="next_step">Next step:</string>
+    <string name="ingrediants">Ingrediants:</string>
+    <string name="attach_photo">Attach photo</string>
+    <string name="directions">Directions:</string>
 </resources>

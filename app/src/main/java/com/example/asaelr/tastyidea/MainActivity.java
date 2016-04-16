@@ -22,5 +22,10 @@ public class MainActivity extends AppCompatActivity {
     public void handleSettingsPressed(View view)
     {
         startActivity(new Intent(this, SettingsActivity.class));
+    }//android:onClick="handleAddRecepiePressed"
+
+    public void handleAddRecepiePressed(View view)
+    {
+        startActivity(new Intent(this, AddRecepieActivity.class));
     }
 }

@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".SearchActivity" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".AddRecepieActivity"></activity>
     </application>
 
 </manifest>
