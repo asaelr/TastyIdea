@@ -71,6 +71,7 @@ public class IngredientList extends RelativeLayout {
                 showEditText?
                         R.layout.ingredient_edittext:R.layout.ingredient_button,
                 this);
+        Log.e("TastyIdea","showEditText: "+showEditText);
         //adapter.add(R.array.carrot);
         ((ListView)findViewById(R.id.listView)).setAdapter(adapter);
 
