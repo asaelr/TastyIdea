@@ -32,15 +32,8 @@ import java.util.List;
  * TODO: document your custom view class.
  */
 public class IngredientList extends RelativeLayout {
-    private String mExampleString; // TODO: use a default from R.string...
-    private int mExampleColor = Color.RED; // TODO: use a default from R.color...
-    private float mExampleDimension = 0; // TODO: use a default from R.dimen...
-    private Drawable mExampleDrawable;
 
-    private TextPaint mTextPaint;
-    private float mTextWidth;
-    private float mTextHeight;
-
+    private boolean showEditText;
 
     private ArrayAdapter<Ingredient> adapter;
     private List<Ingredient> ingredients=new ArrayList<Ingredient>();
@@ -69,11 +62,17 @@ public class IngredientList extends RelativeLayout {
         mExampleString = a.getString(
                 R.styleable.IngredientList_exampleString);
 */
+
+        showEditText = a.getBoolean(R.styleable.IngredientList_showEditText,true);
+
         a.recycle();
         inflate(getContext(), R.layout.ingredient_list, this);
-        adapter=new MyAdapter(getContext(),R.layout.ingredient_button,this);
+        adapter=new MyAdapter(getContext(),
+                showEditText?
+                        R.layout.ingredient_edittext:R.layout.ingredient_button,
+                this);
         //adapter.add(R.array.carrot);
-        ((GridView)findViewById(R.id.gridView)).setAdapter(adapter);
+        ((ListView)findViewById(R.id.listView)).setAdapter(adapter);
 
         ((ImageButton)findViewById(R.id.imageButton)).setOnClickListener(new OnClickListener() {
             @Override
@@ -148,6 +147,7 @@ public class IngredientList extends RelativeLayout {
     }
 
     public void get_suggestions() {
+        //dummy!!!
         int k=0;
         for (Ingredient ing : IngCategory.allIngredients) {
             if (k>=3) break;
@@ -171,17 +171,19 @@ public class IngredientList extends RelativeLayout {
 
 class MyAdapter extends ArrayAdapter<Ingredient> {
     private final IngredientList ingList;
+    private final int resource;
 
     public MyAdapter(Context context, int resource, IngredientList ingList) {
         super(context, resource);
         this.ingList = ingList;
+        this.resource = resource;
     }
 
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.ingredient_button, parent, false);
+        View view = inflater.inflate(resource, parent, false);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
         TextView textView = (TextView) view.findViewById(R.id.textView);
         // TypedArray typedArr = context.getResources().obtainTypedArray(arr.getIndex(position));
