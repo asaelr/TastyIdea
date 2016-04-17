@@ -24,6 +24,7 @@
     <com.example.asaelr.tastyidea.MinRatingPreference
         android:key="min_rating"
         android:title="@string/minRatingPreferenceTitle"
+        
 
         />
     <EditTextPreference
