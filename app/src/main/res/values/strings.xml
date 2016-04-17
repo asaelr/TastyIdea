@@ -89,4 +89,7 @@
     <string name="ingrediants">Ingrediants:</string>
     <string name="attach_photo">Attach photo</string>
     <string name="directions">Directions:</string>
+    <string name="cooking_time_title">Cooking Time:</string>
+    <string name="category_title">Category:</string>
+    <string name="difficulty_level_title">Difficulty level:</string>
 </resources>
