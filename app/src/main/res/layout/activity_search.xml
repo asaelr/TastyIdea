@@ -44,16 +44,13 @@
         android:layout_height="?android:attr/actionBarSize"
         android:id="@+id/TOOLBAR"
         android:layout_gravity="left"
-        android:title="@string/app_name"
-        android:logo="@drawable/logo_small"
-
         android:background="?attr/colorPrimary"
 
 
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/toolbar_icon_size"
+            android:layout_height="@dimen/toolbar_icon_size"
             android:src="@drawable/search_icon"/>
         <TextView
             android:id="@+id/toolbar_title"
@@ -63,7 +60,7 @@
             android:singleLine="true"
             android:text="@string/search_recepie"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </android.support.v7.widget.Toolbar>
     <fragment

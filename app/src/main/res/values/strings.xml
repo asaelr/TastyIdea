@@ -78,8 +78,8 @@
     <string name="ok">OK</string>
     <string name="pref_display_name_summary">Select username for display</string>
     <string name="pref_display_name_title">Username</string>
-    <string name="pref_max_time_summary">Set maximum cooking time hh:mm</string>
-    <string name="pref_max_time_title">Max Cooking Time</string>
+    <string name="pref_max_time_summary">Set maximum preparation time hh:mm</string>
+    <string name="pref_max_time_title">Max Preparation Time</string>
     <string name="set">Set</string>
     <string name="pref_DifficultyLevel_summary">Select max difficulty level</string>
     <string name="pref_DifficultyLevel">Max Difficulty level</string>
@@ -89,7 +89,7 @@
     <string name="ingredients">Ingredients:</string>
     <string name="attach_photo">Attach photo</string>
     <string name="directions">Directions:</string>
-    <string name="cooking_time_title">Cooking Time:</string>
+    <string name="cooking_time_title">Preparation Time:</string>
     <string name="category_title">Category: </string>
     <string name="difficulty_level_title">Difficulty level: </string>
 
@@ -99,6 +99,8 @@
     <string name="title_activity_recipe_view">Recipe View</string>
     <string name="title_activity_recipes_list">Recipes List</string>
     <string name="preferences_title">Preferences</string>
+    <string name="minutes">minutes</string>
+    <string name="hours">hours</string>
     <string-array name="recipes">
         <item>Spagetti Bolonez</item>
         <item>Lazania</item>
