@@ -246,16 +246,24 @@
                     android:layout_gravity="right" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/addRecepie"
-                    android:layout_gravity="left"/>
-            </LinearLayout>
+
+            <Button
+                android:id="@+id/add_button"
+                android:text="@string/addRecepie"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+
+                android:layout_width="@dimen/add_btn_width"
+                android:layout_height="@dimen/add_btn_height"
+                android:background="@drawable/buttonshape"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                />
+
 
 
 
