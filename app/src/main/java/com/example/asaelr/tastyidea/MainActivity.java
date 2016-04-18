@@ -28,4 +28,8 @@ public class MainActivity extends AppCompatActivity {
     {
         startActivity(new Intent(this, AddRecepieActivity.class));
     }
+    public void showRecipesList(View view)
+    {
+        startActivity(new Intent(this, RecipesListActivity.class));
+    }
 }
