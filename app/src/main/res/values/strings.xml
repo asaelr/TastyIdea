@@ -4,7 +4,7 @@
     <string name="myRecepies">My Recipes</string>
     <string name="prefrences">Preferences</string>
     <string name="addRecepie">Add Recipe</string>
-    <string name="search_recepie">Search Recipe</string>
+    <string name="search_recepie">Search Recipes</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->
@@ -70,7 +70,7 @@
     <string name="pref_title_vegan_switch">Vegan</string>
     <string name="pref_description_kosher_switch">Search will show only kosher recipes</string>
     <string name="pref_title_kosher_switch">Kosher</string>
-    <string name="pref_title_manage_excluded_ingridaiants">Manage excluded ingredients</string>
+    <string name="pref_title_manage_excluded_ingredients">Manage excluded ingredients</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="minRatingPreferenceTitle">Minimum Rating</string>
@@ -83,13 +83,26 @@
     <string name="set">Set</string>
     <string name="pref_DifficultyLevel_summary">Select max difficulty level</string>
     <string name="pref_DifficultyLevel">Max Difficulty level</string>
-    <string name="pref_excluded_ingrediants_summary">Search will not show recipes containing excluded ingredients</string>
-    <string name="name_field">Name:</string>
+    <string name="pref_excluded_ingredients_summary">Search will not show recipes containing excluded ingredients</string>
+    <string name="name_field">Name: </string>
     <string name="next_step">Next step:</string>
-    <string name="ingrediants">Ingredients:</string>
+    <string name="ingredients">Ingredients:</string>
     <string name="attach_photo">Attach photo</string>
     <string name="directions">Directions:</string>
     <string name="cooking_time_title">Cooking Time:</string>
-    <string name="category_title">Category:</string>
-    <string name="difficulty_level_title">Difficulty level:</string>
+    <string name="category_title">Category: </string>
+    <string name="difficulty_level_title">Difficulty level: </string>
+
+
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_recipe_view">Recipe View</string>
+    <string name="title_activity_recipes_list">Recipes List</string>
+    <string-array name="recipes">
+        <item>Spagetti Bolonez</item>
+        <item>Lazania</item>
+        <item>Corn Pie</item>
+        <item>Strawberry Cake</item>
+        <item>Pancakes</item>
+    </string-array>
 </resources>

@@ -32,39 +32,39 @@ public class RecipesAdapter extends ArrayAdapter<String> {
         TextView category = (TextView)rowView.findViewById(R.id.category);
         switch (position) {
             case 0:
-                imageView.setImageResource(R.drawable.ic_action_bolonez);
+                imageView.setImageResource(R.mipmap.ic_bolonez);
                 rating.setProgress(2);
                 time.setText("30 minutes");
                 difficulty.setText("Easy");
-                category.setText("Cooking,Italian");
+                category.setText("Italian");
                 break;
             case 1:
-                imageView.setImageResource(R.drawable.ic_action_pancakes);
+                imageView.setImageResource(R.mipmap.ic_pancakes);
                 rating.setProgress(3);
                 time.setText("10 minutes");
-                difficulty.setText("Medium");
-                category.setText("Frying,Desserts,Vegetarian");
+                difficulty.setText("Avereage");
+                category.setText("Desserts");
                 break;
             case 2:
-                imageView.setImageResource(R.drawable.ic_action_lazania);
+                imageView.setImageResource(R.mipmap.ic_lazania);
                 rating.setProgress(5);
                 time.setText("1 hour");
-                difficulty.setText("Medium");
-                category.setText("Baking,Italian");
+                difficulty.setText("Average");
+                category.setText("Italian");
                 break;
             case 3:
-                imageView.setImageResource(R.drawable.ic_action_tiras);
+                imageView.setImageResource(R.mipmap.ic_tiras);
                 rating.setProgress(1);
                 time.setText("15 minutes");
                 difficulty.setText("Easy");
-                category.setText("Baking,Vegetarian,Pies");
+                category.setText("Pies");
                 break;
             case 4:
-                imageView.setImageResource(R.drawable.ic_action_tootim);
+                imageView.setImageResource(R.mipmap.ic_tootim);
                 rating.setProgress(4);
-                time.setText("1 hour and 15 minutes");
+                time.setText("75 minutes");
                 difficulty.setText("Easy");
-                category.setText("Cake,Vegetarian,Desserts,American");
+                category.setText("Desserts");
                 break;
         }
         return rowView;
