@@ -57,6 +57,7 @@
                 android:id="@+id/favoritsButton"
                 android:drawableTop="@drawable/favorites_icon"
                 android:text="@string/favoritRecepies"
+                android:onClick="showRecipesList"
 
                 />
             <TextView
@@ -69,6 +70,7 @@
                 android:id="@+id/MyRecepiesButton"
                 android:drawableTop="@drawable/chef_icon"
                 android:text="@string/myRecepies"
+                android:onClick="showRecipesList"
 
                 />
             <TextView
