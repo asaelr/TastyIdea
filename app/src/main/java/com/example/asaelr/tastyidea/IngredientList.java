@@ -66,14 +66,17 @@ public class IngredientList extends RelativeLayout {
         showEditText = a.getBoolean(R.styleable.IngredientList_showEditText,true);
 
         a.recycle();
-        inflate(getContext(), R.layout.ingredient_list, this);
-        adapter=new MyAdapter(getContext(),
-                showEditText?
-                        R.layout.ingredient_edittext:R.layout.ingredient_button,
-                this);
-        Log.e("TastyIdea","showEditText: "+showEditText);
-        //adapter.add(R.array.carrot);
-        ((ListView)findViewById(R.id.listView)).setAdapter(adapter);
+
+        if (showEditText) {
+            inflate(getContext(), R.layout.ingredient_list, this);
+            adapter = new MyAdapter(getContext(), R.layout.ingredient_edittext, this);
+            ((ListView) findViewById(R.id.listView)).setAdapter(adapter);
+        } else {
+            inflate(getContext(), R.layout.ingredient_grid, this);
+            adapter = new MyAdapter(getContext(), R.layout.ingredient_button, this);
+            ((GridView) findViewById(R.id.gridView)).setAdapter(adapter);
+        }
+        //Log.e("TastyIdea","showEditText: "+showEditText);
 
         ((ImageButton)findViewById(R.id.imageButton)).setOnClickListener(new OnClickListener() {
             @Override
