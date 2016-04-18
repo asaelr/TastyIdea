@@ -4,14 +4,6 @@
     android:orientation="vertical">
 
 
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/gridView"
-        android:layout_gravity="center_horizontal"
-        android:numColumns="3" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -33,6 +25,13 @@
             android:layout_gravity="right" />
 
     </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/listView"
+        android:layout_gravity="center_horizontal" />
+
 
     <LinearLayout
         android:orientation="horizontal"

@@ -1,9 +1,95 @@
 <resources>
     <string name="app_name">TastyIdea</string>
+    <string name="favoritRecepies">Favorite Recipes</string>
+    <string name="myRecepies">My Recipes</string>
+    <string name="prefrences">Preferences</string>
+    <string name="addRecepie">Add Recipe</string>
+    <string name="search_recepie">Search Recipe</string>
+    <string name="title_activity_settings">Settings</string>
 
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="pref_title_vegetarian_switch">Vegetarian</string>
+    <string name="pref_description_vegetarian_switch">Search will show only vegetarian recipes</string>
+    <string name="pref_description_vegan_switch">Search will show only vegan recipes</string>
+    <string name="pref_title_vegan_switch">Vegan</string>
+    <string name="pref_description_kosher_switch">Search will show only kosher recipes</string>
+    <string name="pref_title_kosher_switch">Kosher</string>
+    <string name="pref_title_manage_excluded_ingridaiants">Manage excluded ingredients</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_recipes_list">Recipes List</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_recipe_view">Recipe View</string>
+    <string name="minRatingPreferenceTitle">Minimum Rating</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="pref_display_name_summary">Select username for display</string>
+    <string name="pref_display_name_title">Username</string>
+    <string name="pref_max_time_summary">Set maximum cooking time hh:mm</string>
+    <string name="pref_max_time_title">Max Cooking Time</string>
+    <string name="set">Set</string>
+    <string name="pref_DifficultyLevel_summary">Select max difficulty level</string>
+    <string name="pref_DifficultyLevel">Max Difficulty level</string>
+    <string name="pref_excluded_ingrediants_summary">Search will not show recipes containing excluded ingredients</string>
+    <string name="name_field">Name:</string>
+    <string name="next_step">Next step:</string>
+    <string name="ingrediants">Ingredients:</string>
+    <string name="attach_photo">Attach photo</string>
+    <string name="directions">Directions:</string>
+    <string name="cooking_time_title">Cooking Time:</string>
+    <string name="category_title">Category:</string>
+    <string name="difficulty_level_title">Difficulty level:</string>
 </resources>

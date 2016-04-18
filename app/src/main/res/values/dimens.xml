@@ -2,5 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dashborad_button_margin">10dp</dimen>
+    <dimen name="ingredient_selection_height">350dp</dimen>
+    <dimen name="add_recepie_steps_height">300dp</dimen>
 </resources>
