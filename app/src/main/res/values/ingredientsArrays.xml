@@ -2,8 +2,10 @@
 <resources>
     <string-array name="categories">
         <item>@array/vegetables</item>
+        <item>@array/dairy</item>
     </string-array>
 
+    
     <string-array name="vegetables">
         <item>vegetables</item>
         <item>@mipmap/ic_vegetables</item>
@@ -59,5 +61,30 @@
         <item>@mipmap/ic_pumpkin</item>
     </string-array>
 
+
+    <string-array name="dairy">
+        <item>dairy</item>
+        <item>@mipmap/ic_dairy</item>
+        <item>@array/dairyItems</item>
+    </string-array>
+
+    <string-array name="dairyItems">
+        <item>@array/milk</item>
+        <item>@array/cottage</item>
+        <item>@array/butter</item>
+    </string-array>
+
+    <string-array name="milk">
+        <item>milk</item>
+        <item>@mipmap/ic_milk</item>
+    </string-array>
+    <string-array name="cottage">
+        <item>cottage cheese</item>
+        <item>@mipmap/ic_cottage</item>
+    </string-array>
+    <string-array name="butter">
+        <item>butter</item>
+        <item>@mipmap/ic_butter</item>
+    </string-array>
 
 </resources>
