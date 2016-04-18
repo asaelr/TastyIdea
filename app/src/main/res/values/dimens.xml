@@ -5,4 +5,5 @@
     <dimen name="dashborad_button_margin">10dp</dimen>
     <dimen name="ingredient_selection_height">350dp</dimen>
     <dimen name="add_recepie_steps_height">300dp</dimen>
+    <dimen name="toolbar_icon_size">40dp</dimen>
 </resources>
