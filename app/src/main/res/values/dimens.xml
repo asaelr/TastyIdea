@@ -6,4 +6,11 @@
     <dimen name="ingredient_selection_height">350dp</dimen>
     <dimen name="add_recepie_steps_height">300dp</dimen>
     <dimen name="toolbar_icon_size">40dp</dimen>
+    <dimen name="prep_time_input_width">40dp</dimen>
+    <dimen name="image_preview_size">100dp</dimen>
+    <dimen name="add_btn_width">220dp</dimen>
+    <dimen name="add_btn_height">60dp</dimen>
+    <dimen name="search_ingredients_list_height">320dp</dimen>
+    <dimen name="attach_photo_btn_width">120dp</dimen>
+    <dimen name="attach_photo_btn_height">40dp</dimen>
 </resources>

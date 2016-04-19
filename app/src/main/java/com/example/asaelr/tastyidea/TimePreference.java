@@ -3,9 +3,11 @@ package com.example.asaelr.tastyidea;
 /**
  * Created by Nati on 15/04/2016.
  */
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
+import android.support.v7.view.ContextThemeWrapper;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -24,7 +26,8 @@ public class TimePreference extends DialogPreference {
     }
 
     public TimePreference(Context ctxt, AttributeSet attrs) {
-        this(ctxt, attrs, android.R.attr.dialogPreferenceStyle);
+        this(ctxt, attrs, android.R.attr.timePickerDialogTheme);
+
     }
 
     public TimePreference(Context ctxt, AttributeSet attrs, int defStyle) {
@@ -33,11 +36,13 @@ public class TimePreference extends DialogPreference {
         setPositiveButtonText(R.string.set);
         setNegativeButtonText(R.string.cancel);
         calendar = new GregorianCalendar();
+
     }
 
     @Override
     protected View onCreateDialogView() {
-        picker = new TimePicker(getContext());
+        picker = new TimePicker(new ContextThemeWrapper(getContext(), android.R.style.Theme_Holo_Light_Dialog_NoActionBar));
+        picker.setIs24HourView(true);
         return (picker);
     }
 
@@ -94,6 +99,6 @@ public class TimePreference extends DialogPreference {
             return null;
         }
         Date date = new Date(calendar.getTimeInMillis());
-        return DateFormat.format("hh:mm", date);
+        return date.getHours() + ":" + date.getMinutes();
     }
 }

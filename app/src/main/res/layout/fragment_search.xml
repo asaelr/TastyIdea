@@ -1,96 +1,64 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center">
-
-    <com.example.asaelr.tastyidea.IngredientList
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:id="@+id/view"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        custom:showEditText="false" />
-
-    <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:scaleType="fitCenter"
-        android:id="@+id/imageButton2"
-        android:src="@drawable/settings_icon"
-        android:layout_below="@+id/view"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/transparent" />
-
-    <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:id="@+id/imageButton3"
-        android:src="@drawable/search_icon"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-<!--
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Preparation time:"
-            android:id="@+id/textView4"
-            android:layout_alignParentTop="true" />
-
-        <SeekBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textView4"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:max="180"
-            android:progress="15"
-            android:indeterminate="false" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="15 mins"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/seekBar"
-            android:layout_centerHorizontal="true" />
--->
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Category:"
-        android:id="@+id/textView2"/>
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:spinnerMode="dropdown"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
-
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Select ingredients"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:id="@+id/textView5"
-        android:layout_below="@+id/spinner"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center" />
+    <com.example.asaelr.tastyidea.IngredientList
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_ingredients_list_height"
+        android:id="@+id/view"
+        custom:showEditText="false"
 
-</RelativeLayout>
+        android:background="@color/listBackground"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category:"
+            android:textSize="18sp"
+            android:id="@+id/textView2"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:spinnerMode="dropdown" />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:id="@+id/imageButton3"
+        android:src="@drawable/search_icon"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter" />
+
+
+</LinearLayout>
