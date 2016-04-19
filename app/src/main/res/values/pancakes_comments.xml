@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="pancakes_comments">
+        <item>Tip: serve with maple syrup/choclate/jam</item>
+        <item>Great recipe!</item>
+        <item>Absululty delicious!</item>
+    </string-array>
+</resources>

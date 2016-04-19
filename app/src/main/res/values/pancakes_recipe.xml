@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="pancakes_preparations">
+        <item>mix the milk,eggs and oil until reaching a smooth batter</item>
+        <item>put the mixture into a hot frying pan</item>
+        <item>wait til the pancakes esaily seperates from the pan</item>
+        <item>turn them around and get theem out of the frying pan</item>
+    </string-array>
+</resources>

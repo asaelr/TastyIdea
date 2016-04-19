@@ -29,7 +29,10 @@ public class CategorySelector extends DialogFragment {
 
     private IngredientAdder adder;
 
-    public CategorySelector(IngredientAdder adder) {
+    public CategorySelector() {
+    }
+
+        public CategorySelector(IngredientAdder adder) {
         super();
         this.adder = adder;
     }

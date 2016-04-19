@@ -1,0 +1,18 @@
+<resources>
+    <string-array name="pancakes_ingredients_names">
+        <item>Flour</item>
+        <item>Sugar</item>
+        <item>Egg</item>
+        <item>milk</item>
+        <item>oil</item>
+    </string-array>
+
+    <string-array name="pancakes_ingredients_ammounts">
+        <item>1.25 glasses of flour</item>
+        <item>1 spoon of sugar</item>
+        <item>0.5 teaspoon of salt</item>
+        <item>1 egg</item>
+        <item>1 glass milk</item>
+        <item>2 spoons of oil</item>
+    </string-array>
+</resources>

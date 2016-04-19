@@ -1,15 +1,28 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.Context;
+import android.graphics.drawable.LayerDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class RecipeViewActivityFragment extends Fragment {
+    private String[] comments;
+    private String[] ingredients_names;
+    private String[] ingredients_ammounts;
+    private String[] orders;
 
     public RecipeViewActivityFragment() {
     }
@@ -17,6 +30,33 @@ public class RecipeViewActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recipe_view, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_recipe_view, container, false);
+
+        ingredients_names = getResources().getStringArray(R.array.pancakes_ingredients_names);
+        ingredients_ammounts = getResources().getStringArray(R.array.pancakes_ingredients_ammounts);
+        ListView ingredientsList = (ListView) fragmentView.findViewById(R.id.ingredients);
+        IngAdapter ingredientsAdapter = new IngAdapter(getActivity(), ingredients_names,ingredients_ammounts);
+        ingredientsList.setAdapter(ingredientsAdapter);
+
+        orders = getResources().getStringArray(R.array.pancakes_preparations);
+        ListView ordersList = (ListView) fragmentView.findViewById(R.id.how_to_make);
+        OrdersAdapter ordersAdapter = new OrdersAdapter(getActivity(),orders);
+        ordersList.setAdapter(ordersAdapter);
+
+        comments = getResources().getStringArray(R.array.pancakes_comments);
+        ListView commentsList = (ListView) fragmentView.findViewById(R.id.comments);
+        OrdersAdapter commentsAdapter = new OrdersAdapter(getActivity(), comments);
+        commentsList.setAdapter(commentsAdapter);
+
+        RatingBar ratingBar = (RatingBar) fragmentView.findViewById(R.id.rate);
+        LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
+        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
+
+        TextView textView = (TextView) fragmentView.findViewById(R.id.recipe_user);
+        SpannableString content = new SpannableString("recipe's user");
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        textView.setText(content);
+
+        return fragmentView;
     }
 }
