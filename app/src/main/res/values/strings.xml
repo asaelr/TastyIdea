@@ -97,17 +97,7 @@
     <string name="title_activity_recipe_view">Recipe View</string>
     <string name="title_activity_recipes_list">Recipes List</string>
     <string name="preferences_title">Preferences</string>
-<<<<<<< HEAD
     <string name="share">Share</string>
-=======
     <string name="minutes">minutes</string>
     <string name="hours">hours</string>
-    <string-array name="recipes">
-        <item>Spagetti Bolonez</item>
-        <item>Lazania</item>
-        <item>Corn Pie</item>
-        <item>Strawberry Cake</item>
-        <item>Pancakes</item>
-    </string-array>
->>>>>>> 87161c166244927a96a9e89070481a9c7e97e11c
 </resources>
