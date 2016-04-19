@@ -27,8 +27,8 @@
         
 
         />
-    <EditTextPreference
-        android:key="timeKey"
+    <com.example.asaelr.tastyidea.TimePreference
+        android:key="time_pref_key"
         android:title="@string/pref_max_time_title"
         android:summary="@string/pref_max_time_summary"
         android:inputType="time"

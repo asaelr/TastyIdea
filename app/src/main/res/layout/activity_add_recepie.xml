@@ -190,10 +190,21 @@
                         android:id="@+id/image_preview"
                         android:src="@mipmap/ic_launcher"/>
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/attach_photo_btn_width"
+                        android:layout_height="@dimen/attach_photo_btn_height"
                         android:text="@string/attach_photo"
-                        android:layout_gravity="right"/>
+
+
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+
+
+                        android:background="@drawable/add_button_shape"
+                        android:shadowColor="#A8A8A8"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="5"
+                        />
 
                 </LinearLayout>
 
@@ -257,7 +268,7 @@
 
                 android:layout_width="@dimen/add_btn_width"
                 android:layout_height="@dimen/add_btn_height"
-                android:background="@drawable/buttonshape"
+                android:background="@drawable/add_button_shape"
                 android:shadowColor="#A8A8A8"
                 android:shadowDx="0"
                 android:shadowDy="0"
