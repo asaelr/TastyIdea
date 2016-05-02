@@ -1,5 +1,5 @@
 <resources>
-    <string-array name="recipes">
+    <string-array name="recipes_names">
         <item>Spagetti Bolonez</item>
         <item>Pancakes</item>
         <item>Lazania</item>

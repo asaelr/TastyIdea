@@ -8,18 +8,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="left"
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp" />
         <ImageView
             android:id="@+id/pic"
+            android:scaleType="centerCrop"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
     <TextView
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:id="@+id/ammount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

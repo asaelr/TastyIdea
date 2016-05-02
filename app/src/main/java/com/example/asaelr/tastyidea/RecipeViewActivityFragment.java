@@ -32,6 +32,18 @@ public class RecipeViewActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_recipe_view, container, false);
 
+        /*
+        ImageView imageView = (ImageView) recipeViewFragment.findViewById(R.id.recipe_pic);
+        ViewGroup.LayoutParams params = imageView.getLayoutParams();
+        params.width = 170;
+        params.height = 170;
+        imageView.setLayoutParams(params);
+
+        RatingBar ratingBar = (RatingBar) recipeViewFragment.findViewById(R.id.rate);
+        LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
+        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
+*/
+
         ingredients_names = getResources().getStringArray(R.array.pancakes_ingredients_names);
         ingredients_ammounts = getResources().getStringArray(R.array.pancakes_ingredients_ammounts);
         ListView ingredientsList = (ListView) fragmentView.findViewById(R.id.ingredients);
@@ -52,8 +64,8 @@ public class RecipeViewActivityFragment extends Fragment {
         LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
         DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
 
-        TextView textView = (TextView) fragmentView.findViewById(R.id.recipe_user);
-        SpannableString content = new SpannableString("recipe's user");
+        TextView textView = (TextView) fragmentView.findViewById(R.id.my_recipes);
+        SpannableString content = new SpannableString("go to my recipes");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         textView.setText(content);
 

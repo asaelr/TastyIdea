@@ -13,11 +13,17 @@ import android.view.ViewGroup.LayoutParams;
 public class RecipesAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final String[] names;
+    private String[] times;
+    private String[] difficulties;
+    private String[] categories;
 
-    public RecipesAdapter(Context context, String[] values) {
-        super(context, R.layout.row_recipe, values);
+    public RecipesAdapter(Context context, String[] names,String[] times,String[] difficulties,String[] categories) {
+        super(context, R.layout.row_recipe, names);
         this.context = context;
-        this.names = values;
+        this.names = names;
+        this.times=times;
+        this.difficulties=difficulties;
+        this.categories=categories;
     }
 
     @Override
@@ -31,52 +37,42 @@ public class RecipesAdapter extends ArrayAdapter<String> {
         params.height= 230;
         imageView.setLayoutParams(params);
 
-        TextView name = (TextView) rowView.findViewById(R.id.name);
-        name.setText(names[position]);
+        TextView recipe_name = (TextView) rowView.findViewById(R.id.name);
+        recipe_name.setText(names[position]);
+
+        TextView time = (TextView) rowView.findViewById(R.id.time);
+        time.setText(times[position]);
+
+        TextView difficulty = (TextView) rowView.findViewById(R.id.difficulty);
+        difficulty.setText(difficulties[position]);
+
+        TextView category = (TextView) rowView.findViewById(R.id.category);
+        category.setText(categories[position]);
+
         RatingBar rating = (RatingBar)rowView.findViewById(R.id.rate);
-        TextView time = (TextView)rowView.findViewById(R.id.time);
-        TextView difficulty = (TextView)rowView.findViewById(R.id.difficulty);
-        TextView category = (TextView)rowView.findViewById(R.id.category);
+
         switch (position) {
             case 0:
                 imageView.setImageResource(R.mipmap.ic_bolonez);
                 rating.setProgress(2);
-                time.setText("Time: 30 minutes");
-                difficulty.setText("Difficulty: Easy");
-                category.setText("Category: Italian");
                 break;
             case 1:
                 imageView.setImageResource(R.mipmap.ic_pancakes);
                 rating.setProgress(3);
-                time.setText("Time: 10 minutes");
-                difficulty.setText("Difficulty: Avereage");
-                category.setText("Category: Desserts");
                 break;
             case 2:
                 imageView.setImageResource(R.mipmap.ic_lazania);
                 rating.setProgress(5);
-                time.setText("Time: 1 hour");
-                difficulty.setText("Difficulty: Average");
-                category.setText("Category: Italian");
                 break;
             case 3:
                 imageView.setImageResource(R.mipmap.ic_tiras);
                 rating.setProgress(1);
-                time.setText("Time: 15 minutes");
-                difficulty.setText("Difficulty: Easy");
-                category.setText("Category: Pies");
                 break;
             case 4:
                 imageView.setImageResource(R.mipmap.ic_tootim);
                 rating.setProgress(4);
-                time.setText("Time: 75 minutes");
-                difficulty.setText("Difficulty: Easy");
-                category.setText("Category: Desserts");
                 break;
         }
         return rowView;
-    }
-    String getName(int pos){
-        return names[pos];
     }
 }
