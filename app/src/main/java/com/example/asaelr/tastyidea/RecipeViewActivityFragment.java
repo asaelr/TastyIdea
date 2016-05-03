@@ -65,7 +65,7 @@ public class RecipeViewActivityFragment extends Fragment {
         DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
 
         TextView textView = (TextView) fragmentView.findViewById(R.id.my_recipes);
-        SpannableString content = new SpannableString("go to my recipes");
+        SpannableString content = new SpannableString("User Recipes");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         textView.setText(content);
 
