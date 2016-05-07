@@ -3,9 +3,11 @@ package com.example.asaelr.tastyidea;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class SearchActivity extends AppCompatActivity {
@@ -26,6 +28,14 @@ public class SearchActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
         return true;
+    }
+
+    public void searchClick(View v) {
+        Log.e("TastyIdea","search clicked!");
+        Networking.init(getApplicationContext());
+        Networking.ping();
+        Networking.login();
+        Networking.get1();
     }
     /* TODO
     @Override
