@@ -11,7 +11,7 @@ tools:context="com.example.asaelr.tastyidea.RecipeViewActivity">
 <fragment
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.example.asaelr.tastyidea.RecipeViewActivityFragment"
+    android:name="com.example.asaelr.tastyidea.RecipeViewFragment"
     android:id="@+id/fragment"
     tools:layout="@layout/fragment_recipe_view" />
 </RelativeLayout>

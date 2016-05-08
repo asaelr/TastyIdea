@@ -18,6 +18,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         setSupportActionBar((Toolbar)findViewById(R.id.TOOLBAR));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         //Log.e("TastyIdea", "" + getSupportActionBar());
         // getSupportActionBar().setDisplayShowHomeEnabled(true);
         //  getSupportActionBar().setIcon(R.mipmap.ic_launcher);

@@ -100,5 +100,7 @@
     <string name="share">Share</string>
     <string name="minutes">minutes</string>
     <string name="hours">hours</string>
-    <string name="pancakes">Pancakes Recipe</string>
+    <string name="pancakes">Pancakes</string>
+    <string name="recipes_list_share_menu_title">Share</string>
+    <string name="recipes_list_edit_menu_title">advanced</string>
 </resources>

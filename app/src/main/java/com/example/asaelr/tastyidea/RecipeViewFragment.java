@@ -1,6 +1,5 @@
 package com.example.asaelr.tastyidea;
 
-import android.content.Context;
 import android.graphics.drawable.LayerDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -18,13 +17,13 @@ import android.widget.TextView;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class RecipeViewActivityFragment extends Fragment {
+public class RecipeViewFragment extends Fragment {
     private String[] comments;
     private String[] ingredients_names;
     private String[] ingredients_ammounts;
     private String[] orders;
 
-    public RecipeViewActivityFragment() {
+    public RecipeViewFragment() {
     }
 
     @Override
@@ -51,7 +50,7 @@ public class RecipeViewActivityFragment extends Fragment {
         ingredientsList.setAdapter(ingredientsAdapter);
 
         orders = getResources().getStringArray(R.array.pancakes_preparations);
-        ListView ordersList = (ListView) fragmentView.findViewById(R.id.how_to_make);
+        ListView ordersList = (ListView) fragmentView.findViewById(R.id.directions);
         OrdersAdapter ordersAdapter = new OrdersAdapter(getActivity(),orders);
         ordersList.setAdapter(ordersAdapter);
 
@@ -63,8 +62,9 @@ public class RecipeViewActivityFragment extends Fragment {
         RatingBar ratingBar = (RatingBar) fragmentView.findViewById(R.id.rate);
         LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
         DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
+        ratingBar.setRating(2);
 
-        TextView textView = (TextView) fragmentView.findViewById(R.id.my_recipes);
+        TextView textView = (TextView) fragmentView.findViewById(R.id.username);
         SpannableString content = new SpannableString("User Recipes");
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         textView.setText(content);

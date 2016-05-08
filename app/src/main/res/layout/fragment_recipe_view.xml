@@ -1,75 +1,79 @@
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.asaelr.tastyidea.RecipeViewActivityFragment">
+    tools:context=".RecipeViewFragment">
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_vertical_margin"
         android:paddingRight="@dimen/activity_vertical_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical"
-        tools:context=".RecipeViewActivityFragment"
-        tools:showIn="@layout/activity_recipe_view">
-            <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="40dp"
-            android:orientation="horizontal"
-            android:id="@+id/initial_details">
+        >
+            <!--tools:showIn="@layout/activity_recipe_view"-->
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/recipe_view_image_height"
                 android:src="@mipmap/ic_pancakes"
                 android:scaleType="centerCrop"
-                android:id="@+id/recipe_pic" />
+                android:id="@+id/recipe_pic"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/recipeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pancakes"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/recipe_view_name_size"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:textSize="@dimen/recipe_view_user_size"
+                android:layout_gravity="center_horizontal"/>
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:stepSize="1"
+                android:numStars="5"
+                android:isIndicator="true"
+                />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/properties">
-                <android.support.v7.widget.AppCompatRatingBar
-                    android:id="@+id/rate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:rating="3"
-                    android:stepSize="1"
-                    android:numStars="5"
-                    android:isIndicator="true"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:id="@+id/text_details">
+                android:id="@+id/properties"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp"
+                >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/time"
                         android:text="Time: 30 minutes"
-                        android:textSize="14sp"/>
+                        android:textSize="@dimen/recipe_view_atrr_size"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/difficulty"
                         android:text="Difficulty: Easy"
-                        android:textSize="14sp"/>
+                        android:textSize="@dimen/recipe_view_atrr_size"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/category"
                         android:text="Category: Desserts"
-                        android:textSize="14sp"/>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+                        android:textSize="@dimen/recipe_view_atrr_size"/>
+             </LinearLayout>
             <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,34 +84,38 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ingredients_title"
                 android:text="Ingredients:"
-                android:textSize="16sp"/>
-            <ListView
+                android:textSize="@dimen/recipe_view_list_title_size"/>
+            <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ingredients"
-                android:textSize="14sp"/>
+                android:textSize="16sp"
+                android:background="@color/listBackground"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/preparation_title"
                 android:text="Preparation:"
-                android:textSize="16sp"/>
-            <ListView
+                android:textSize="@dimen/recipe_view_list_title_size"/>
+            <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/how_to_make"
-                android:textSize="14sp"/>
+                android:id="@+id/directions"
+                android:textSize="16sp"
+                android:background="@color/listBackground"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/comments_title"
                 android:text="Comments:"
-                android:textSize="16sp"/>
-            <ListView
+                android:textSize="@dimen/recipe_view_list_title_size"/>
+            <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/comments"
-                android:textSize="12sp" />
+                android:textSize="16sp"
+                android:background="@color/listBackground"/>
         </LinearLayout>
             <LinearLayout
             android:layout_width="wrap_content"
@@ -115,53 +123,48 @@
             android:gravity="bottom"
             android:orientation="horizontal"
             android:id="@+id/buttons">
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/edit_icon"
-                android:scaleType="centerCrop"
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
-                android:id="@+id/edit"
-                android:text="edit"/>
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/share"
-                android:scaleType="centerCrop"
-                android:background="@android:color/transparent"
-                android:src="@mipmap/share_icon"
-                android:text="share"/>
+            <!--<ImageButton-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:src="@mipmap/edit_icon"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_marginLeft="60dp"-->
+                <!--android:layout_marginRight="60dp"-->
+                <!--android:id="@+id/edit"-->
+                <!--android:text="edit"/>-->
+            <!--<ImageButton-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:id="@+id/share"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:src="@mipmap/share_icon"-->
+                <!--android:text="share"/>-->
         </LinearLayout>
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/my_recipes"
-            android:textSize="26dp"
-            android:layout_gravity="center_horizontal"/>
+
         </LinearLayout>
     </ScrollView>
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:id="@+id/toolbar"
-        android:title="@string/app_name"
-        android:logo="@drawable/logo_small"
-        android:background="?attr/colorPrimary"
-        android:layout_gravity="right|top">
-        <ImageView
-            android:layout_width="@dimen/toolbar_icon_size"
-            android:layout_height="@dimen/toolbar_icon_size"
-            android:src="@drawable/logo_small"/>
-        <TextView
-            android:id="@+id/toolbar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/pancakes"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </android.support.v7.widget.Toolbar>
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?android:attr/actionBarSize"-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:title="@string/app_name"-->
+        <!--android:logo="@drawable/logo_small"-->
+        <!--android:background="?attr/colorPrimary"-->
+        <!--android:layout_gravity="right|top">-->
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/toolbar_icon_size"-->
+            <!--android:layout_height="@dimen/toolbar_icon_size"-->
+            <!--android:src="@drawable/logo_small"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/toolbar_title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:singleLine="true"-->
+            <!--android:text="@string/pancakes"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="24sp"-->
+            <!--android:textStyle="bold" />-->
+    <!--</android.support.v7.widget.Toolbar>-->
 </FrameLayout>

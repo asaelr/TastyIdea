@@ -1,6 +1,9 @@
 package com.example.asaelr.tastyidea;
 
 import android.content.Context;
+import android.graphics.drawable.LayerDrawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +35,10 @@ public class RecipesAdapter extends ArrayAdapter<String> {
         View rowView = inflater.inflate(R.layout.row_recipe, parent, false);
 
         ImageView imageView = (ImageView) rowView.findViewById(R.id.pic);
-         LayoutParams params = imageView.getLayoutParams();
-        params.width = 230;
-        params.height= 230;
-        imageView.setLayoutParams(params);
+//         LayoutParams params = imageView.getLayoutParams();
+//        params.width = 230;
+//        params.height= 230;
+//        imageView.setLayoutParams(params);
 
         TextView recipe_name = (TextView) rowView.findViewById(R.id.name);
         recipe_name.setText(names[position]);
@@ -49,7 +52,11 @@ public class RecipesAdapter extends ArrayAdapter<String> {
         TextView category = (TextView) rowView.findViewById(R.id.category);
         category.setText(categories[position]);
 
-        RatingBar rating = (RatingBar)rowView.findViewById(R.id.rate);
+//        RatingBar rating = (RatingBar)rowView.findViewById(R.id.rate);
+
+        RatingBar rating = (RatingBar) rowView.findViewById(R.id.rate);
+        LayerDrawable layerDrawable = (LayerDrawable) rating.getProgressDrawable();
+        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
 
         switch (position) {
             case 0:
