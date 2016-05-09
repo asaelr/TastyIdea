@@ -103,4 +103,5 @@
     <string name="pancakes">Pancakes</string>
     <string name="recipes_list_share_menu_title">Share</string>
     <string name="recipes_list_edit_menu_title">advanced</string>
+    <string name="easy">Easy</string>
 </resources>
