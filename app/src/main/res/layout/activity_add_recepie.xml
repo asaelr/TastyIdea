@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AddRecepieActivity"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:focusableInTouchMode="true">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
@@ -42,174 +43,9 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/name_field"
-                    android:textSize="24dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:background="@color/listBackground"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
+            <include layout="@layout/fragment_add_recipe_atrr" />
 
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vegeterian"/>
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vegan"/>
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kosher"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:padding="@dimen/activity_horizontal_margin">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/activity_horizontal_margin">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/category_title"
-                        android:id="@+id/category_title"/>
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/category_spinner"
-                        android:spinnerMode="dropdown"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/activity_horizontal_margin">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/difficulty_level_title"
-                        android:id="@+id/difficulty_level_title"/>
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/difficulty_level_spinner"
-                        android:spinnerMode="dropdown"
-                        />
-                </LinearLayout>
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/activity_horizontal_margin">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/cooking_time_title"
-                        android:id="@+id/cooking_time_title"/>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-
-                        <EditText
-                            android:layout_width="@dimen/prep_time_input_width"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cooking_time_minutes_input"
-                            android:background="@color/listBackground"
-                            android:inputType="number"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/minutes"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="@dimen/activity_horizontal_margin">
-
-                        <EditText
-                            android:layout_width="@dimen/prep_time_input_width"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cooking_time_hours_input"
-                            android:background="@color/listBackground"
-                            android:inputType="number"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hours"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/add_photo_layout"
-                    >
-                    <ImageView
-                        android:layout_width="@dimen/image_preview_size"
-                        android:layout_height="@dimen/image_preview_size"
-                        android:id="@+id/image_preview"
-                        android:src="@mipmap/ic_launcher"/>
-                    <Button
-                        android:layout_width="@dimen/attach_photo_btn_width"
-                        android:layout_height="@dimen/attach_photo_btn_height"
-                        android:text="@string/attach_photo"
-
-
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-
-
-                        android:background="@drawable/add_button_shape"
-                        android:shadowColor="#A8A8A8"
-                        android:shadowDx="0"
-                        android:shadowDy="0"
-                        android:shadowRadius="5"
-                        />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -226,36 +62,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/directions"
                 android:textSize="24dp"/>
-            <ListView
-                android:id="@+id/steps_list"
-                android:clickable="false"
-                android:entries="@array/example_steps"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/add_recepie_steps_height"
-                android:background="@color/listBackground"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/next_step"
-                    android:textSize="16dp"/>
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/listBackground"/>
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton"
-                    android:src="@android:drawable/ic_menu_add"
-                    android:layout_gravity="right" />
-            </LinearLayout>
+            <include layout="@layout/fragment_add_recipe_directions" />
 
 
             <Button

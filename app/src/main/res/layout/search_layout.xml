@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:background="@color/colorBackground"
     tools:context=".SearchActivity"
-    tools:showIn="@layout/activity_search">
+    tools:showIn="@layout/activity_search"
+    android:focusableInTouchMode="true">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"

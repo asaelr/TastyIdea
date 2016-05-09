@@ -36,10 +36,6 @@ public class RecipesListFragment extends Fragment {
         LayoutInflater li = (LayoutInflater)getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         View view = li.inflate( R.layout.row_recipe, container, false);
 
-//        RatingBar ratingBar = (RatingBar) view.findViewById(R.id.rate);
-//        LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
-//        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
-
         RecipesAdapter adapter = new RecipesAdapter(getActivity(),names,times,difficulties,categories); //TODO - should receive recipes list
         foodList.setAdapter(adapter);
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
