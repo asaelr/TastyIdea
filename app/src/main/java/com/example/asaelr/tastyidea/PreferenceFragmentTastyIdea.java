@@ -6,12 +6,21 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 /**
  * Created by Nati on 18/04/2016.
  */
 public class PreferenceFragmentTastyIdea extends PreferenceFragment implements
         SharedPreferences.OnSharedPreferenceChangeListener {
+
+    private int minRate;
+    private String maxDifficulty;
+    private boolean vegeterian;
+    private boolean vegan;
+    private boolean kosher;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,4 +61,14 @@ public class PreferenceFragmentTastyIdea extends PreferenceFragment implements
         pref.setSummary(lp.getEntry());
         }
     }
-}
+
+/*
+    SwitchPreference vegeterianSwitch = (SwitchPreference) getView().findViewById(vegeterian_switch);
+    vegeterianSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(isChecked){
+
+            }
+        }
+    });
+*/}
