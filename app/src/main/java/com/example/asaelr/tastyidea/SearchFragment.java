@@ -4,13 +4,20 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.AttributeSet;
+import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.xmlpull.v1.XmlPullParser;
+
+import java.util.List;
 
 
 /**
@@ -89,11 +96,21 @@ public class SearchFragment extends Fragment {
             }
         });
 */
-        Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                 R.array.recipe_categories, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parentView,
+                                       View selectedItemView, int position, long id) {
+                int pos = spinner.getSelectedItemPosition();
+            }
+            public void onNothingSelected(AdapterView<?> arg0) {// do nothing
+            }
+        });
 
         return view;
     }
