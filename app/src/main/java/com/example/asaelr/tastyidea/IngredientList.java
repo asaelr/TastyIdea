@@ -69,11 +69,11 @@ public class IngredientList extends RelativeLayout {
 
         if (showEditText) {
             inflate(getContext(), R.layout.ingredient_list, this);
-            adapter = new MyAdapter(getContext(), R.layout.ingredient_edittext, this);
+            adapter = new MyAdapterNF(getContext(), R.layout.ingredient_edittext, this);
             ((ListView) findViewById(R.id.listView)).setAdapter(adapter);
         } else {
             inflate(getContext(), R.layout.ingredient_grid, this);
-            adapter = new MyAdapter(getContext(), R.layout.ingredient_button, this);
+            adapter = new MyAdapterNF(getContext(), R.layout.ingredient_button, this);
             ((GridView) findViewById(R.id.gridView)).setAdapter(adapter);
         }
         //Log.e("TastyIdea","showEditText: "+showEditText);
@@ -173,11 +173,11 @@ public class IngredientList extends RelativeLayout {
     }
 }
 
-class MyAdapter extends ArrayAdapter<Ingredient> {
+class MyAdapterNF extends ArrayAdapter<Ingredient> {
     private final IngredientList ingList;
     private final int resource;
 
-    public MyAdapter(Context context, int resource, IngredientList ingList) {
+    public MyAdapterNF(Context context, int resource, IngredientList ingList) {
         super(context, resource);
         this.ingList = ingList;
         this.resource = resource;

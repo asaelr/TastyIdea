@@ -1,108 +1,190 @@
 package com.example.asaelr.tastyidea;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link IngredientListFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link IngredientListFragment#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
+import java.util.ArrayList;
+import java.util.List;
 public class IngredientListFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private boolean showEditText;
 
-    private OnFragmentInteractionListener mListener;
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment IngredientListFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static IngredientListFragment newInstance(String param1, String param2) {
-        IngredientListFragment fragment = new IngredientListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-    public IngredientListFragment() {
-        // Required empty public constructor
-    }
+    private ArrayAdapter<Ingredient> adapter;
+    private List<Ingredient> ingredients=new ArrayList<Ingredient>();
+    //private ViewGroup[] sug = new ViewGroup[3];
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onInflate (Context context, AttributeSet attrs, Bundle savedInstanceState) {
+        super.onInflate(context, attrs, savedInstanceState);
+        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.IngredientList);
+        showEditText = a.getBoolean(R.styleable.IngredientList_showEditText,true);
+        a.recycle();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ingredient_list, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        View view;
+        if (showEditText) {
+            view=inflater.inflate(R.layout.ingredient_list, container, false);
+            adapter = new MyAdapter(getContext(), R.layout.ingredient_edittext, this);
+            ((ListView) view.findViewById(R.id.listView)).setAdapter(adapter);
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            view=inflater.inflate(R.layout.ingredient_grid, container, false);
+            adapter = new MyAdapter(getContext(), R.layout.ingredient_button, this);
+            ((GridView) view.findViewById(R.id.gridView)).setAdapter(adapter);
+        }
+        //Log.e("TastyIdea","showEditText: "+showEditText);
+
+        ((ImageButton)view.findViewById(R.id.imageButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IngredientAdder adder = new IngredientAdder() {
+                    @Override
+                    public void addIngredient(Ingredient ing) {
+
+                        add_ingredient(ing);
+                        //adapter.notifyDataSetChanged();
+                    }
+                };
+                CategorySelector is = new CategorySelector(adder);
+                is.show(((Activity) getContext()).getFragmentManager(), "ingredient selector");
+            }
+        });
+        List<String> ings= new ArrayList<String>();
+        for (Ingredient ing : IngCategory.allIngredients) ings.add(ing.name);
+        final AutoCompleteTextView actv = (AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView);
+        actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, ings));
+        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Ingredient ing = IngCategory.getIngredient("" + actv.getText());
+                if (ing != null) {
+                    add_ingredient(ing);
+                    actv.setText("");
+                }
+            }
+        });
+        actv.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                Ingredient ing = IngCategory.getIngredient("" + v.getText());
+                if (ing != null) {
+                    add_ingredient(ing);
+                    v.setText("");
+                }
+                return false;
+            }
+        });
+        /*
+
+        sug[0]= (ViewGroup) findViewById(R.id.listframe1);
+        sug[1]= (ViewGroup) findViewById(R.id.listframe2);
+        sug[2]= (ViewGroup) findViewById(R.id.listframe3);
+
+        for (View v : sug) {
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Ingredient ing = (Ingredient) v.getTag();
+                    if (ing!=null) add_ingredient(ing);
+                }
+            });
+        }
+
+        get_suggestions();
+        */
+        return view;
+    }
+
+    public void add_ingredient(Ingredient ing) {
+        if (!ingredients.contains(ing)) {
+            adapter.add(ing);
+            ingredients.add(ing);
+            get_suggestions();
         }
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    public void remove_ingredient(Ingredient ing) {
+        ingredients.remove(ing);
+        adapter.remove(ing);
+        get_suggestions();
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    public void get_suggestions() {
+        //dummy!!!
+        /*
+        int k=0;
+        for (Ingredient ing : IngCategory.allIngredients) {
+            if (k>=3) break;
+            if (ingredients.contains(ing)) continue;
+            ImageView imageView = (ImageView) sug[k].findViewById(R.id.imageView);
+            TextView textView = (TextView) sug[k].findViewById(R.id.textView);
+            textView.setText(ing.name);
+            imageView.setImageResource(ing.picture);
+            sug[k].setTag(ing);
+            k++;
+        }
+        for (;k<3;k++) {
+            sug[k].setTag(null);
+            ImageView imageView = (ImageView) sug[k].findViewById(R.id.imageView);
+            TextView textView = (TextView) sug[k].findViewById(R.id.textView);
+            textView.setText("");
+            imageView.setImageResource(android.R.drawable.stat_sys_warning);
+        }
+        */
+    }
+}
+
+class MyAdapter extends ArrayAdapter<Ingredient> {
+    private final IngredientListFragment ingList;
+    private final int resource;
+
+    public MyAdapter(Context context, int resource, IngredientListFragment ingList) {
+        super(context, resource);
+        this.ingList = ingList;
+        this.resource = resource;
+    }
+
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(resource, parent, false);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        TextView textView = (TextView) view.findViewById(R.id.textView);
+        // TypedArray typedArr = context.getResources().obtainTypedArray(arr.getIndex(position));
+        //final int itemId = arr[position];
+        Ingredient ing = getItem(position);
+        textView.setText(ing.name);
+        imageView.setImageResource(ing.picture);
+        view.setTag(getItem(position));
+
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                ingList.remove_ingredient((Ingredient) v.getTag());
+                return true;
+            }
+        });
+        return view;
     }
 }

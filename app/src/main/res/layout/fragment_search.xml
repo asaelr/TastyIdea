@@ -11,14 +11,17 @@
         android:textSize="24sp"
         android:id="@+id/textView5"
         android:layout_gravity="center" />
-    <com.example.asaelr.tastyidea.IngredientList
+
+    <fragment
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="@dimen/search_ingredients_list_height"
-        android:id="@+id/view"
+        android:name="com.example.asaelr.tastyidea.IngredientListFragment"
+        android:id="@+id/fragment2"
         custom:showEditText="false"
 
         android:background="@color/listBackground"/>
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
