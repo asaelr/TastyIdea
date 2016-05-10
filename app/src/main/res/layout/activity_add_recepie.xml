@@ -51,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/ingredients"
                 android:textSize="24dp"/>
-            <com.example.asaelr.tastyidea.IngredientList
+            <fragment
+                android:name="com.example.asaelr.tastyidea.IngredientListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/ingredient_selection_height"
                 android:id="@+id/ingrediants"

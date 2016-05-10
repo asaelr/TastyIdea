@@ -4,12 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.example.asaelr.tastyidea.IngredientList
+    <fragment
+        android:name="com.example.asaelr.tastyidea.IngredientListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/view"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         custom:showEditText="false" />
 </LinearLayout>

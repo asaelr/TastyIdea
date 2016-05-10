@@ -38,7 +38,7 @@
         android:columnWidth="80dp"
         android:id="@+id/gridView"/>
 
-
+<!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -90,5 +90,6 @@
                 layout="@layout/ingredient_button" />
         </FrameLayout>
     </LinearLayout>
+    -->
 
 </LinearLayout>

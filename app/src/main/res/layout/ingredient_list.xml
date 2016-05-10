@@ -32,7 +32,7 @@
         android:id="@+id/listView"
         android:layout_gravity="center_horizontal" />
 
-
+<!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -84,5 +84,6 @@
                 layout="@layout/ingredient_button" />
         </FrameLayout>
     </LinearLayout>
+    -->
 
 </LinearLayout>
