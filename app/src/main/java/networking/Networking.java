@@ -4,6 +4,7 @@ package networking;
  * Created by asael on 08/05/16.
  */
 
+import com.example.asaelr.tastyidea.Recipe;
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 import com.kinvey.android.AsyncCustomEndpoints;
@@ -14,7 +15,10 @@ import com.kinvey.java.User;
 import com.kinvey.java.core.KinveyClientCallback;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
+
+import java.io.IOException;
 
 public class Networking {
     private static Client client;
@@ -63,9 +67,25 @@ public class Networking {
                     Log.i("TastyIdea","id: "+rec.id+", name: "+rec.name);
                 }
                 Log.i("TastyIdea","detailed recipes:");
-                for (RecipeMetadata rec : result) {
-                    get2(rec.id);
-                }
+                AsyncTask<RecipeMetadata,Recipe,Void> ast = new AsyncTask<RecipeMetadata, Recipe, Void>() {
+                    @Override
+                    protected Void doInBackground(RecipeMetadata... params) {
+                        for (RecipeMetadata rmd : params) {
+                            try {
+                                Recipe recipe = getRecipe(rmd.id);
+                                publishProgress(recipe);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                    @Override
+                    protected void onProgressUpdate(Recipe... recipes) {
+                        Log.i("TastyIdea",recipes[0].toString());
+                    }
+                };
+                ast.execute(result);
             }
 
             @Override
@@ -74,24 +94,16 @@ public class Networking {
             }
         });
     }
-
+/*
     public static void get2(String id) {
         GenericJson input = new GenericJson();
         input.put("id",id);
-        AsyncCustomEndpoints endpoints = client.customEndpoints(RecipeData.class);
-        endpoints.callEndpoint("get2", input, new KinveyClientCallback<RecipeData>() {
+        AsyncCustomEndpoints<GenericJson,RecipeData> endpoints = client.customEndpoints(RecipeData.class);
+        endpoints.callEndpoint("getRecipe", input, new KinveyClientCallback<RecipeData>() {
             @Override
             public void onSuccess(RecipeData result) {
-                Log.i("TastyIdea", "Kinvey get2 Success : " + result.name);
-                Log.i("TastyIdea", "vegan: "+result.vegan);
-                Log.i("TastyIdea", "ingredients:");
-                for (String ing : result.ingredients) {
-                    Log.i("TastyIdea",ing);
-                }
-                Log.i("TastyIdea", "method:");
-                for (String step : result.method) {
-                    Log.i("TastyIdea",step);
-                }
+                Recipe recipe = new Recipe(result);
+                Log.i("TastyIdea",recipe.toString());
 
             }
 
@@ -100,6 +112,15 @@ public class Networking {
                 Log.e("TastyIdea", "Kinvey get2 Failed", error);
             }
         });
+    }
+*/
+    //Don't call this function from main thread!!!
+    public static Recipe getRecipe(String id) throws IOException {
+        GenericJson input = new GenericJson();
+        input.put("id",id);
+        AsyncCustomEndpoints<GenericJson,RecipeData> endpoints = client.customEndpoints(RecipeData.class);
+        RecipeData result = endpoints.callEndpointBlocking("getRecipe",input).execute();
+        return new Recipe(result);
     }
 }
 
@@ -111,13 +132,4 @@ class RecipeMetadata extends GenericJson {
 
 }
 
-class RecipeData extends GenericJson {
-    @Key
-    Boolean vegan;
-    @Key
-    String name;
-    @Key
-    String[] ingredients;
-    @Key
-    String[] method;
-}
+;
