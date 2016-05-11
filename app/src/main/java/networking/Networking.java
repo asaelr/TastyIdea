@@ -1,4 +1,4 @@
-package com.example.asaelr.tastyidea;
+package networking;
 
 /**
  * Created by asael on 08/05/16.
@@ -10,7 +10,6 @@ import com.kinvey.android.AsyncCustomEndpoints;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyPingCallback;
 import com.kinvey.android.callback.KinveyUserCallback;
-import com.kinvey.java.CustomEndpoints;
 import com.kinvey.java.User;
 import com.kinvey.java.core.KinveyClientCallback;
 

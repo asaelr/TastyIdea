@@ -3,6 +3,8 @@
     <string-array name="categories">
         <item>@array/vegetables</item>
         <item>@array/dairy</item>
+        <item>@array/spices</item>
+        <item>@array/other_ingredients</item>
     </string-array>
 
 
@@ -22,6 +24,8 @@
         <item>@array/garlic</item>
         <item>@array/cabbage</item>
         <item>@array/pumpkin</item>
+        <item>@array/bell_pepper</item>
+        <item>@array/pickle</item>
     </string-array>
 
     <string-array name="carrot">
@@ -85,6 +89,85 @@
     <string-array name="butter">
         <item>butter</item>
         <item>@mipmap/ic_butter</item>
+    </string-array>
+
+
+    <string-array name="spices">
+        <item>spices</item>
+        <item>@mipmap/ic_spices</item>
+        <item>@array/spicesItems</item>
+    </string-array>
+
+    <string-array name="spicesItems">
+        <item>@array/salt</item>
+        <item>@array/pepper_powder</item>
+        <item>@array/cinnamon_powder</item>
+        <item>@array/curcuma_powder</item>
+    </string-array>
+
+
+    <string-array name="other_ingredients">
+        <item>others</item>
+        <item>@mipmap/ic_other_ingredients</item>
+        <item>@array/other_ingredientsItems</item>
+    </string-array>
+
+    <string-array name="other_ingredientsItems">
+        <item>@array/water</item>
+        <item>@array/egg</item>
+        <item>@array/rice</item>
+        <item>@array/tuna</item>
+        <item>@array/olive</item>
+        <item>@array/canned_corn</item>
+    </string-array>
+
+    <string-array name="water">
+        <item>water</item>
+        <item>@mipmap/ic_water</item>
+    </string-array>
+    <string-array name="egg">
+        <item>egg</item>
+        <item>@mipmap/ic_egg</item>
+    </string-array>
+    <string-array name="rice">
+        <item>rice</item>
+        <item>@mipmap/ic_rice</item>
+    </string-array>
+    <string-array name="bell_pepper">
+        <item>bell pepper</item>
+        <item>@mipmap/ic_bell_pepper</item>
+    </string-array>
+    <string-array name="tuna">
+        <item>tuna</item>
+        <item>@mipmap/ic_tuna</item>
+    </string-array>
+    <string-array name="olive">
+        <item>olive</item>
+        <item>@mipmap/ic_olive</item>
+    </string-array>
+    <string-array name="canned_corn">
+        <item>canned corn</item>
+        <item>@mipmap/ic_canned_corn</item>
+    </string-array>
+    <string-array name="pickle">
+        <item>pickle</item>
+        <item>@mipmap/ic_pickle</item>
+    </string-array>
+    <string-array name="salt">
+        <item>salt</item>
+        <item>@mipmap/ic_salt</item>
+    </string-array>
+    <string-array name="pepper_powder">
+        <item>pepper powder</item>
+        <item>@mipmap/ic_pepper_powder</item>
+    </string-array>
+    <string-array name="curcuma_powder">
+        <item>curcuma powder</item>
+        <item>@mipmap/ic_curcuma</item>
+    </string-array>
+    <string-array name="cinnamon_powder">
+        <item>cinnamon powder</item>
+        <item>@mipmap/ic_cinnamon</item>
     </string-array>
 
 </resources>
