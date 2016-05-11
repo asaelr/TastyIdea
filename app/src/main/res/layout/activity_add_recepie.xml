@@ -57,6 +57,7 @@
                 android:layout_height="@dimen/ingredient_selection_height"
                 android:id="@+id/ingrediants"
                 android:background="@color/listBackground"
+
                 />
             <TextView
                 android:layout_width="match_parent"
