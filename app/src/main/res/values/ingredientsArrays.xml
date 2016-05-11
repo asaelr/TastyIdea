@@ -26,6 +26,7 @@
         <item>@array/pumpkin</item>
         <item>@array/bell_pepper</item>
         <item>@array/pickle</item>
+        <item>@array/zucchini</item>
     </string-array>
 
     <string-array name="carrot">
@@ -76,6 +77,7 @@
         <item>@array/milk</item>
         <item>@array/cottage</item>
         <item>@array/butter</item>
+        <item>@array/cream</item>
     </string-array>
 
     <string-array name="milk">
@@ -103,6 +105,9 @@
         <item>@array/pepper_powder</item>
         <item>@array/cinnamon_powder</item>
         <item>@array/curcuma_powder</item>
+        <item>@array/sugar</item>
+        <item>@array/chicken_soup_powder</item>
+        <item>@array/sweet_paprika</item>
     </string-array>
 
 
@@ -119,6 +124,11 @@
         <item>@array/tuna</item>
         <item>@array/olive</item>
         <item>@array/canned_corn</item>
+        <item>@array/oil</item>
+        <item>@array/flour</item>
+        <item>@array/chicken_breast</item>
+        <item>@array/tomato_juice</item>
+        <item>@array/margarine</item>
     </string-array>
 
     <string-array name="water">
@@ -168,6 +178,49 @@
     <string-array name="cinnamon_powder">
         <item>cinnamon powder</item>
         <item>@mipmap/ic_cinnamon</item>
+    </string-array>
+
+
+
+    <string-array name="zucchini">
+        <item>zucchini</item>
+        <item>@mipmap/ic_zucchini</item>
+    </string-array>
+    <string-array name="flour">
+        <item>flour</item>
+        <item>@mipmap/ic_flour</item>
+    </string-array>
+    <string-array name="oil">
+        <item>oil</item>
+        <item>@mipmap/ic_oil</item>
+    </string-array>
+    <string-array name="chicken_soup_powder">
+        <item>chicken soup powder</item>
+        <item>@mipmap/ic_chicken_soup_powder</item>
+    </string-array>
+    <string-array name="tomato_juice">
+        <item>tomato juice</item>
+        <item>@mipmap/ic_tomato_juice</item>
+    </string-array>
+    <string-array name="sugar">
+        <item>sugar</item>
+        <item>@mipmap/ic_sugar</item>
+    </string-array>
+    <string-array name="cream">
+        <item>cream</item>
+        <item>@mipmap/ic_cream</item>
+    </string-array>
+    <string-array name="chicken_breast">
+        <item>chicken breast</item>
+        <item>@mipmap/ic_chicken_breast</item>
+    </string-array>
+    <string-array name="sweet_paprika">
+        <item>sweet paprika</item>
+        <item>@mipmap/ic_sweet_paprika</item>
+    </string-array>
+    <string-array name="margarine">
+        <item>margarine</item>
+        <item>@mipmap/ic_margarine</item>
     </string-array>
 
 </resources>
