@@ -24,7 +24,8 @@ public class IngCategory {
         picture=ta.getResourceId(1, 0);
         TypedArray tb = resources.obtainTypedArray(ta.getResourceId(2,0));
         for (int i=0;i<tb.length();i++) {
-            ingredients.add(new Ingredient(resources.obtainTypedArray(tb.getResourceId(i, 0))));
+            int id = tb.getResourceId(i, 0);
+            ingredients.add(new Ingredient(resources.obtainTypedArray(id),resources.getResourceName(id)));
         }
         tb.recycle();
 
@@ -46,7 +47,7 @@ public class IngCategory {
 
     public static Ingredient getIngredient(String str) {
         for (Ingredient ing : allIngredients) {
-            if (ing.name.equals(str)) return ing;
+            if (ing.nameOnServer.equals(str)) return ing;
         }
         return null;
     }

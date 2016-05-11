@@ -1,6 +1,7 @@
 package com.example.asaelr.tastyidea;
 
 import android.net.Network;
+import android.util.Log;
 import android.util.Pair;
 
 import java.util.ArrayList;
@@ -42,7 +43,9 @@ public class Recipe {
 
         ingredients = new ArrayList<>();
         for (RecipeData.Ing ing : response.ingredients) {
-            ingredients.add(new Pair<>(IngCategory.getIngredient(ing.name),ing.amount));
+            Ingredient i = IngCategory.getIngredient(ing.name);
+            if (i==null) Log.e("TastyIdea","unknown ingredient "+ing.name);
+            ingredients.add(new Pair<>(i,ing.amount));
         }
 
     }
