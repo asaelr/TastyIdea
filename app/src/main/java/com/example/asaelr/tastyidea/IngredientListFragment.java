@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class IngredientListFragment extends Fragment {
 
+    private static final String IS_EDIT_TEXT = "IS_EDIT_TEXT";
     private boolean showEditText;
 
     private ArrayAdapter<Ingredient> adapter;
@@ -39,11 +40,20 @@ public class IngredientListFragment extends Fragment {
         a.recycle();
     }
 
-
+    public static IngredientListFragment newInstance(boolean showEditText) {
+        IngredientListFragment fragment = new IngredientListFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(IS_EDIT_TEXT, showEditText);
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view;
+        if (getArguments() != null) {
+            showEditText = getArguments().getBoolean(IS_EDIT_TEXT);
+        }
         if (showEditText) {
             view=inflater.inflate(R.layout.ingredient_list, container, false);
             adapter = new MyAdapter(getActivity(), R.layout.ingredient_edittext, this);
@@ -153,6 +163,10 @@ public class IngredientListFragment extends Fragment {
         }
         */
     }
+
+
+
+
 }
 
 class MyAdapter extends ArrayAdapter<Ingredient> {
