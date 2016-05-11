@@ -67,7 +67,8 @@ public class AddRecepieActivity extends AppCompatActivity {
         INGREDIENTS {
             @Override
             public Fragment newFragInstance() {
-                return new IngredientListFragment();
+                boolean showEditText = true;
+                return IngredientListFragment.newInstance(showEditText);
             }
 
             @Override
