@@ -19,18 +19,6 @@ public class AddRecipeAtrributesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_recipe_atrr, container, false);
 
-        Spinner categorySpinner = (Spinner) view.findViewById(R.id.category_spinner);
-        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.recipe_categories, android.R.layout.simple_spinner_item);
-        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(categoryAdapter);
-
-        Spinner difficultySpinner = (Spinner) view.findViewById(R.id.difficulty_level_spinner);
-        ArrayAdapter<CharSequence> difficultyAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.DifficultyLevel, android.R.layout.simple_spinner_item);
-        difficultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difficultySpinner.setAdapter(difficultyAdapter);
-
         return view;
     }
 }

@@ -46,11 +46,11 @@ public class IngredientListFragment extends Fragment {
         View view;
         if (showEditText) {
             view=inflater.inflate(R.layout.ingredient_list, container, false);
-            adapter = new MyAdapter(getContext(), R.layout.ingredient_edittext, this);
+            adapter = new MyAdapter(getActivity(), R.layout.ingredient_edittext, this);
             ((ListView) view.findViewById(R.id.listView)).setAdapter(adapter);
         } else {
             view=inflater.inflate(R.layout.ingredient_grid, container, false);
-            adapter = new MyAdapter(getContext(), R.layout.ingredient_button, this);
+            adapter = new MyAdapter(getActivity(), R.layout.ingredient_button, this);
             ((GridView) view.findViewById(R.id.gridView)).setAdapter(adapter);
         }
         //Log.e("TastyIdea","showEditText: "+showEditText);
@@ -67,13 +67,13 @@ public class IngredientListFragment extends Fragment {
                     }
                 };
                 CategorySelector is = new CategorySelector(adder);
-                is.show(((Activity) getContext()).getFragmentManager(), "ingredient selector");
+                is.show(((Activity) getActivity()).getFragmentManager(), "ingredient selector");
             }
         });
         List<String> ings= new ArrayList<String>();
         for (Ingredient ing : IngCategory.allIngredients) ings.add(ing.name);
         final AutoCompleteTextView actv = (AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView);
-        actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, ings));
+        actv.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, ings));
         actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

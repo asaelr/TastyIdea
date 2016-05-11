@@ -96,21 +96,21 @@ public class SearchFragment extends Fragment {
             }
         });
 */
-        final Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.recipe_categories, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            public void onItemSelected(AdapterView<?> parentView,
-                                       View selectedItemView, int position, long id) {
-                int pos = spinner.getSelectedItemPosition();
-            }
-            public void onNothingSelected(AdapterView<?> arg0) {// do nothing
-            }
-        });
+//        final Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+//                R.array.recipe_categories, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(adapter);
+//
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//
+//            public void onItemSelected(AdapterView<?> parentView,
+//                                       View selectedItemView, int position, long id) {
+//                int pos = spinner.getSelectedItemPosition();
+//            }
+//            public void onNothingSelected(AdapterView<?> arg0) {// do nothing
+//            }
+//        });
 
         return view;
     }
