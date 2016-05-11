@@ -34,9 +34,6 @@ public class SearchActivity extends AppCompatActivity {
 
     public void searchClick(View v) {
         Log.e("TastyIdea","search clicked!");
-        Networking.init(getApplicationContext());
-        Networking.ping();
-        Networking.login();
         Networking.get1();
     }
     /* TODO
