@@ -94,27 +94,14 @@ public class Networking {
             }
         });
     }
-/*
-    public static void get2(String id) {
-        GenericJson input = new GenericJson();
-        input.put("id",id);
-        AsyncCustomEndpoints<GenericJson,RecipeData> endpoints = client.customEndpoints(RecipeData.class);
-        endpoints.callEndpoint("getRecipe", input, new KinveyClientCallback<RecipeData>() {
-            @Override
-            public void onSuccess(RecipeData result) {
-                Recipe recipe = new Recipe(result);
-                Log.i("TastyIdea",recipe.toString());
 
-            }
-
-            @Override
-            public void onFailure(Throwable error) {
-                Log.e("TastyIdea", "Kinvey get2 Failed", error);
-            }
-        });
+    //Don't call this function from UI thread!!!
+    public static RecipeMetadata[] getAllRecipesMetadata() throws IOException {
+        AsyncCustomEndpoints<GenericJson,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
+        return endpoints.callEndpointBlocking("getAllRecipesMetadata",null).execute();
     }
-*/
-    //Don't call this function from main thread!!!
+
+    //Don't call this function from UI thread!!!
     public static Recipe getRecipe(String id) throws IOException {
         GenericJson input = new GenericJson();
         input.put("id",id);
