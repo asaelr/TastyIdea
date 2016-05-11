@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/listBackground">
 
 
     <LinearLayout
@@ -9,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@color/listBackground"
         >
 
         <AutoCompleteTextView
@@ -31,6 +33,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/listView"
+        android:background="@color/listBackground"
         android:layout_gravity="center_horizontal" />
 
 <!--

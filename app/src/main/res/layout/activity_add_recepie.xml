@@ -34,39 +34,52 @@
             android:textSize="24sp"
             android:textStyle="bold" />
     </android.support.v7.widget.Toolbar>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="10dp">
 
-            <include layout="@layout/fragment_add_recipe_atrr" />
+            <!--<include layout="@layout/fragment_add_recipe_atrr" />-->
 
-            <TextView
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/ingredients"-->
+                <!--android:textSize="24dp"/>-->
+            <!--<fragment-->
+                <!--android:name="com.example.asaelr.tastyidea.IngredientListFragment"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/ingredient_selection_height"-->
+                <!--android:id="@+id/ingrediants"-->
+                <!--android:background="@color/listBackground"-->
+
+                <!--/>-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/directions"-->
+                <!--android:textSize="24dp"/>-->
+
+            <!--<include layout="@layout/fragment_add_recipe_directions" />-->
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ingredients"
-                android:textSize="24dp"/>
-            <fragment
-                android:name="com.example.asaelr.tastyidea.IngredientListFragment"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/ingredient_selection_height"
-                android:id="@+id/ingrediants"
-                android:background="@color/listBackground"
-
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/directions"
-                android:textSize="24dp"/>
-
-            <include layout="@layout/fragment_add_recipe_directions" />
-
+                android:layout_height="0px"
+                android:layout_weight="1">
+                <android.support.v4.view.PagerTabStrip
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:textColor="@color/colorAccent"
+                    android:background="@color/listBackground"/>
+            </android.support.v4.view.ViewPager>
 
             <Button
                 android:id="@+id/add_button"
@@ -85,12 +98,18 @@
                 android:shadowRadius="5"
                 />
 
+            <!--<android.support.design.widget.FloatingActionButton-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/ic_add_ingredient"-->
+                <!--android:layout_gravity="end"/>-->
+
 
 
 
 
         </LinearLayout>
-    </ScrollView>
+    <!--</ScrollView>-->
 
 
 </LinearLayout>
