@@ -6,9 +6,9 @@
         <item name="difficult">Difficult</item>
     </string-array>
     <string-array name="DifficultyLevelValues">
-        <item name="easy">1</item>
-        <item name="average">2</item>
-        <item name="difficult">3</item>
+        <item name="easy">0</item>
+        <item name="average">1</item>
+        <item name="difficult">2</item>
     </string-array>
     <string-array name="example_steps" >
         <item>"Crack eggs into mug and top with ricotta cheese, tomatoes, and basil"</item>

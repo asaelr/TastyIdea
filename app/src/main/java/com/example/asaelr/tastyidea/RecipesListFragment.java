@@ -36,7 +36,7 @@ public class RecipesListFragment extends Fragment {
         LayoutInflater li = (LayoutInflater)getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         View view = li.inflate( R.layout.row_recipe, container, false);
 
-        RecipesAdapter adapter = new RecipesAdapter(getActivity(),names,times,difficulties,categories); //TODO - should receive recipes list
+        RecipesAdapter adapter = new RecipesAdapter(getActivity()); //TODO - should receive recipes list
         foodList.setAdapter(adapter);
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -124,12 +124,4 @@ public class Networking {
     }
 }
 
-class RecipeMetadata extends GenericJson {
-    @Key("_id")
-    public String id;
-    @Key
-    public String name;
-
-}
-
 ;

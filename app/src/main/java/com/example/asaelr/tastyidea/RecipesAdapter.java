@@ -13,44 +13,40 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 
-public class RecipesAdapter extends ArrayAdapter<String> {
-    private final Context context;
-    private final String[] names;
-    private String[] times;
-    private String[] difficulties;
-    private String[] categories;
+import networking.RecipeMetadata;
 
-    public RecipesAdapter(Context context, String[] names,String[] times,String[] difficulties,String[] categories) {
-        super(context, R.layout.row_recipe, names);
+public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
+    private final Context context;
+
+    public RecipesAdapter(Context context) {
+        super(context, R.layout.row_recipe);
         this.context = context;
-        this.names = names;
-        this.times=times;
-        this.difficulties=difficulties;
-        this.categories=categories;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_recipe, parent, false);
+        RecipeMetadata rmd = getItem(position);
 
         ImageView imageView = (ImageView) rowView.findViewById(R.id.pic);
 //         LayoutParams params = imageView.getLayoutParams();
 //        params.width = 230;
 //        params.height= 230;
 //        imageView.setLayoutParams(params);
+        imageView.setImageResource(R.drawable.logo_small); //for now
 
         TextView recipe_name = (TextView) rowView.findViewById(R.id.name);
-        recipe_name.setText(names[position]);
+        recipe_name.setText(rmd.name);
 
         TextView time = (TextView) rowView.findViewById(R.id.time);
-        time.setText(times[position]);
+        time.setText(rmd.prepTimeMinutes+" minutes");
 
         TextView difficulty = (TextView) rowView.findViewById(R.id.difficulty);
-        difficulty.setText(difficulties[position]);
+        difficulty.setText(context.getResources().getStringArray(R.array.DifficultyLevel)[rmd.difficulty]);
 
         TextView category = (TextView) rowView.findViewById(R.id.category);
-        category.setText(categories[position]);
+        category.setText(rmd.category);
 
 //        RatingBar rating = (RatingBar)rowView.findViewById(R.id.rate);
 
@@ -58,6 +54,9 @@ public class RecipesAdapter extends ArrayAdapter<String> {
         LayerDrawable layerDrawable = (LayerDrawable) rating.getProgressDrawable();
         DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
 
+        rating.setProgress(rmd.rate);
+
+        /*
         switch (position) {
             case 0:
                 imageView.setImageResource(R.mipmap.ic_bolonez);
@@ -80,6 +79,7 @@ public class RecipesAdapter extends ArrayAdapter<String> {
                 rating.setProgress(4);
                 break;
         }
+        */
         return rowView;
     }
 }
