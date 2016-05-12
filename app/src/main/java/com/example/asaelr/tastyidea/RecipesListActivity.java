@@ -18,6 +18,9 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+            TastyDrawerLayout.addDrawer(this, toolbar);
+
+
             getSupportFragmentManager().addOnBackStackChangedListener(this);
             if (findViewById(R.id.fragment_container) != null) {
                 if (savedInstanceState != null) {

@@ -13,14 +13,27 @@ import networking.Networking;
 
 public class SearchActivity extends AppCompatActivity {
 
+    //initialize some things in application, using context.
+    //if we change our launcher activity, we shall move this function to the new one.
+    private void initialize() {
+        IngCategory.initialize(this);
+        Networking.init(getApplicationContext());
+        //Networking.ping();
+        Networking.login();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initialize();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_layout);
-        setSupportActionBar((Toolbar)findViewById(R.id.TOOLBAR));
+
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        TastyDrawerLayout.addDrawer(this);
+        TastyDrawerLayout.addDrawer(this, toolbar);
 
         //Log.e("TastyIdea", "" + getSupportActionBar());
         // getSupportActionBar().setDisplayShowHomeEnabled(true);

@@ -8,6 +8,7 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 
 public class SettingsActivity extends AppCompatPreferenceActivity{
@@ -20,6 +21,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity{
 //                .replace(android.R.id.content, new PreferenceFragmentTastyIdea())
 //                .commit();
         setContentView(R.layout.activity_settings);
+        TastyDrawerLayout.addDrawer(this, (Toolbar) findViewById(R.id.toolbar));
 
     }
 }

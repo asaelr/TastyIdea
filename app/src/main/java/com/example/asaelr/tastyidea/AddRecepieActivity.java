@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 public class AddRecepieActivity extends AppCompatActivity {
     static final int NUM_ITEMS = AddRecipePagerItem.values().length;
@@ -23,6 +24,8 @@ public class AddRecepieActivity extends AppCompatActivity {
 
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
+
+        TastyDrawerLayout.addDrawer(this, (Toolbar) findViewById(R.id.toolbar));
 
 
 
