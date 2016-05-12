@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -60,8 +61,8 @@ public class RecipeViewFragment extends Fragment {
         commentsList.setAdapter(commentsAdapter);
 
         RatingBar ratingBar = (RatingBar) fragmentView.findViewById(R.id.rate);
-        LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
-        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
+        Drawable layerDrawable = ratingBar.getProgressDrawable();
+        DrawableCompat.setTint(layerDrawable, ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
         ratingBar.setRating(2);
 
         TextView textView = (TextView) fragmentView.findViewById(R.id.username);

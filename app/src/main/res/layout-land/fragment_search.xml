@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/select_ingredients"
+            android:textSize="24sp"
+            android:id="@+id/textView5"
+            android:layout_gravity="center" />
+
+        <fragment
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:name="com.example.asaelr.tastyidea.IngredientListFragment"
+            android:id="@+id/fragment2"
+            custom:showEditText="false"
+
+            android:background="@color/listBackground"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category:"
+                android:textSize="18sp"
+                android:id="@+id/textView2"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                android:entries="@array/recipe_categories"
+                android:spinnerMode="dropdown" />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="@dimen/search_btn_size"
+            android:layout_height="@dimen/search_btn_size"
+            android:layout_gravity="center"
+            android:id="@+id/imageButton3"
+            android:src="@drawable/search_icon"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:onClick="searchClick"
+            android:nestedScrollingEnabled="true" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

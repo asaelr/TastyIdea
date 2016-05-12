@@ -30,7 +30,7 @@ public class AddRecepieActivity extends AppCompatActivity {
 
     }
 
-    public static class AddRecipePagerAdapter extends FragmentPagerAdapter {
+    public class AddRecipePagerAdapter extends FragmentPagerAdapter {
         public AddRecipePagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -47,7 +47,7 @@ public class AddRecepieActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return AddRecipePagerItem.values()[position].getPageTitle();
+            return getApplicationContext().getString(AddRecipePagerItem.values()[position].getPageTitle());
         }
     }
 
@@ -60,8 +60,8 @@ public class AddRecepieActivity extends AppCompatActivity {
             }
 
             @Override
-            public CharSequence getPageTitle() {
-                return "Attributes";
+            public int getPageTitle() {
+                return R.string.attributes;
             }
         },
         INGREDIENTS {
@@ -72,8 +72,8 @@ public class AddRecepieActivity extends AppCompatActivity {
             }
 
             @Override
-            public CharSequence getPageTitle() {
-                return "Insredients";
+            public int getPageTitle() {
+                return R.string.ingredients_title;
             }
         },
         DIRECTIONS {
@@ -83,13 +83,13 @@ public class AddRecepieActivity extends AppCompatActivity {
             }
 
             @Override
-            public CharSequence getPageTitle() {
-                return "Directions";
+            public int getPageTitle() {
+                return R.string.directions_title;
             }
         };
 
         public abstract Fragment newFragInstance();
-        public abstract CharSequence getPageTitle();
+        public abstract int getPageTitle();
     }
 
 

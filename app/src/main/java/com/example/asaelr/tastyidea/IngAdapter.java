@@ -28,30 +28,30 @@ public class IngAdapter extends ArrayAdapter<String> {
         View rowView = inflater.inflate(R.layout.row_ingredients, parent, false);
 
         ImageView imageView = (ImageView) rowView.findViewById(R.id.pic);
-        LayoutParams params = imageView.getLayoutParams();
-        params.width = 230;
-        params.height= 230;
-        imageView.setLayoutParams(params);
+//        LayoutParams params = imageView.getLayoutParams();
+//        params.width = 230;
+//        params.height= 230;
+//        imageView.setLayoutParams(params);
 
         TextView name = (TextView) rowView.findViewById(R.id.name);
         name.setText(ingredients_names[position]);
         TextView ammount = (TextView)rowView.findViewById(R.id.ammount);
-        ammount.setText(ingredients_ammounts[position]);
+        ammount.setText(" - " + ingredients_ammounts[position]);
         switch (position) {
             case 0:
-                imageView.setImageResource(R.mipmap.flour);
+                imageView.setImageResource(R.mipmap.ic_flour);
                 break;
             case 1:
-                imageView.setImageResource(R.mipmap.sugar);
+                imageView.setImageResource(R.mipmap.ic_sugar);
                 break;
             case 2:
-                imageView.setImageResource(R.mipmap.eggs);
+                imageView.setImageResource(R.mipmap.ic_egg);
                 break;
             case 3:
-                imageView.setImageResource(R.mipmap.milk);
+                imageView.setImageResource(R.mipmap.ic_milk);
                 break;
             case 4:
-                imageView.setImageResource(R.mipmap.oil);
+                imageView.setImageResource(R.mipmap.ic_oil);
                 break;
         }
         return rowView;

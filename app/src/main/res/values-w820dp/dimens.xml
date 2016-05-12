@@ -6,12 +6,11 @@
     <dimen name="dashborad_button_margin">40dp</dimen>
     <dimen name="ingredient_selection_height">750dp</dimen>
     <dimen name="add_recepie_steps_height">600dp</dimen>
-    <dimen name="layout_drawer_width">320dp</dimen>
-    <dimen name="list_row_image_size">120dp</dimen>
-    <dimen name="recepie_list_att_width">150dp</dimen>
-    <dimen name="recipe_view_image_height">250dp</dimen>
+    <dimen name="layout_drawer_width">350dp</dimen>
+    <dimen name="recipe_view_image_height">200dp</dimen>
     <dimen name="recipe_view_name_size">60sp</dimen>
     <dimen name="recipe_view_atrr_size">20sp</dimen>
     <dimen name="recipe_view_user_size">18sp</dimen>
     <dimen name="recipe_view_list_title_size">24sp</dimen>
+    <dimen name="search_btn_size">120dp</dimen>
 </resources>

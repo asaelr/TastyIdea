@@ -13,7 +13,7 @@
     <dimen name="search_ingredients_list_height">320dp</dimen>
     <dimen name="attach_photo_btn_width">120dp</dimen>
     <dimen name="attach_photo_btn_height">40dp</dimen>
-    <dimen name="layout_drawer_width">240dp</dimen>
+    <dimen name="layout_drawer_width">270dp</dimen>
     <dimen name="list_row_image_size">70dp</dimen>
     <dimen name="recepie_list_att_width">120dp</dimen>
     <dimen name="recipe_view_image_height">150dp</dimen>
@@ -21,4 +21,7 @@
     <dimen name="recipe_view_atrr_size">14sp</dimen>
     <dimen name="recipe_view_user_size">14sp</dimen>
     <dimen name="recipe_view_list_title_size">20sp</dimen>
+    <dimen name="search_btn_size">90dp</dimen>
+    <dimen name="ingredient_pic_size">50dp</dimen>
+    <dimen name="recipe_view_image_width">250dp</dimen>
 </resources>
