@@ -31,7 +31,7 @@ public class RecipesListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View fragmentView = inflater.inflate(R.layout.fragment_recipes_list, container, false);
+        final View fragmentView = inflater.inflate(R.layout.fragment_recipes_list, container, false);
         names = getResources().getStringArray(R.array.recipes_names);
         times = getResources().getStringArray(R.array.recipes_times);
         difficulties = getResources().getStringArray(R.array.recipes_difficulties);
@@ -70,6 +70,7 @@ public class RecipesListFragment extends Fragment {
             @Override
             protected void onPostExecute(RecipeMetadata[] result) {
                 adapter.addAll(result);
+                fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
             }
         }.execute();
 

@@ -4,9 +4,14 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".RecipesListFragment"
 tools:showIn="@layout/activity_recipes_list">
-<ListView
-    android:id="@+id/recipes"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-</ListView>
+    <ProgressBar
+        android:id="@+id/loadingPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+    <ListView
+        android:id="@+id/recipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
 </RelativeLayout>
