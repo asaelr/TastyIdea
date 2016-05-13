@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "com.example.asaelr.tastyidea"
         minSdkVersion 16
@@ -15,6 +16,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
         }
     }
 }
@@ -38,8 +41,9 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.2.5@aar') { //drawer layout
         transitive = true
     }
-
     compile 'com.google.android.gms:play-services-auth:8.4.0'
 }
+
+
 
 apply plugin: 'com.google.gms.google-services'
