@@ -21,7 +21,7 @@ import android.util.Log;
 import java.io.IOException;
 
 public class Networking {
-    private static Client client;
+    static Client client;
     public static void init(Context context) {
         client = new Client.Builder("kid_-J4_SDpzz-", "ffecf232dfac4c1eb47a96a671045f12"
                 , context).build();

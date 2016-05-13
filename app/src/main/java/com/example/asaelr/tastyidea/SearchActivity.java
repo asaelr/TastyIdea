@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +9,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+
+import networking.Login;
 import networking.Networking;
 
 
@@ -20,6 +25,7 @@ public class SearchActivity extends AppCompatActivity {
         Networking.init(getApplicationContext());
         //Networking.ping();
         Networking.login();
+        Login.init(this);
     }
 
     @Override
@@ -50,6 +56,29 @@ public class SearchActivity extends AppCompatActivity {
     public void searchClick(View v) {
         Log.e("TastyIdea","search clicked!");
         Networking.get1();
+    }
+
+    public void login(View view) {
+        Login.login(this);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == Login.RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Login.handleSignInResult(result);
+        }
+    }
+
+    public void logout(View view) {
+        Login.logout();
+    }
+
+    public void ping(View view) {
+        Login.ping();
     }
     /* TODO
     @Override
