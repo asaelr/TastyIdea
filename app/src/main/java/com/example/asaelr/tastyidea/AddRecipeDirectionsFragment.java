@@ -1,6 +1,8 @@
 package com.example.asaelr.tastyidea;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +36,8 @@ public class AddRecipeDirectionsFragment  extends Fragment {
         directions.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.remove(adapter.getItem(position));
+//                adapter.remove(adapter.getItem(position));
+                AskOption(adapter, position).show();
                 return false;
             }
         });
@@ -51,5 +54,41 @@ public class AddRecipeDirectionsFragment  extends Fragment {
             }
         });
         return view;
+    }
+
+
+    private AlertDialog AskOption(final ArrayAdapter<String> adapter, final int position)
+    {
+        AlertDialog myQuittingDialogBox =new AlertDialog.Builder(getActivity())
+                //set message, title, and icon
+                .setTitle("Delete")
+                .setMessage("Do you want to Delete")
+//                .setIcon(R.drawable.delete)
+
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        delete();
+                        dialog.dismiss();
+                    }
+
+                    private void delete() {
+                        adapter.remove(adapter.getItem(position));
+                    }
+
+                })
+
+
+
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                    }
+                })
+                .create();
+        return myQuittingDialogBox;
+
     }
 }
