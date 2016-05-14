@@ -14,6 +14,8 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryToggleDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
@@ -21,7 +23,6 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
  * Created by Nati on 11/05/2016.
  */
 public class TastyDrawerLayout {
-
     public static void addDrawer(final Activity activity, Toolbar toolbar) {
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(activity)
@@ -31,7 +32,7 @@ public class TastyDrawerLayout {
                 .withTextColor(activity.getResources().getColor(R.color.md_white_1000))
                 .withTranslucentStatusBar(true)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Mike Penz").withIcon(activity.getResources().getDrawable(R.drawable.chef_icon))
+                        new ProfileDrawerItem().withName("Mike Penz").withEmail("mike@gmail.com").withIcon(activity.getResources().getDrawable(R.drawable.chef_icon))
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
@@ -64,6 +65,12 @@ public class TastyDrawerLayout {
                 return false; //must return false so the drawer will close on click
             }
         });
+        result.addStickyFooterItem(new SecondaryDrawerItem()
+                .withName("Login")
+                .withDescription("login for full functionality")
+                .withIcon(R.drawable.common_google_signin_btn_icon_dark_normal)
+
+        );
 
 
     }

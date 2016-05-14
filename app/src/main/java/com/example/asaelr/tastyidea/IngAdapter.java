@@ -1,14 +1,18 @@
 package com.example.asaelr.tastyidea;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
-import android.view.ViewGroup.LayoutParams;
+        import android.content.Context;
+        import android.support.v4.app.FragmentActivity;
+        import android.util.Pair;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.ArrayAdapter;
+        import android.widget.ImageView;
+        import android.widget.RatingBar;
+        import android.widget.TextView;
+        import android.view.ViewGroup.LayoutParams;
+
+        import java.util.List;
 
 public class IngAdapter extends ArrayAdapter<String> {
     private final Context context;
@@ -21,6 +25,8 @@ public class IngAdapter extends ArrayAdapter<String> {
         this.ingredients_names = names;
         this.ingredients_ammounts = ammounts;
     }
+
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

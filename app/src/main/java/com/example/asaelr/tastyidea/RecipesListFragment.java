@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
@@ -27,6 +28,18 @@ public class RecipesListFragment extends Fragment {
     public RecipesListFragment() {
     }
 
+    private OnRecipeSelectedListener mListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (OnRecipeSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnRecipeSelectedListener");
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,19 +52,23 @@ public class RecipesListFragment extends Fragment {
 
         ListView foodList = (ListView) fragmentView.findViewById(R.id.recipes);
 
-        LayoutInflater li = (LayoutInflater)getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-        View view = li.inflate( R.layout.row_recipe, container, false);
+//        LayoutInflater li = (LayoutInflater)getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+//        View view = li.inflate( R.layout.row_recipe, container, false);
 
         final RecipesAdapter adapter = new RecipesAdapter(getActivity()); //TODO - should receive recipes list
         foodList.setAdapter(adapter);
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String recipe = view.findViewById(R.id.name).toString();
+//                String recipe = view.findViewById(R.id.name).toString();
                 //onRecipeSelected(recipe);
-                if (getActivity().findViewById(R.id.fragment_container) != null) {
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, new RecipeViewFragment()).addToBackStack(null).commit();
-                }
+
+
+//                if (getActivity().findViewById(R.id.fragment_container) != null) {
+//                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, new RecipeViewFragment()).addToBackStack(null).commit();
+//                }
+
+                mListener.handleRecipeSelected(adapter.getItem(position).id);
             }
         });
 

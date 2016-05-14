@@ -102,10 +102,14 @@
     <string name="hours">hours</string>
     <string name="pancakes">Pancakes</string>
     <string name="recipes_list_share_menu_title">Share</string>
-    <string name="recipes_list_edit_menu_title">advanced</string>
+    <string name="recipes_list_edit_menu_title">Edit</string>
     <string name="easy">Easy</string>
     <string name="select_ingredients">Select ingredients</string>
     <string name="attributes">Attributes</string>
     <string name="ingredients_title">Insredients</string>
     <string name="directions_title">Directions</string>
+    <string name="recipes_list_favorites_menu_title">Favorites</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="vegan">Vegan</string>
+    <string name="kosher">Kosher</string>
 </resources>

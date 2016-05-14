@@ -37,25 +37,28 @@
             android:gravity="center_horizontal">
 
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/vegetarian_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vegeterian" />
+                android:text="@string/vegetarian" />
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/vegan_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vegan" />
+                android:text="@string/vegan" />
             <android.support.v4.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/kosher_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kosher" />
+                android:text="@string/kosher" />
 
         </LinearLayout>
 

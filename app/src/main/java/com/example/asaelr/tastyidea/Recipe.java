@@ -17,7 +17,7 @@ import networking.RecipeData;
 public class Recipe {
     private String name;
     private List<Pair<Ingredient,String>> ingredients;
-    private List<String> directions;
+    private String[] directions;
     private String category;
     private int prepTimeMinutes;
     private int rate;
@@ -30,7 +30,7 @@ public class Recipe {
 
     public Recipe(RecipeData response){
         name = response.name;
-        directions = Arrays.asList(response.directions);
+        directions = response.directions;
         category = response.category;
         prepTimeMinutes = response.prepTimeMinutes;
         rate = response.rate;
@@ -50,6 +50,50 @@ public class Recipe {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String[] getDirections() {
+        return directions;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getPrepTimeMinutes() {
+        return prepTimeMinutes;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public boolean isVegeterian() {
+        return vegeterian;
+    }
+
+    public boolean isVegan() {
+        return vegan;
+    }
+
+    public boolean isKosher() {
+        return kosher;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     //use it to test logs
     @Override
     public String toString() {
@@ -65,5 +109,9 @@ public class Recipe {
         str+="\ndirections:\n";
         for (String d : directions) str+=d+"\n";
         return str;
+    }
+
+    public List<Pair<Ingredient,String>> getIngredients() {
+        return ingredients;
     }
 }

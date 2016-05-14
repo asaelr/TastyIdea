@@ -1,13 +1,19 @@
 package com.example.asaelr.tastyidea;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 
-public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
+import java.io.IOException;
+
+import networking.Networking;
+
+public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, OnRecipeSelectedListener{
         private String selectedRecipe = "";
 
         @Override
@@ -37,13 +43,6 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
 
             }
         }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_recipes_list, menu);
-        return true;
-    }
 
     /* TODO
     @Override
@@ -77,4 +76,47 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             selectedRecipe = food;
         }
     }
+
+
+    @Override
+    public void handleRecipeSelected(final String recipeId) {
+        new AsyncTask<String, Void, Recipe>(){
+            @Override
+            protected Recipe doInBackground(String... params) {
+                try {
+                    return Networking.getRecipe(recipeId);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Recipe recipe) {
+                setRecipe(recipe);
+            }
+        }.execute();
+
+
     }
+
+    private void setRecipe(Recipe selectedRecipe) {
+        if (findViewById(R.id.fragment_container) != null) {
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            RecipeViewFragment recipeViewFragment;
+            if (currentFragment instanceof RecipeViewFragment) {
+                recipeViewFragment = (RecipeViewFragment) currentFragment;
+            }
+            else
+            {
+                recipeViewFragment = new RecipeViewFragment();
+            }
+            recipeViewFragment.setRecipe(selectedRecipe);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, recipeViewFragment).addToBackStack(null).commit();
+        }
+        else
+        {
+            ((RecipeViewFragment)getSupportFragmentManager().findFragmentById(R.id.recipe_view_frag)).setRecipe(selectedRecipe);
+        }
+    }
+}

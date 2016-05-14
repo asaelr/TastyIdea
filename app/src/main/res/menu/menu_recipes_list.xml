@@ -9,7 +9,7 @@
     <item
         android:id="@+id/fav"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/recipes_list_edit_menu_title"
+        android:title="@string/recipes_list_favorites_menu_title"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/edit"

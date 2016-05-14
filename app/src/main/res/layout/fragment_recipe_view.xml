@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".RecipeViewFragment">
     <ScrollView
+        android:id="@+id/mainView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -101,18 +102,18 @@
                 android:textSize="16sp"
                 android:background="@color/listBackground"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/comments_title"
-                android:text="Comments:"
-                android:textSize="@dimen/recipe_view_list_title_size"/>
-            <com.example.asaelr.tastyidea.ExpandedListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/comments"
-                android:textSize="16sp"
-                android:background="@color/listBackground"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/comments_title"-->
+                <!--android:text="Comments:"-->
+                <!--android:textSize="@dimen/recipe_view_list_title_size"/>-->
+            <!--<com.example.asaelr.tastyidea.ExpandedListView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/comments"-->
+                <!--android:textSize="16sp"-->
+                <!--android:background="@color/listBackground"/>-->
         </LinearLayout>
             <LinearLayout
             android:layout_width="wrap_content"

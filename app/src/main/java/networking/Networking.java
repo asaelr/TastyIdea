@@ -84,6 +84,7 @@ public class Networking {
                     protected void onProgressUpdate(Recipe... recipes) {
                         Log.i("TastyIdea",recipes[0].toString());
                     }
+
                 };
                 ast.execute(result);
             }
