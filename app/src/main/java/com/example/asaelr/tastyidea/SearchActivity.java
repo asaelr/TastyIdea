@@ -1,13 +1,17 @@
 package com.example.asaelr.tastyidea;
 
 import android.content.Intent;
+import android.preference.DialogPreference;
+import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -80,16 +84,18 @@ public class SearchActivity extends AppCompatActivity {
     public void ping(View view) {
         Login.ping();
     }
-    /* TODO
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.search_settings) {
-            PreferenceFragmentTastyIdea pfti = new PreferenceFragmentTastyIdea();
-            getFragmentManager().beginTransaction().replace(android.R.id.content,pfti).commit();
+            //PreferenceFragmentTastyIdea pfti = new PreferenceFragmentTastyIdea();
+            //getFragmentManager().beginTransaction().replace(R.id.search_fragment_container,pfti).addToBackStack(null).commit();
+            SearchDialog sd = new SearchDialog(this,null);
+
             return true;
         }
         return false;
-    }*/
+    }
 /*
     public void openDialog(View v) {
         IngredientAdder adder = new IngredientAdder() {
