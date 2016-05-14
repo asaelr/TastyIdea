@@ -2,6 +2,7 @@ package com.example.asaelr.tastyidea;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -65,12 +66,6 @@ public class TastyDrawerLayout {
                 return false; //must return false so the drawer will close on click
             }
         });
-        result.addStickyFooterItem(new SecondaryDrawerItem()
-                .withName("Login")
-                .withDescription("login for full functionality")
-                .withIcon(R.drawable.common_google_signin_btn_icon_dark_normal)
-
-        );
 
 
     }
@@ -137,6 +132,18 @@ public class TastyDrawerLayout {
                 if(currentActivity instanceof SettingsActivity) return;
                 currentActivity.startActivity(new Intent(currentActivity, SettingsActivity.class));
                 currentActivity.finish();
+            }
+        },
+        LOGIN {
+            @Override
+            public IDrawerItem getItem() {
+                return new SecondaryDrawerItem().withName("Login").withDescription("login for full functionality")
+                        .withIcon(R.drawable.common_google_signin_btn_icon_dark_normal);
+            }
+            @Override
+            public void handleSelection(Activity currentActivity) {
+                //call login/logout according to current functionality
+                System.out.println("*******************************************************login*******************************************************");
             }
         };
 
