@@ -7,9 +7,8 @@
     android:layout_width="match_parent">
 
     <ListView
-        android:id="@+id/steps_list"
+        android:id="@+id/list"
         android:clickable="false"
-        android:entries="@array/example_steps"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -31,12 +30,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/nextStepText"
             android:background="@color/listBackground" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
+            android:id="@+id/addStepButton"
             android:src="@mipmap/ic_add_ingredient"
             android:layout_gravity="right" />
     </LinearLayout>
