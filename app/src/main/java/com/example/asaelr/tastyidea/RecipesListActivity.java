@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,13 +10,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+
 import java.io.IOException;
 
+import networking.Login;
 import networking.Networking;
 
 public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, OnRecipeSelectedListener{
         private String selectedRecipe = "";
 
+    private TastyDrawerLayout drawer;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -24,7 +30,8 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-            TastyDrawerLayout.addDrawer(this, toolbar);
+            drawer = new TastyDrawerLayout(this,toolbar,new Login(this));
+           // TastyDrawerLayout.addDrawer(this, toolbar);
 
 
             getSupportFragmentManager().addOnBackStackChangedListener(this);
@@ -119,4 +126,15 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             ((RecipeViewFragment)getSupportFragmentManager().findFragmentById(R.id.recipe_view_frag)).setRecipe(selectedRecipe);
         }
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == Login.RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            drawer.handleLogin(result);
+        }
+    }
+
 }

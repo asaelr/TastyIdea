@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.example.asaelr.tastyidea.TastyDrawerLayout;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.api.Auth;
@@ -24,6 +25,7 @@ import com.kinvey.android.AsyncCustomEndpoints;
 import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
 import com.kinvey.java.core.KinveyClientCallback;
+import com.mikepenz.materialdrawer.Drawer;
 
 import java.io.IOException;
 
@@ -31,69 +33,67 @@ import java.io.IOException;
  * Created by asael on 13/05/16.
  */
 public class Login {
-    private static String userName;
-    private static GoogleApiClient gac;
-    private static Context context;
+    //private final Drawer drawer;
+    private GoogleApiClient gac;
+    private FragmentActivity context;
+    private GoogleSignInAccount account;
 
     public static final int RC_SIGN_IN = 9001;
     private static final String TAG = "LoginC";
 
-    public static void init(Context context) {
-        Login.context = context;
+    public Login(FragmentActivity activity) {
+        this.context = activity;
+        //this.drawer = drawer;
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
         gac = new GoogleApiClient.Builder(context)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
-                .enableAutoManage((FragmentActivity)context,null)
+                .enableAutoManage(context,null)
                 .build();
-
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(gac);
         if (opr.isDone()) {
             // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
             // and the GoogleSignInResult will be available instantly.
             Log.d(TAG, "Got cached sign-in");
             GoogleSignInResult result = opr.get();
-            userName = result.getSignInAccount().getDisplayName();
-        }
+            account = result.getSignInAccount();
+        } else account = null;
     }
 
-
-    public static void login(Activity activity) {
+    public void login() {
         Log.i(TAG,"sign1");
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(gac);
         Log.i(TAG,"sign2");
-        activity.startActivityForResult(signInIntent, RC_SIGN_IN);
+        context.startActivityForResult(signInIntent, RC_SIGN_IN);
         Log.i(TAG,"sign3");
     }
 
-
     private static final String SCOPE_STRING = "oauth2:https://www.googleapis.com/auth/plus.me";
 
-    public static void handleSignInResult(GoogleSignInResult result) {
+    public void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
 //        GoogleSignInStatusCodes.getStatusCodeString(result.getStatus().getStatusCode());
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
-            final GoogleSignInAccount acct = result.getSignInAccount();
-            Log.i(TAG,acct.getDisplayName());
-            Log.i(TAG,acct.getEmail());
-            Log.i(TAG,acct.getId());
+            account = result.getSignInAccount();
+            Log.i(TAG,account.getDisplayName());
+            Log.i(TAG,account.getEmail());
+            Log.i(TAG,account.getId());
             Log.i(TAG,"isconnected: "+gac.isConnected());
-            gac.connect();
+            //gac.connect();
             new AsyncTask<Void,Void,Void>() {
 
                 @Override
                 protected Void doInBackground(Void... params) {
                     try {
-                        String token = GoogleAuthUtil.getToken(context, acct.getEmail(), SCOPE_STRING);
+                        String token = GoogleAuthUtil.getToken(context, account.getEmail(), SCOPE_STRING);
                         Log.i(TAG,token);
                         Networking.client.user().logout().execute();
                         Networking.client.user().loginGoogle(token, new KinveyUserCallback() {
                             @Override
                             public void onSuccess(User user) {
                                 Log.i(TAG,"kinvey loginGoogle success");
-                                userName = acct.getDisplayName();
                             }
 
                             @Override
@@ -114,10 +114,11 @@ public class Login {
         } else {
             // Signed out, show unauthenticated UI.
             // updateUI(false);
+            account = null;
         }
     }
 
-    public static void ping() {
+    public void ping() {
         AsyncCustomEndpoints endpoints = Networking.client.customEndpoints(GenericJson.class);
         endpoints.callEndpoint("ping", null, new KinveyClientCallback<GenericJson>() {
             @Override
@@ -134,13 +135,13 @@ public class Login {
         Log.i(TAG, "internal data: "+getUserName());
     }
 
-    public static void logout() {
+    public void logout() {
+        account = null;
         Auth.GoogleSignInApi.signOut(gac).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
                         Networking.client.user().logout().execute();
-                        userName = null;
                         Networking.client.user().login(new KinveyUserCallback() {
                             @Override
                             public void onSuccess(User user) {
@@ -158,7 +159,15 @@ public class Login {
 
     }
 
-    public static String getUserName() {
-        return userName;
+    public String getUserName() {
+        return account.getDisplayName();
+    }
+
+    public String getEmail() {
+        return account.getEmail();
+    }
+
+    public boolean isConnected() {
+        return account!=null;
     }
 }

@@ -17,7 +17,7 @@ public class SearchDialog extends DialogPreference {
     public SearchDialog(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPersistent(false);
-        setDialogLayoutResource(R.layout.SearchDialog);
+        setDialogLayoutResource(R.layout.search_dialog);
         setPositiveButtonText(R.string.ok);
         setNegativeButtonText(R.string.cancel);
         setDialogTitle("Advanced Search");

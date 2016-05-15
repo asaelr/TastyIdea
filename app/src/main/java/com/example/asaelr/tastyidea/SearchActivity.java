@@ -29,9 +29,9 @@ public class SearchActivity extends AppCompatActivity {
         Networking.init(getApplicationContext());
         //Networking.ping();
         Networking.login();
-        Login.init(this);
+        //Login.init(this);
     }
-
+    private TastyDrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         initialize();
@@ -43,7 +43,7 @@ public class SearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        TastyDrawerLayout.addDrawer(this, toolbar);
+        drawer = new TastyDrawerLayout(this,toolbar,new Login(this));
 
         //Log.e("TastyIdea", "" + getSupportActionBar());
         // getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -62,9 +62,6 @@ public class SearchActivity extends AppCompatActivity {
         Networking.get1();
     }
 
-    public void login(View view) {
-        Login.login(this);
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -73,16 +70,8 @@ public class SearchActivity extends AppCompatActivity {
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == Login.RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            Login.handleSignInResult(result);
+            drawer.handleLogin(result);
         }
-    }
-
-    public void logout(View view) {
-        Login.logout();
-    }
-
-    public void ping(View view) {
-        Login.ping();
     }
 
     @Override

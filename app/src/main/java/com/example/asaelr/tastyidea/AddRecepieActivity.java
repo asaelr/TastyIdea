@@ -2,17 +2,24 @@ package com.example.asaelr.tastyidea;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+
+import networking.Login;
+
 public class AddRecepieActivity extends AppCompatActivity {
     static final int NUM_ITEMS = AddRecipePagerItem.values().length;
 
     AddRecipePagerAdapter mAdapter;
 
+    private TastyDrawerLayout drawer;
     ViewPager mPager;
 
     @Override
@@ -25,7 +32,12 @@ public class AddRecepieActivity extends AppCompatActivity {
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
 
-        TastyDrawerLayout.addDrawer(this, (Toolbar) findViewById(R.id.toolbar));
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        drawer = new TastyDrawerLayout(this,toolbar,new Login(this));
+        //TastyDrawerLayout.addDrawer(this, (Toolbar) findViewById(R.id.toolbar));
 
 
 
@@ -95,5 +107,16 @@ public class AddRecepieActivity extends AppCompatActivity {
         public abstract int getPageTitle();
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == Login.RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            drawer.handleLogin(result);
+        }
+    }
 
 }
