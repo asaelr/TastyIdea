@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
@@ -25,6 +26,8 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            Object obj = getIntent().getSerializableExtra("supplier");
+            Log.i("RecipesListActivity","supp type: "+obj.getClass().getName()+" val: "+obj);
             setContentView(R.layout.activity_recipes_list);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);

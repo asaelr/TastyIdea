@@ -1,6 +1,7 @@
 package com.example.asaelr.tastyidea;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.preference.DialogPreference;
 import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,8 @@ public class SearchActivity extends AppCompatActivity {
         int i=0;
         for (Ingredient ing : ings) search.ingredients[i++]=ing.nameOnServer;
         intent.putExtra("supplier",search);
+        Object obj = intent.getSerializableExtra("supplier");
+        Log.i("SearchActivity","supp type: "+obj.getClass().getName()+" val: "+obj);
         startActivity(intent);
         finish();
     }

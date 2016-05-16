@@ -73,7 +73,9 @@ public class RecipesListFragment extends Fragment {
             }
         });
 
-        RecipesSupplier supplier = getActivity().getIntent().getParcelableExtra("supplier");
+        RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
+        Object obj=getActivity().getIntent().getSerializableExtra("supplier");
+        Log.i("RLFrag","supp of type: "+obj.getClass().getName()+" val: "+obj);
         if (supplier!=null) {
             Log.i("RecipesListFragment","custom supplier");
             supplier.supply(adapter);

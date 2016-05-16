@@ -113,9 +113,9 @@ public class Networking {
     }
 
     //Don't call this function from UI thread!!!
-    public static RecipeMetadata[] searchRecipes(RecipesSearcher search) throws IOException {
-        AsyncCustomEndpoints<RecipesSearcher,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
-        return endpoints.callEndpointBlocking("getRecipe",search).execute();
+    public static RecipeMetadata[] searchRecipes(RecipesSearcher.SearchJSON search) throws IOException {
+        AsyncCustomEndpoints<RecipesSearcher.SearchJSON,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
+        return endpoints.callEndpointBlocking("searchRecipes",search).execute();
     }
 }
 
