@@ -5,6 +5,7 @@ package networking;
  */
 
 import com.example.asaelr.tastyidea.Recipe;
+import com.example.asaelr.tastyidea.RecipesSearcher;
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 import com.kinvey.android.AsyncCustomEndpoints;
@@ -109,6 +110,12 @@ public class Networking {
         AsyncCustomEndpoints<GenericJson,RecipeData> endpoints = client.customEndpoints(RecipeData.class);
         RecipeData result = endpoints.callEndpointBlocking("getRecipe",input).execute();
         return new Recipe(result);
+    }
+
+    //Don't call this function from UI thread!!!
+    public static RecipeMetadata[] searchRecipes(RecipesSearcher search) throws IOException {
+        AsyncCustomEndpoints<RecipesSearcher,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
+        return endpoints.callEndpointBlocking("getRecipe",search).execute();
     }
 }
 

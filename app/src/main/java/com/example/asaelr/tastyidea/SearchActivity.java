@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
+import java.util.List;
+
 import networking.Login;
 import networking.Networking;
 
@@ -59,7 +61,18 @@ public class SearchActivity extends AppCompatActivity {
 
     public void searchClick(View v) {
         Log.e("TastyIdea","search clicked!");
-        Networking.get1();
+        //Networking.get1();
+        List<Ingredient> ings;
+        ings=((IngredientListFragment)getFragmentManager().findFragmentById(R.id.ingredient_list_fragment)).getList();
+        Log.i("SearchActivity","ings: "+ings);
+        Intent intent = new Intent(this,RecipesListActivity.class);
+        RecipesSearcher search = new RecipesSearcher();
+        search.ingredients = new String[ings.size()];
+        int i=0;
+        for (Ingredient ing : ings) search.ingredients[i++]=ing.nameOnServer;
+        intent.putExtra("supplier",search);
+        startActivity(intent);
+        finish();
     }
 
 

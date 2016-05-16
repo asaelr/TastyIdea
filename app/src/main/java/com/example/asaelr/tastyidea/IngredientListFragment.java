@@ -164,6 +164,10 @@ public class IngredientListFragment extends Fragment {
         */
     }
 
+    public List<Ingredient> getList() {
+        return ingredients;
+    }
+
 
 
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,24 +73,32 @@ public class RecipesListFragment extends Fragment {
             }
         });
 
-        new AsyncTask<Void,Void, RecipeMetadata[]>() {
+        RecipesSupplier supplier = getActivity().getIntent().getParcelableExtra("supplier");
+        if (supplier!=null) {
+            Log.i("RecipesListFragment","custom supplier");
+            supplier.supply(adapter);
+        } else {
 
-            @Override
-            protected RecipeMetadata[] doInBackground(Void... params) {
-                try {
-                    return Networking.getAllRecipesMetadata();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return null;
+            Log.i("RecipesListFragment","default supplier");
+            new AsyncTask<Void, Void, RecipeMetadata[]>() {
+
+                @Override
+                protected RecipeMetadata[] doInBackground(Void... params) {
+                    try {
+                        return Networking.getAllRecipesMetadata();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
                 }
-            }
 
-            @Override
-            protected void onPostExecute(RecipeMetadata[] result) {
-                adapter.addAll(result);
-                fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-            }
-        }.execute();
+                @Override
+                protected void onPostExecute(RecipeMetadata[] result) {
+                    adapter.addAll(result);
+                    fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                }
+            }.execute();
+        }
 
         return fragmentView;
     }

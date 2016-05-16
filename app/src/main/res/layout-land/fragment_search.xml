@@ -8,26 +8,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="1">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:text="login"
-                android:onClick="login"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content" />
-            <Button
-                android:text="log out"
-                android:onClick="logout"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content" />
-            <Button
-                android:text="ping"
-                android:onClick="ping"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:name="com.example.asaelr.tastyidea.IngredientListFragment"
-            android:id="@+id/fragment2"
+            android:id="@+id/ingredient_list_fragment"
             custom:showEditText="false"
 
             android:background="@color/listBackground"/>
