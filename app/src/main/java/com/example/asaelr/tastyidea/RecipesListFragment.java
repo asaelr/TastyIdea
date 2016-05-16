@@ -74,33 +74,15 @@ public class RecipesListFragment extends Fragment {
         });
 
         RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
-        Object obj=getActivity().getIntent().getSerializableExtra("supplier");
-        Log.i("RLFrag","supp of type: "+obj.getClass().getName()+" val: "+obj);
-        if (supplier!=null) {
-            Log.i("RecipesListFragment","custom supplier");
-            supplier.supply(adapter);
-        } else {
+        supplier.supply(new RecipesSupplier.Callback() {
 
-            Log.i("RecipesListFragment","default supplier");
-            new AsyncTask<Void, Void, RecipeMetadata[]>() {
+            @Override
+            public void onSuccess(RecipeMetadata[] recipes) {
+                adapter.addAll(recipes);
+                fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+            }
+        });
 
-                @Override
-                protected RecipeMetadata[] doInBackground(Void... params) {
-                    try {
-                        return Networking.getAllRecipesMetadata();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-
-                @Override
-                protected void onPostExecute(RecipeMetadata[] result) {
-                    adapter.addAll(result);
-                    fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-                }
-            }.execute();
-        }
 
         return fragmentView;
     }

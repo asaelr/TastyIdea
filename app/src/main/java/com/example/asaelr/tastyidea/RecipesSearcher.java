@@ -27,7 +27,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
     public int minRating = 1;
 
     @Override
-    public void supply(final ArrayAdapter<RecipeMetadata> adapter) {
+    public void supply(final Callback callback) {
         new AsyncTask<Void,Void,RecipeMetadata[]>() {
 
             @Override
@@ -49,7 +49,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
 
             @Override
             protected void onPostExecute(RecipeMetadata[] result) {
-                adapter.addAll(result);
+                callback.onSuccess(result);
             }
         }.execute();
     }
