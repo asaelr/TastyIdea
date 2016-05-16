@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.AdapterView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import networking.Networking;
 import networking.RecipeMetadata;
@@ -21,10 +23,7 @@ import networking.RecipeMetadata;
  * A placeholder fragment containing a simple view.
  */
 public class RecipesListFragment extends Fragment {
-    private String[] names;
-    private String[] times;
-    private String[] difficulties;
-    private String[] categories;
+    private List<RecipeMetadata> recipesList = new ArrayList<>();
 
     public RecipesListFragment() {
     }
@@ -46,17 +45,13 @@ public class RecipesListFragment extends Fragment {
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final View fragmentView = inflater.inflate(R.layout.fragment_recipes_list, container, false);
-        names = getResources().getStringArray(R.array.recipes_names);
-        times = getResources().getStringArray(R.array.recipes_times);
-        difficulties = getResources().getStringArray(R.array.recipes_difficulties);
-        categories = getResources().getStringArray(R.array.recipes_categories);
 
         ListView foodList = (ListView) fragmentView.findViewById(R.id.recipes);
 
 //        LayoutInflater li = (LayoutInflater)getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
 //        View view = li.inflate( R.layout.row_recipe, container, false);
 
-        final RecipesAdapter adapter = new RecipesAdapter(getActivity()); //TODO - should receive recipes list
+        final RecipesAdapter adapter = new RecipesAdapter(getActivity(), recipesList); //TODO - should receive recipes list
         foodList.setAdapter(adapter);
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -73,6 +68,13 @@ public class RecipesListFragment extends Fragment {
             }
         });
 
+        if (savedInstanceState!=null) {
+            List<RecipeMetadata> recipes = (List<RecipeMetadata>) savedInstanceState.getSerializable("recipes");
+            adapter.addAll(recipes);
+            fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+            return fragmentView;
+        }
+
         RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
         supplier.supply(new RecipesSupplier.Callback() {
 
@@ -83,7 +85,12 @@ public class RecipesListFragment extends Fragment {
             }
         });
 
-
         return fragmentView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putSerializable("recipes",(ArrayList<RecipeMetadata>)recipesList);
     }
 }

@@ -13,13 +13,15 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 
+import java.util.List;
+
 import networking.RecipeMetadata;
 
 public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
     private final Context context;
 
-    public RecipesAdapter(Context context) {
-        super(context, R.layout.row_recipe);
+    public RecipesAdapter(Context context, List<RecipeMetadata> list) {
+        super(context, R.layout.row_recipe, list);
         this.context = context;
     }
 
