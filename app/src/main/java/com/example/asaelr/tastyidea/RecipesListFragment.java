@@ -24,6 +24,7 @@ import networking.RecipeMetadata;
  */
 public class RecipesListFragment extends Fragment {
     private List<RecipeMetadata> recipesList = new ArrayList<>();
+    private boolean loaded = false;
 
     public RecipesListFragment() {
     }
@@ -73,6 +74,7 @@ public class RecipesListFragment extends Fragment {
             List<RecipeMetadata> recipes = (List<RecipeMetadata>) savedInstanceState.getSerializable("recipes");
             adapter.addAll(recipes);
             fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+            loaded = true;
             return fragmentView;
         }
 
@@ -84,6 +86,7 @@ public class RecipesListFragment extends Fragment {
             public void onSuccess(RecipeMetadata[] recipes) {
                 adapter.addAll(recipes);
                 fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                loaded = true;
             }
         });
 
@@ -93,7 +96,7 @@ public class RecipesListFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (recipesList!=null) {
+        if (loaded) {
             bundle.putSerializable("recipes", (ArrayList<RecipeMetadata>) recipesList);
             Log.i("RLFrag", "saveInstance");
         }
