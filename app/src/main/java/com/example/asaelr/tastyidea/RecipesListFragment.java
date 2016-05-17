@@ -93,7 +93,9 @@ public class RecipesListFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("recipes",(ArrayList<RecipeMetadata>)recipesList);
-        Log.i("RLFrag","saveInstance");
+        if (recipesList!=null) {
+            bundle.putSerializable("recipes", (ArrayList<RecipeMetadata>) recipesList);
+            Log.i("RLFrag", "saveInstance");
+        }
     }
 }

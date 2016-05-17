@@ -29,7 +29,7 @@ public class IngredientListFragment extends Fragment {
     private boolean showEditText;
 
     private ArrayAdapter<Ingredient> adapter;
-    private List<Ingredient> ingredients=new ArrayList<Ingredient>();
+    private ArrayList<Ingredient> ingredients=new ArrayList<Ingredient>();
     //private ViewGroup[] sug = new ViewGroup[3];
 
     @Override
@@ -62,6 +62,11 @@ public class IngredientListFragment extends Fragment {
             view=inflater.inflate(R.layout.ingredient_grid, container, false);
             adapter = new MyAdapter(getActivity(), R.layout.ingredient_button, this);
             ((GridView) view.findViewById(R.id.gridView)).setAdapter(adapter);
+        }
+
+        if (savedInstanceState!=null && savedInstanceState.containsKey("ingredients")) {
+            ingredients = (ArrayList<Ingredient>) savedInstanceState.getSerializable("ingredients");
+            for (Ingredient ing : ingredients) adapter.add(ing);
         }
         //Log.e("TastyIdea","showEditText: "+showEditText);
 
@@ -166,6 +171,12 @@ public class IngredientListFragment extends Fragment {
 
     public List<Ingredient> getList() {
         return ingredients;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putSerializable("ingredients",ingredients);
     }
 
 
