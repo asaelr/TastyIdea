@@ -67,5 +67,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
         public int maxPrepTime = 500;
         @Key
         public int minRating = 1;
+        @Key
+        public String[] exclude = new String[0];
     }
 }

@@ -75,7 +75,6 @@ public class SearchActivity extends AppCompatActivity {
         Object obj = intent.getSerializableExtra("supplier");
         Log.i("SearchActivity","supp type: "+obj.getClass().getName()+" val: "+obj);
         startActivity(intent);
-        finish();
     }
 
 

@@ -68,7 +68,8 @@ public class RecipesListFragment extends Fragment {
             }
         });
 
-        if (savedInstanceState!=null) {
+        if (savedInstanceState!=null && savedInstanceState.containsKey("recipes")) {
+            Log.i("RLFrag","restoring");
             List<RecipeMetadata> recipes = (List<RecipeMetadata>) savedInstanceState.getSerializable("recipes");
             adapter.addAll(recipes);
             fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
@@ -76,6 +77,7 @@ public class RecipesListFragment extends Fragment {
         }
 
         RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
+        Log.i("RLFrag","networking");
         supplier.supply(new RecipesSupplier.Callback() {
 
             @Override
@@ -92,5 +94,6 @@ public class RecipesListFragment extends Fragment {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putSerializable("recipes",(ArrayList<RecipeMetadata>)recipesList);
+        Log.i("RLFrag","saveInstance");
     }
 }
