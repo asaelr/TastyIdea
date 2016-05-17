@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.util.Log;
 
+import java.io.Serializable;
+
 /**
  * Created by asaelr on 4/11/2016.
  */
-public class Ingredient {
+public class Ingredient implements Serializable {
     public String name;
     public String nameOnServer;
     public int picture;
