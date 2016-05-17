@@ -24,6 +24,7 @@ import networking.Login;
  */
 public class TastyDrawerLayout {
 
+    public static final String FROM_DRAWER_KEY = "from drawer";
     private final Activity activity;
     private final Login login;
     private Drawer drawer;
@@ -200,29 +201,25 @@ public class TastyDrawerLayout {
         LOGIN {
             @Override
             public IDrawerItem getItem() {
-                return new SecondaryDrawerItem().withName("Login").withDescription("login for full functionality")
+                return new SecondaryDrawerItem().withName(R.string.login).withDescription(R.string.login_description)
                         .withIcon(R.drawable.common_google_signin_btn_icon_dark_normal);
             }
             @Override
             public void handleSelection(TastyDrawerLayout drawer) {
-                //call login/logout according to current functionality
                 drawer.login.login();
                 drawer.drawMenu();
-                System.out.println("*******************************************************login*******************************************************");
             }
         },
         LOGOUT {
             @Override
             public IDrawerItem getItem() {
-                return new SecondaryDrawerItem().withName("Logout").withDescription("log out")
+                return new SecondaryDrawerItem().withName(R.string.logout)
                         .withIcon(R.drawable.common_google_signin_btn_icon_dark_normal);
             }
             @Override
             public void handleSelection(TastyDrawerLayout drawer) {
-                //call login/logout according to current functionality
                 drawer.login.logout();
                 drawer.drawMenu();
-                System.out.println("*******************************************************logout******************************************************");
             }
         };
 

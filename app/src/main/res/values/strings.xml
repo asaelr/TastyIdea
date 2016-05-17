@@ -113,4 +113,7 @@
     <string name="vegan">Vegan</string>
     <string name="kosher">Kosher</string>
     <string name="advanced_search">Advanced Search</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="login_description">login for full functionality</string>
 </resources>

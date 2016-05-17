@@ -20,7 +20,8 @@ import networking.Login;
 import networking.Networking;
 
 public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, OnRecipeSelectedListener{
-        private String selectedRecipe = "";
+//        private String selectedRecipe = "";
+        private boolean isFromNavDrawer = false;
 
     private TastyDrawerLayout drawer;
         @Override
@@ -35,12 +36,12 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
 
             drawer = new TastyDrawerLayout(this,toolbar,new Login(this));
            // TastyDrawerLayout.addDrawer(this, toolbar);
-
+//            isFromNavDrawer = getIntent().getBooleanExtra(TastyDrawerLayout.FROM_DRAWER_KEY, false);
 
             getSupportFragmentManager().addOnBackStackChangedListener(this);
             if (findViewById(R.id.fragment_container) != null) {
                 if (savedInstanceState != null) {
-                    selectedRecipe = savedInstanceState.getString("chosen recipe");
+//                    selectedRecipe = savedInstanceState.getString("chosen recipe");
                     return;
                 }
                 RecipesListFragment recipeListFrag = new RecipesListFragment();
@@ -67,25 +68,25 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
 
     @Override
     public void onBackStackChanged() {
-        if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof RecipesListFragment) {
-            setTitle("Tasty Idea");
-        }
-        if (!selectedRecipe.equals("")) {
-            selectedRecipe = "";
-        }
+//        if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof RecipesListFragment) {
+//            setTitle("Tasty Idea");
+//        }
+//        if (!selectedRecipe.equals("")) {
+//            selectedRecipe = "";
+//        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putString("chosen recipe", selectedRecipe);
+//        savedInstanceState.putString("chosen recipe", selectedRecipe);
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void onRecipeSelected(String food) {
-        if (findViewById(R.id.fragment_container) != null) {
-            selectedRecipe = food;
-        }
-    }
+//    public void onRecipeSelected(String food) {
+//        if (findViewById(R.id.fragment_container) != null) {
+//            selectedRecipe = food;
+//        }
+//    }
 
 
     @Override
@@ -140,4 +141,9 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+//        if(isFromNavDrawer) {startActivity(new Intent(this, SearchActivity.class));}
+    }
 }
