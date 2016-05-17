@@ -92,7 +92,7 @@ public class IngredientListFragment extends Fragment {
         actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Ingredient ing = IngCategory.getIngredient("" + actv.getText());
+                Ingredient ing = IngCategory.getIngredientByName("" + actv.getText());
                 if (ing != null) {
                     add_ingredient(ing);
                     actv.setText("");

@@ -51,4 +51,11 @@ public class IngCategory {
         }
         return null;
     }
+
+    public static Ingredient getIngredientByName(String str) {
+        for (Ingredient ing : allIngredients) {
+            if (ing.name.equals(str)) return ing;
+        }
+        return null;
+    }
 }
