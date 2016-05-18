@@ -10,20 +10,20 @@
         android:logo="@mipmap/ic_launcher"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Navigation.MainActivity"/>
 
 
-        <activity android:name=".SearchActivity">
+        <activity android:name=".SearchRecipes.SearchActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"/>
-        <activity android:name=".AddRecepieActivity"/>
-        <activity android:name=".RecipesListActivity"/>
-        <activity android:name=".RecipeViewActivity"/>
+        <activity android:name=".Preferences.SettingsActivity"/>
+        <activity android:name=".AddRecipe.AddRecepieActivity"/>
+        <activity android:name=".RecipesList.RecipesListActivity"/>
+        <activity android:name=".RecipeView.RecipeViewActivity"/>
     </application>
 
 </manifest>

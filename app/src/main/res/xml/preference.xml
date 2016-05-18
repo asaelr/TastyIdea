@@ -17,17 +17,17 @@
         android:summary="@string/pref_description_kosher_switch"
         android:title="@string/pref_title_kosher_switch" />
 
-    <com.example.asaelr.tastyidea.ExcludeIngrediantsPreference
+    <com.example.asaelr.tastyidea.Preferences.ExcludeIngrediantsPreference
         android:title="@string/pref_title_manage_excluded_ingredients"
         android:summary="@string/pref_excluded_ingredients_summary"
         />
-    <com.example.asaelr.tastyidea.MinRatingPreference
+    <com.example.asaelr.tastyidea.Preferences.MinRatingPreference
         android:key="min_rating"
         android:title="@string/minRatingPreferenceTitle"
         
 
         />
-    <com.example.asaelr.tastyidea.TimePreference
+    <com.example.asaelr.tastyidea.Preferences.TimePreference
         android:key="time_pref_key"
         android:title="@string/pref_max_time_title"
         android:summary="@string/pref_max_time_summary"

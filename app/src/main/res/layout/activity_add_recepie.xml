@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddRecepieActivity"
+    tools:context=".AddRecipe.AddRecepieActivity"
     android:background="@color/colorBackground"
     android:focusableInTouchMode="true">
     <android.support.v7.widget.Toolbar
@@ -52,7 +52,7 @@
                 <!--android:text="@string/ingredients"-->
                 <!--android:textSize="24dp"/>-->
             <!--<fragment-->
-                <!--android:name="com.example.asaelr.tastyidea.IngredientListFragment"-->
+                <!--android:name="com.example.asaelr.tastyidea.Ingredients.IngredientListFragment"-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="@dimen/ingredient_selection_height"-->
                 <!--android:id="@+id/ingrediants"-->
