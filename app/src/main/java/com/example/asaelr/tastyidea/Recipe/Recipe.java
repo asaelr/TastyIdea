@@ -1,20 +1,21 @@
-package com.example.asaelr.tastyidea.Recipe;
+package com.example.asaelr.tastyidea;
 
+import android.net.Network;
 import android.util.Log;
 import android.util.Pair;
 
-import com.example.asaelr.tastyidea.Ingredients.Ingredient;
-import com.example.asaelr.tastyidea.RecipesList.IngCategory;
-
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import networking.RecipeData;
 
 /**
  * Created by osher on 5/9/2016.
  */
-public class Recipe {
+public class Recipe implements Serializable {
     private String name;
     private List<Pair<Ingredient,String>> ingredients;
     private String[] directions;

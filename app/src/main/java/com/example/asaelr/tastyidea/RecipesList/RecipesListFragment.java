@@ -24,11 +24,13 @@ import networking.RecipeMetadata;
  * A placeholder fragment containing a simple view.
  */
 public class RecipesListFragment extends Fragment {
-    private List<RecipeMetadata> recipesList = new ArrayList<>();
-    private boolean loaded = false;
+    private List<RecipeMetadata> recipesList;
+    private boolean loaded;
+    private RecipesAdapter adapter;
 
     public RecipesListFragment() {
     }
+
 
     private OnRecipeSelectedListener mListener;
 
@@ -43,9 +45,23 @@ public class RecipesListFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState!=null && savedInstanceState.containsKey("recipes")) {
+            Log.i("RLFrag","restoring");
+            recipesList = (List<RecipeMetadata>) savedInstanceState.getSerializable("recipes");
+            loaded = true;
+        } else {
+            recipesList = new ArrayList<>();
+            loaded = false; //boolean zen. I know...
+        }
+        adapter = new RecipesAdapter(getActivity(), recipesList);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        //super.onCreateView(inflater,container,savedInstanceState);
         final View fragmentView = inflater.inflate(R.layout.fragment_recipes_list, container, false);
 
         ListView foodList = (ListView) fragmentView.findViewById(R.id.recipes);
@@ -53,7 +69,7 @@ public class RecipesListFragment extends Fragment {
 //        LayoutInflater li = (LayoutInflater)getContext().getSystemService( Context.LAYOUT_INFLATER_SERVICE );
 //        View view = li.inflate( R.layout.row_recipe, container, false);
 
-        final RecipesAdapter adapter = new RecipesAdapter(getActivity(), recipesList); //TODO - should receive recipes list
+         //TODO - should receive recipes list
         foodList.setAdapter(adapter);
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -69,28 +85,20 @@ public class RecipesListFragment extends Fragment {
                 mListener.handleRecipeSelected(adapter.getItem(position).id);
             }
         });
-
-        if (savedInstanceState!=null && savedInstanceState.containsKey("recipes")) {
-            Log.i("RLFrag","restoring");
-            List<RecipeMetadata> recipes = (List<RecipeMetadata>) savedInstanceState.getSerializable("recipes");
-            adapter.addAll(recipes);
+        if (loaded) {
             fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-            loaded = true;
-            return fragmentView;
+        } else {
+            RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
+            Log.i("RLFrag", "networking");
+            supplier.supply(new RecipesSupplier.Callback() {
+                @Override
+                public void onSuccess(RecipeMetadata[] recipes) {
+                    adapter.addAll(recipes);
+                    fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                    loaded = true;
+                }
+            });
         }
-
-        RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
-        Log.i("RLFrag","networking");
-        supplier.supply(new RecipesSupplier.Callback() {
-
-            @Override
-            public void onSuccess(RecipeMetadata[] recipes) {
-                adapter.addAll(recipes);
-                fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
-                loaded = true;
-            }
-        });
-
         return fragmentView;
     }
 

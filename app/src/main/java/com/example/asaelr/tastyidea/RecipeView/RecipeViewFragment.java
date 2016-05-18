@@ -32,13 +32,7 @@ import java.util.List;
  * A placeholder fragment containing a simple view.
  */
 public class RecipeViewFragment extends Fragment {
-    private String[] comments;
-    private String[] ingredients_names;
-    private String[] ingredients_ammounts;
-    private String[] orders;
-
-    private static Recipe recipe;
-
+    private Recipe recipe;
 
     private View mainView; //should contain all recipe view elements
     private ListView ingredientsList;
@@ -72,46 +66,21 @@ public class RecipeViewFragment extends Fragment {
         difficulty = (TextView) fragmentView.findViewById(R.id.difficulty);
         name = (TextView) fragmentView.findViewById(R.id.recipeName);
 
+        if(savedInstanceState!=null) recipe = (Recipe) savedInstanceState.getSerializable("recipe");
 
         setView();
-
 
         return fragmentView;
     }
 
-    private void setView_old() {
-
-        mainView.setVisibility(recipe == null ? View.GONE : View.VISIBLE);
-        if(recipe == null) {return;}
-
-        ingredients_names = getResources().getStringArray(R.array.pancakes_ingredients_names);
-        ingredients_ammounts = getResources().getStringArray(R.array.pancakes_ingredients_ammounts);
-        orders = getResources().getStringArray(R.array.pancakes_preparations);
-
-        IngAdapter ingredientsAdapter = new IngAdapter(getActivity(), ingredients_names,ingredients_ammounts);
-        ingredientsList.setAdapter(ingredientsAdapter);
-
-        OrdersAdapter ordersAdapter = new OrdersAdapter(getActivity(),orders);
-        ordersList.setAdapter(ordersAdapter);
-
-//        comments = getResources().getStringArray(R.array.pancakes_comments);
-//        ListView commentsList = (ListView) fragmentView.findViewById(R.id.comments);
-//        OrdersAdapter commentsAdapter = new OrdersAdapter(getActivity(), comments);
-//        commentsList.setAdapter(commentsAdapter);
-
-        Drawable layerDrawable = ratingBar.getProgressDrawable();
-        DrawableCompat.setTint(layerDrawable, ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
-        ratingBar.setRating(2);
-
-        SpannableString content = new SpannableString("User Recipes");
-        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-        username.setText(content);
-    }
-
     private void setView() {
 
-        mainView.setVisibility(recipe == null ? View.GONE : View.VISIBLE);
-        if(recipe == null) {return;}
+        if (recipe==null) {
+            mainView.setVisibility(View.GONE);
+            return;
+        }
+
+        mainView.setVisibility(View.VISIBLE);
 
         name.setText(recipe.getName());
 
@@ -141,9 +110,7 @@ public class RecipeViewFragment extends Fragment {
         this.recipe = recipe;
         if(mainView != null) //if mainView is null, onCreateView was not called yet. the recipe view will be updated  by onCreateView
         {
-            mainView.setVisibility(View.GONE);
             setView();
-            mainView.setVisibility(recipe == null ? View.GONE : View.VISIBLE);
         }
     }
 
@@ -151,6 +118,15 @@ public class RecipeViewFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_recipe_view, menu);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        if (recipe != null) {
+            bundle.putSerializable("recipe", recipe);
+        }
     }
 
 
