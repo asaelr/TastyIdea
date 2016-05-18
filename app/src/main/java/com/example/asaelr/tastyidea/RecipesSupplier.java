@@ -8,6 +8,8 @@ import networking.RecipeMetadata;
  * Created by asael on 16/05/16.
  */
 public interface RecipesSupplier {
+    String SUPPLIER_KEY = "supplier";
+
     void supply(Callback callback);
 
     public static interface Callback {

@@ -20,14 +20,13 @@ import networking.Login;
 import networking.Networking;
 
 public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, OnRecipeSelectedListener{
-//        private String selectedRecipe = "";
         private boolean isFromNavDrawer = false;
 
     private TastyDrawerLayout drawer;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            Object obj = getIntent().getSerializableExtra("supplier");
+            Object obj = getIntent().getSerializableExtra(RecipesSupplier.SUPPLIER_KEY);
             Log.i("RecipesListActivity","supp type: "+obj.getClass().getName()+" val: "+obj);
             setContentView(R.layout.activity_recipes_list);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -35,8 +34,7 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             getSupportActionBar().setDisplayShowTitleEnabled(false);
 
             drawer = new TastyDrawerLayout(this,toolbar,new Login(this));
-           // TastyDrawerLayout.addDrawer(this, toolbar);
-//            isFromNavDrawer = getIntent().getBooleanExtra(TastyDrawerLayout.FROM_DRAWER_KEY, false);
+            isFromNavDrawer = getIntent().getBooleanExtra(TastyDrawerLayout.FROM_DRAWER_KEY, false);
 
             getSupportFragmentManager().addOnBackStackChangedListener(this);
             if (findViewById(R.id.fragment_container) != null) {
@@ -144,6 +142,6 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-//        if(isFromNavDrawer) {startActivity(new Intent(this, SearchActivity.class));}
+        if(isFromNavDrawer) {startActivity(new Intent(this, SearchActivity.class));}
     }
 }

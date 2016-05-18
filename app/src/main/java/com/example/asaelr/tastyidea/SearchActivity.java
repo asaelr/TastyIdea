@@ -71,8 +71,8 @@ public class SearchActivity extends AppCompatActivity {
         search.ingredients = new String[ings.size()];
         int i=0;
         for (Ingredient ing : ings) search.ingredients[i++]=ing.nameOnServer;
-        intent.putExtra("supplier",search);
-        Object obj = intent.getSerializableExtra("supplier");
+        intent.putExtra(RecipesSupplier.SUPPLIER_KEY,search);
+        Object obj = intent.getSerializableExtra(RecipesSupplier.SUPPLIER_KEY);//TODO - remove
         Log.i("SearchActivity","supp type: "+obj.getClass().getName()+" val: "+obj);
         startActivity(intent);
     }
