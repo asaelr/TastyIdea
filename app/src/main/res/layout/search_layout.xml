@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorBackground"
-    tools:context=".SearchRecipes.SearchActivity"
+    tools:context=".SearchActivity"
     tools:showIn="@layout/activity_search"
     android:focusableInTouchMode="true">
 
@@ -42,6 +42,6 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.asaelr.tastyidea.SearchRecipes.SearchFragment"
+        android:name="com.example.asaelr.tastyidea.SearchFragment"
         android:id="@+id/fragment" />
 </LinearLayout>

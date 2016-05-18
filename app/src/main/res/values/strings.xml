@@ -116,4 +116,7 @@
     <string name="logout">Logout</string>
     <string name="login">Login</string>
     <string name="login_description">login for full functionality</string>
+    <string name="exit_confirmation">Are you sure you want to exit?</string>
+    <string name="confirmation_positive_btn">Yes</string>
+    <string name="confirmation_negative_btn">No</string>
 </resources>

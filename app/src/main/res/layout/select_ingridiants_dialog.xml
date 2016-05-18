@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <fragment
-        android:name="com.example.asaelr.tastyidea.Ingredients.IngredientListFragment"
+        android:name="com.example.asaelr.tastyidea.IngredientListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view"
-        custom:showEditText="false" />
+        android:id="@+id/ing_list"
+        />
 </LinearLayout>

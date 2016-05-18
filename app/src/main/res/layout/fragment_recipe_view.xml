@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipeView.RecipeViewFragment">
+    tools:context=".RecipeViewFragment">
     <ScrollView
         android:id="@+id/mainView"
         android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
                 android:id="@+id/ingredients_title"
                 android:text="Ingredients:"
                 android:textSize="@dimen/recipe_view_list_title_size"/>
-            <com.example.asaelr.tastyidea.RecipesList.ExpandedListView
+            <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ingredients"
@@ -95,7 +95,7 @@
                 android:id="@+id/preparation_title"
                 android:text="Preparation:"
                 android:textSize="@dimen/recipe_view_list_title_size"/>
-            <com.example.asaelr.tastyidea.RecipesList.ExpandedListView
+            <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/directions"
@@ -108,7 +108,7 @@
                 <!--android:id="@+id/comments_title"-->
                 <!--android:text="Comments:"-->
                 <!--android:textSize="@dimen/recipe_view_list_title_size"/>-->
-            <!--<com.example.asaelr.tastyidea.RecipesList.ExpandedListView-->
+            <!--<com.example.asaelr.tastyidea.ExpandedListView-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:id="@+id/comments"-->
