@@ -27,7 +27,7 @@ import java.util.List;
  * A placeholder fragment containing a simple view.
  */
 public class RecipeViewFragment extends Fragment {
-    private static Recipe recipe;
+    private Recipe recipe;
 
     private View mainView; //should contain all recipe view elements
     private ListView ingredientsList;
@@ -60,6 +60,8 @@ public class RecipeViewFragment extends Fragment {
         time = (TextView) fragmentView.findViewById(R.id.time);
         difficulty = (TextView) fragmentView.findViewById(R.id.difficulty);
         name = (TextView) fragmentView.findViewById(R.id.recipeName);
+
+        if(savedInstanceState!=null) recipe = (Recipe) savedInstanceState.getSerializable("recipe");
 
         setView();
 
@@ -111,6 +113,15 @@ public class RecipeViewFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_recipe_view, menu);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        if (recipe != null) {
+            bundle.putSerializable("recipe", recipe);
+        }
     }
 
 

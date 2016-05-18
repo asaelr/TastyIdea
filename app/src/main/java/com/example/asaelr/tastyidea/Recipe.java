@@ -4,6 +4,7 @@ import android.net.Network;
 import android.util.Log;
 import android.util.Pair;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +15,7 @@ import networking.RecipeData;
 /**
  * Created by osher on 5/9/2016.
  */
-public class Recipe {
+public class Recipe implements Serializable {
     private String name;
     private List<Pair<Ingredient,String>> ingredients;
     private String[] directions;
