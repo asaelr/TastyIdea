@@ -63,11 +63,10 @@ public class AddRecipeDirectionsFragment  extends Fragment {
     {
         AlertDialog myQuittingDialogBox =new AlertDialog.Builder(getActivity())
                 //set message, title, and icon
-                .setTitle("Delete")
-                .setMessage("Do you want to Delete")
-//                .setIcon(R.drawable.delete)
+                .setMessage(R.string.delete_confirmation)
+                .setIcon(android.R.drawable.ic_delete)
 
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.delete_confirmation_positive_btn, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         delete();
@@ -82,7 +81,7 @@ public class AddRecipeDirectionsFragment  extends Fragment {
 
 
 
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.delete_confirmation_negative_btn, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                         dialog.dismiss();

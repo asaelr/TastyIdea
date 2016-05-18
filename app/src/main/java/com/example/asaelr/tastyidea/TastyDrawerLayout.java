@@ -1,10 +1,13 @@
 package com.example.asaelr.tastyidea;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -231,18 +234,64 @@ public class TastyDrawerLayout {
             }
             @Override
             public void handleSelection(TastyDrawerLayout drawer) {
-                drawer.login.logout();
-                drawer.drawMenu();
-                if(drawer.activity instanceof SearchActivity) return;
-                Intent intent = new Intent(drawer.activity,  SearchActivity.class);
-                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
-                drawer.activity.startActivity(intent);
-                drawer.activity.finish();
+//                drawer.login.logout();
+//                drawer.drawMenu();
+//                if(drawer.activity instanceof SearchActivity) return;
+//                Intent intent = new Intent(drawer.activity,  SearchActivity.class);
+//                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
+//                drawer.activity.startActivity(intent);
+//                drawer.activity.finish();
+
+                AskOption(drawer).show();
+
+
             }
+
+            private AlertDialog AskOption(final TastyDrawerLayout drawer)
+            {
+                AlertDialog myQuittingDialogBox =new AlertDialog.Builder(drawer.activity)
+                        //set message, title, and icon
+                        .setMessage(R.string.logout_confirmation)
+                        .setIcon(android.R.drawable.ic_dialog_info)
+
+                        .setPositiveButton(R.string.logout_confirmation_positive_btn, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                drawer.login.logout();
+                                drawer.drawMenu();
+                                if(drawer.activity instanceof SearchActivity) return;
+                                Intent intent = new Intent(drawer.activity,  SearchActivity.class);
+                                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
+                                drawer.activity.startActivity(intent);
+                                drawer.activity.finish();
+
+
+
+                                dialog.dismiss();
+                            }
+
+                        })
+
+
+
+                        .setNegativeButton(R.string.logout_confirmation_negative_btn, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .create();
+                return myQuittingDialogBox;
+
+            }
+
         };
 
         public abstract IDrawerItem getItem();
 
         public abstract void handleSelection(TastyDrawerLayout drawer);
+
     }
 }

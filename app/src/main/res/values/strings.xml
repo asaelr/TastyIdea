@@ -119,4 +119,10 @@
     <string name="exit_confirmation">Are you sure you want to exit?</string>
     <string name="confirmation_positive_btn">Yes</string>
     <string name="confirmation_negative_btn">No</string>
+    <string name="delete_confirmation">Do you want to Delete</string>
+    <string name="delete_confirmation_positive_btn">Delete</string>
+    <string name="delete_confirmation_negative_btn">Cancel</string>
+    <string name="logout_confirmation_negative_btn">Cancel</string>
+    <string name="logout_confirmation_positive_btn">Logout</string>
+    <string name="logout_confirmation">Are you sure you want to logout?</string>
 </resources>
