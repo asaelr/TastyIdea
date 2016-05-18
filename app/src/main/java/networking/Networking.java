@@ -7,7 +7,6 @@ package networking;
 import com.example.asaelr.tastyidea.Recipe;
 import com.example.asaelr.tastyidea.RecipesSearcher;
 import com.google.api.client.json.GenericJson;
-import com.google.api.client.util.Key;
 import com.kinvey.android.AsyncCustomEndpoints;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyPingCallback;
@@ -58,6 +57,13 @@ public class Networking {
         });
     }
 
+    private static void verifyLogin() throws IOException {
+        if (client.user().isUserLoggedIn()) return;
+        client.user().loginBlocking().execute();
+        //fixME try to loginGoogle, if logged in.
+    }
+
+
     public static void get1() {
         AsyncCustomEndpoints endpoints = client.customEndpoints(RecipeMetadata[].class);
         endpoints.callEndpoint("get1", new GenericJson(), new KinveyClientCallback<RecipeMetadata[]>() {
@@ -99,12 +105,14 @@ public class Networking {
 
     //Don't call this function from UI thread!!!
     public static RecipeMetadata[] getAllRecipesMetadata() throws IOException {
+        verifyLogin();
         AsyncCustomEndpoints<GenericJson,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
         return endpoints.callEndpointBlocking("getAllRecipesMetadata",null).execute();
     }
 
     //Don't call this function from UI thread!!!
     public static Recipe getRecipe(String id) throws IOException {
+        verifyLogin();
         GenericJson input = new GenericJson();
         input.put("id",id);
         AsyncCustomEndpoints<GenericJson,RecipeData> endpoints = client.customEndpoints(RecipeData.class);
@@ -114,6 +122,7 @@ public class Networking {
 
     //Don't call this function from UI thread!!!
     public static RecipeMetadata[] searchRecipes(RecipesSearcher.SearchJSON search) throws IOException {
+        verifyLogin();
         AsyncCustomEndpoints<RecipesSearcher.SearchJSON,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
         return endpoints.callEndpointBlocking("searchRecipes",search).execute();
     }
