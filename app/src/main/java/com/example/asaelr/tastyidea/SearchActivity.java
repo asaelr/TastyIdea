@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -71,6 +72,9 @@ public class SearchActivity extends AppCompatActivity {
         search.ingredients = new String[ings.size()];
         int i=0;
         for (Ingredient ing : ings) search.ingredients[i++]=ing.nameOnServer;
+        Spinner spinner = (Spinner) findViewById(R.id.categories_spinner);
+        search.category =
+                getResources().getStringArray(R.array.recipe_categories_serverName)[spinner.getSelectedItemPosition()];
         intent.putExtra("supplier",search);
         Object obj = intent.getSerializableExtra("supplier");
         Log.i("SearchActivity","supp type: "+obj.getClass().getName()+" val: "+obj);

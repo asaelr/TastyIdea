@@ -25,6 +25,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
     public boolean kosher = false;
     public int maxPrepTime = 500;
     public int minRating = 1;
+    public String category = ""; //empty string for "all categories"
 
     @Override
     public void supply(final Callback callback) {
@@ -40,6 +41,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
                     search.kosher = kosher;
                     search.maxPrepTime = maxPrepTime;
                     search.minRating = minRating;
+                    search.category = category;
                     return Networking.searchRecipes(search);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -58,16 +60,18 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
         @Key
         public String[] ingredients;
         @Key
-        public boolean vegeterian = false;
+        public boolean vegeterian;
         @Key
-        public boolean vegan = false;
+        public boolean vegan;
         @Key
-        public boolean kosher = false;
+        public boolean kosher;
         @Key
-        public int maxPrepTime = 500;
+        public int maxPrepTime;
         @Key
-        public int minRating = 1;
+        public int minRating;
         @Key
-        public String[] exclude = new String[0];
+        public String[] exclude = new String[0]; //temporary initialization. changeME
+        @Key
+        public String category;
     }
 }
