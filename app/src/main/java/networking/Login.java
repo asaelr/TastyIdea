@@ -1,14 +1,10 @@
 package networking;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 
-import com.example.asaelr.tastyidea.TastyDrawerLayout;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.api.Auth;
@@ -25,7 +21,6 @@ import com.kinvey.android.AsyncCustomEndpoints;
 import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
 import com.kinvey.java.core.KinveyClientCallback;
-import com.mikepenz.materialdrawer.Drawer;
 
 import java.io.IOException;
 

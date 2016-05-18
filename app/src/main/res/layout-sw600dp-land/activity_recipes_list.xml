@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.asaelr.tastyidea.RecipesListActivity">
+    tools:context=".RecipesList.RecipesListActivity">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
@@ -37,14 +37,14 @@
         android:padding="@dimen/activity_vertical_margin"
         >
         <fragment
-            android:name="com.example.asaelr.tastyidea.RecipesListFragment"
+            android:name="com.example.asaelr.tastyidea.RecipesList.RecipesListFragment"
             android:id="@+id/recipe_list_frag"
             android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_recipes_list" />
         <fragment
-            android:name="com.example.asaelr.tastyidea.RecipeViewFragment"
+            android:name="com.example.asaelr.tastyidea.RecipeView.RecipeViewFragment"
             android:id="@+id/recipe_view_frag"
             android:layout_weight="3"
             android:layout_width="0dp"

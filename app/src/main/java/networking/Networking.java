@@ -4,10 +4,9 @@ package networking;
  * Created by asael on 08/05/16.
  */
 
-import com.example.asaelr.tastyidea.Recipe;
-import com.example.asaelr.tastyidea.RecipesSearcher;
+import com.example.asaelr.tastyidea.Recipe.Recipe;
+import com.example.asaelr.tastyidea.SearchRecipes.RecipesSearcher;
 import com.google.api.client.json.GenericJson;
-import com.google.api.client.util.Key;
 import com.kinvey.android.AsyncCustomEndpoints;
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyPingCallback;

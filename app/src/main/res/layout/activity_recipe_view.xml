@@ -4,11 +4,11 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:padding="@dimen/activity_vertical_margin"
-tools:context="com.example.asaelr.tastyidea.RecipeViewActivity">
+tools:context=".RecipeView.RecipeViewActivity">
 <fragment
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.example.asaelr.tastyidea.RecipeViewFragment"
+    android:name="com.example.asaelr.tastyidea.RecipeView.RecipeViewFragment"
     android:id="@+id/fragment"
     tools:layout="@layout/fragment_recipe_view" />
 </RelativeLayout>
