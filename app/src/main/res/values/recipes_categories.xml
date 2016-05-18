@@ -3,6 +3,16 @@
     <string-array name="recipe_categories">
         <item>All</item>
         <item>soups</item>
+        <item>meats</item>
+        <item>salads</item>
+        <item>pastries</item>
+    </string-array>
+
+    <string-array name="recipe_categories_serverName"> <!-- Don't translate this array! -->
+        <item></item>
+        <item>soups</item>
+        <item>meats</item>
+        <item>salads</item>
         <item>pastries</item>
     </string-array>
 </resources>

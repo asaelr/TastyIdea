@@ -1,6 +1,9 @@
-package com.example.asaelr.tastyidea.SearchRecipes;
+package com.example.asaelr.tastyidea;
 
 import android.content.Intent;
+import android.os.Parcelable;
+import android.preference.DialogPreference;
+import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,13 +12,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Spinner;
 
-import com.example.asaelr.tastyidea.Ingredients.Ingredient;
-import com.example.asaelr.tastyidea.Ingredients.IngredientListFragment;
-import com.example.asaelr.tastyidea.R;
-import com.example.asaelr.tastyidea.RecipesList.IngCategory;
-import com.example.asaelr.tastyidea.RecipesList.RecipesListActivity;
-import com.example.asaelr.tastyidea.Navigation.TastyDrawerLayout;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
@@ -73,8 +72,11 @@ public class SearchActivity extends AppCompatActivity {
         search.ingredients = new String[ings.size()];
         int i=0;
         for (Ingredient ing : ings) search.ingredients[i++]=ing.nameOnServer;
-        intent.putExtra(RecipesSupplier.SUPPLIER_KEY,search);
-        Object obj = intent.getSerializableExtra(RecipesSupplier.SUPPLIER_KEY);//TODO - remove
+        Spinner spinner = (Spinner) findViewById(R.id.categories_spinner);
+        search.category =
+                getResources().getStringArray(R.array.recipe_categories_serverName)[spinner.getSelectedItemPosition()];
+        intent.putExtra("supplier",search);
+        Object obj = intent.getSerializableExtra("supplier");
         Log.i("SearchActivity","supp type: "+obj.getClass().getName()+" val: "+obj);
         startActivity(intent);
     }
