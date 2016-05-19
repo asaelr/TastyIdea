@@ -1,10 +1,13 @@
 package com.example.asaelr.tastyidea;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -91,13 +94,28 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
                     return Networking.getRecipe(recipeId);
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
                 }
                 return null;
             }
 
             @Override
             protected void onPostExecute(Recipe recipe) {
-                setRecipe(recipe);
+                if (recipe!=null) setRecipe(recipe);
+                else {
+                    new AlertDialog.Builder(RecipesListActivity.this)
+                            .setMessage(R.string.cannot_load_recipe)
+                            .setTitle(R.string.error)
+                            .setIcon(android.R.drawable.stat_notify_error)
+                            .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create().show();
+                }
             }
         }.execute();
 

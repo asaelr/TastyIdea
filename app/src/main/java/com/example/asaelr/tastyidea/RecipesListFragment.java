@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
@@ -117,12 +118,14 @@ public class RecipesListFragment extends Fragment {
     private void alertError(String message) {
         new AlertDialog.Builder(getContext())
                 .setMessage(message)
+                .setTitle(R.string.error)
                 .setIcon(android.R.drawable.stat_notify_error)
                 .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        getActivity().finish();
+                        Activity activity = getActivity();
+                        if (activity instanceof RecipesListActivity) activity.finish();
                     }
                 })
                 .create().show();

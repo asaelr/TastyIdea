@@ -129,4 +129,6 @@
     <string name="OK">OK</string>
     <string name="recipes_not_found">No recipes found</string>
     <string name="cannot_get_recipes">Cannot get recipes from server</string>
+    <string name="cannot_load_recipe">cannot load recipe from server</string>
+    <string name="error">Error</string>
 </resources>
