@@ -27,6 +27,13 @@
             android:src="@mipmap/ic_add_ingredient"
             android:layout_gravity="right" />
 
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/clearButton"
+            android:src="@android:drawable/ic_menu_delete"
+            android:layout_gravity="right" />
+
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"
