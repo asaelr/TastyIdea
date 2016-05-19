@@ -83,7 +83,7 @@ public class RecipesListFragment extends Fragment {
         if (loaded) {
             fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
         } else {
-            RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra("supplier");
+            RecipesSupplier supplier = (RecipesSupplier) getActivity().getIntent().getSerializableExtra(RecipesSupplier.SUPPLIER_KEY);
             Log.i("RLFrag", "networking");
             supplier.supply(new RecipesSupplier.Callback() {
                 @Override

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -30,6 +31,8 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
+            RecipesSupplier supplier = (RecipesSupplier) getIntent().getSerializableExtra(RecipesSupplier.SUPPLIER_KEY);
+            ((TextView)findViewById(R.id.toolbar_title)).setText(supplier.getTitle(getResources()));
 
             isFromNavDrawer = getIntent().getBooleanExtra(TastyDrawerLayout.FROM_DRAWER_KEY, false);
             Log.d("isFromNavDrawer", "********** recipes list is from nav = " + isFromNavDrawer);

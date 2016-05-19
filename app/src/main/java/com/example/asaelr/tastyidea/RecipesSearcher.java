@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.res.Resources;
 import android.os.AsyncTask;
 
 import com.example.asaelr.tastyidea.RecipesSupplier;
@@ -52,6 +53,11 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
                 callback.onSuccess(result);
             }
         }.execute();
+    }
+
+    @Override
+    public String getTitle(Resources res) {
+        return res.getString(R.string.search_results);
     }
 
     public static class SearchJSON extends GenericJson {

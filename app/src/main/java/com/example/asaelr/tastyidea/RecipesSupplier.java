@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.res.Resources;
 import android.widget.ArrayAdapter;
 
 import networking.RecipeMetadata;
@@ -11,6 +12,8 @@ public interface RecipesSupplier {
     String SUPPLIER_KEY = "supplier";
 
     void supply(Callback callback);
+
+    String getTitle(Resources res);
 
     public static interface Callback {
         void onSuccess(RecipeMetadata[] recipes);

@@ -1,5 +1,7 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.res.Resources;
+
 import java.io.Serializable;
 
 /**
@@ -9,5 +11,10 @@ public class MockSupplier implements Serializable, RecipesSupplier {
     @Override
     public void supply(Callback callback) {
 
+    }
+
+    @Override
+    public String getTitle(Resources res) {
+        return "MockSupplier";
     }
 }
