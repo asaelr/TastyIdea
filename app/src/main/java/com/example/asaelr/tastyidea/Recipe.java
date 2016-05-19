@@ -7,6 +7,7 @@ import android.util.Pair;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -17,7 +18,8 @@ import networking.RecipeData;
  */
 public class Recipe implements Serializable {
     private String name;
-    private List<Pair<Ingredient,String>> ingredients;
+    private List<Ingredient> ingredients;
+    private List<String> amounts;
     private String[] directions;
     private String category;
     private int prepTimeMinutes;
@@ -43,10 +45,12 @@ public class Recipe implements Serializable {
         id = response.id;
 
         ingredients = new ArrayList<>();
+        amounts = new ArrayList<>();
         for (RecipeData.Ing ing : response.ingredients) {
             Ingredient i = IngCategory.getIngredient(ing.name);
             if (i==null) Log.e("TastyIdea","unknown ingredient "+ing.name);
-            ingredients.add(new Pair<>(i,ing.amount));
+            ingredients.add(i);
+            amounts.add(ing.amount);
         }
 
     }
@@ -95,24 +99,13 @@ public class Recipe implements Serializable {
         return id;
     }
 
-    //use it to test logs
-    @Override
-    public String toString() {
-        String str = "Recipe "+name+" of category "+category+" (by "+username+")\n";
-        if (kosher) str+="kosher, ";
-        if (vegeterian) str+="vegeterian, ";
-        if (vegan) str+="vegan, ";
-        str+="difficulty: "+difficulty+", rate: "+rate+", preptime: "+prepTimeMinutes+" minutes\n";
-        str+="ingredients: ";
-        for (Pair<Ingredient,String> p : ingredients) {
-            str+=p.first.name+" ("+p.second+"), ";
-        }
-        str+="\ndirections:\n";
-        for (String d : directions) str+=d+"\n";
-        return str;
-    }
-
     public List<Pair<Ingredient,String>> getIngredients() {
-        return ingredients;
+        List<Pair<Ingredient,String>> result = new ArrayList<>();
+        Iterator<Ingredient> ing = ingredients.iterator();
+        Iterator<String> am = amounts.iterator();
+        while (ing.hasNext()) {
+            result.add(new Pair<Ingredient, String>(ing.next(),am.next()));
+        }
+        return result;
     }
 }

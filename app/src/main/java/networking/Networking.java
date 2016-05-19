@@ -63,46 +63,6 @@ public class Networking {
         //fixME try to loginGoogle, if logged in.
     }
 
-
-    public static void get1() {
-        AsyncCustomEndpoints endpoints = client.customEndpoints(RecipeMetadata[].class);
-        endpoints.callEndpoint("get1", new GenericJson(), new KinveyClientCallback<RecipeMetadata[]>() {
-            @Override
-            public void onSuccess(RecipeMetadata[] result) {
-                Log.e("TastyIdea", "Kinvey get1 Success : " + result);
-                for (RecipeMetadata rec : result) {
-                    Log.i("TastyIdea","id: "+rec.id+", name: "+rec.name);
-                }
-                Log.i("TastyIdea","detailed recipes:");
-                AsyncTask<RecipeMetadata,Recipe,Void> ast = new AsyncTask<RecipeMetadata, Recipe, Void>() {
-                    @Override
-                    protected Void doInBackground(RecipeMetadata... params) {
-                        for (RecipeMetadata rmd : params) {
-                            try {
-                                Recipe recipe = getRecipe(rmd.id);
-                                publishProgress(recipe);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        return null;
-                    }
-                    @Override
-                    protected void onProgressUpdate(Recipe... recipes) {
-                        Log.i("TastyIdea",recipes[0].toString());
-                    }
-
-                };
-                ast.execute(result);
-            }
-
-            @Override
-            public void onFailure(Throwable error) {
-                Log.e("TastyIdea", "Kinvey get1 Failed", error);
-            }
-        });
-    }
-
     //Don't call this function from UI thread!!!
     public static RecipeMetadata[] getAllRecipesMetadata() throws IOException {
         verifyLogin();
