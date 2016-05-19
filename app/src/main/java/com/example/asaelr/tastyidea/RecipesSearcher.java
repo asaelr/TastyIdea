@@ -45,12 +45,16 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
                 } catch (IOException e) {
                     e.printStackTrace();
                     return null;
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    return null;
                 }
             }
 
             @Override
             protected void onPostExecute(RecipeMetadata[] result) {
-                callback.onSuccess(result);
+                if (result!=null) callback.onSuccess(result);
+                else callback.onFailure();
             }
         }.execute();
     }

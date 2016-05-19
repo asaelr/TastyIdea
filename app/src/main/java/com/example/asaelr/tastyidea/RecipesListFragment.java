@@ -1,8 +1,10 @@
 package com.example.asaelr.tastyidea;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,6 +93,12 @@ public class RecipesListFragment extends Fragment {
                     adapter.addAll(recipes);
                     fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                     loaded = true;
+                    if (recipes.length==0) alertError(getResources().getString(R.string.recipes_not_found));
+                }
+
+                @Override
+                public void onFailure() {
+                    alertError(getResources().getString(R.string.cannot_get_recipes));
                 }
             });
         }
@@ -104,5 +112,19 @@ public class RecipesListFragment extends Fragment {
             bundle.putSerializable("recipes", (ArrayList<RecipeMetadata>) recipesList);
             Log.i("RLFrag", "saveInstance");
         }
+    }
+
+    private void alertError(String message) {
+        new AlertDialog.Builder(getContext())
+                .setMessage(message)
+                .setIcon(android.R.drawable.stat_notify_error)
+                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        getActivity().finish();
+                    }
+                })
+                .create().show();
     }
 }

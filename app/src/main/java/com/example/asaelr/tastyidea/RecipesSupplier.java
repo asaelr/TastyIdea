@@ -17,5 +17,7 @@ public interface RecipesSupplier {
 
     public static interface Callback {
         void onSuccess(RecipeMetadata[] recipes);
+
+        void onFailure();
     }
 }
