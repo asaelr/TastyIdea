@@ -87,6 +87,13 @@ public class IngredientListFragment extends Fragment {
                 is.show(((Activity) getActivity()).getFragmentManager(), "ingredient selector");
             }
         });
+        ((ImageButton)view.findViewById(R.id.clearButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ingredients.clear();
+                adapter.clear();
+            }
+        });
         List<String> ings= new ArrayList<String>();
         for (Ingredient ing : IngCategory.allIngredients) ings.add(ing.name);
         final AutoCompleteTextView actv = (AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView);
