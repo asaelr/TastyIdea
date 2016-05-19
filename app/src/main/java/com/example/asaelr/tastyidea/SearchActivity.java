@@ -17,16 +17,19 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import networking.Login;
 import networking.Networking;
 
 
 public class SearchActivity extends AppCompatActivity implements ConfirmExitDialog.YesNoListener{
-
+    private static AtomicBoolean isFirstActivityCreate = new AtomicBoolean(true);
     //initialize some things in application, using context.
     //if we change our launcher activity, we shall move this function to the new one.
     private void initialize() {
+        Log.d("init", "************************initialize");
+        System.out.println("************************initialize");
         IngCategory.initialize(this);
         Networking.init(getApplicationContext());
         //Networking.ping();
@@ -36,7 +39,7 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
     private TastyDrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        initialize();
+        if(isFirstActivityCreate.getAndSet(false)) initialize();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_layout);
 

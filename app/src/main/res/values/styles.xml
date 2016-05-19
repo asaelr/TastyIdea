@@ -22,4 +22,8 @@
     </style>
 
 
+    <style name="splashScreenTheme" parent="MaterialDrawerTheme.Light.DarkToolbar">
+        <item name="android:windowBackground">@drawable/logo_small</item>
+    </style>
+
 </resources>
