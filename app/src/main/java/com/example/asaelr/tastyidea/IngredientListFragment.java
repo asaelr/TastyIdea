@@ -1,8 +1,10 @@
 package com.example.asaelr.tastyidea;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
@@ -196,7 +198,7 @@ class MyAdapter extends ArrayAdapter<Ingredient> {
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(resource, parent, false);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
@@ -210,8 +212,22 @@ class MyAdapter extends ArrayAdapter<Ingredient> {
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                ingList.remove_ingredient((Ingredient) v.getTag());
+            public boolean onLongClick(final View v) {
+                new AlertDialog.Builder(ingList.getActivity())
+                        .setMessage(R.string.delete_confirmation)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setPositiveButton(R.string.delete_confirmation_positive_btn, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                ingList.remove_ingredient((Ingredient) v.getTag());
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.delete_confirmation_negative_btn, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .create().show();
                 return true;
             }
         });
