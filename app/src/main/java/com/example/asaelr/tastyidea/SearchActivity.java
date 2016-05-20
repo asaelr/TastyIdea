@@ -75,8 +75,8 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
         Log.e("TastyIdea","search clicked!");
         //Networking.get1();
         List<Ingredient> ings;
-        ings=((IngredientListFragment)getFragmentManager().findFragmentById(R.id.ingredient_list_fragment)).getList();
-//        ((SearchFragment)mAdapter.getItem(SearchPagerItem.GENERAL.ordinal())).getChildFragmentManager().findFragmentById(R.id.ingredient_list_fragment)
+//        ings=((IngredientListFragment)getFragmentManager().findFragmentById(R.id.ingredient_list_fragment)).getList();
+        ings=((IngredientList)findViewById(R.id.ingredientSelect)).getList();
         Log.i("SearchActivity","ings: "+ings);
         if(ings.isEmpty())
         {

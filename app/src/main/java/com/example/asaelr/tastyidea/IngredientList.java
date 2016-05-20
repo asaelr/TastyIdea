@@ -2,17 +2,23 @@ package com.example.asaelr.tastyidea;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-//import android.support.v4.app.Fragment;
+import android.os.Parcelable;
+import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -20,12 +26,16 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-public class
-IngredientListFragment extends Fragment {
+
+/**
+ * TODO: document your custom view class.
+ */
+public class IngredientList extends RelativeLayout {
 
     private static final String IS_EDIT_TEXT = "IS_EDIT_TEXT";
     public static final String INGREDIENTS_KEY = "ingredients";
@@ -33,47 +43,49 @@ IngredientListFragment extends Fragment {
 
     private ArrayAdapter<Ingredient> adapter;
     private ArrayList<Ingredient> ingredients=new ArrayList<Ingredient>();
-    //private ViewGroup[] sug = new ViewGroup[3];
+//    private ViewGroup[] sug = new ViewGroup[3];
 
-    @Override
-    public void onInflate (Context context, AttributeSet attrs, Bundle savedInstanceState) {
-        super.onInflate(context, attrs, savedInstanceState);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.IngredientList);
-        showEditText = a.getBoolean(R.styleable.IngredientList_showEditText,true);
+    public IngredientList(Context context) {
+        super(context);
+        if (!isInEditMode()) init(null, 0);
+    }
+
+    public IngredientList(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        if (!isInEditMode()) init(attrs, 0);
+    }
+
+    public IngredientList(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(attrs, defStyle);
+    }
+
+    private void init(AttributeSet attrs, int defStyle) {
+       Log.i("ingredientsList","init");
+        // Load attributes
+        final TypedArray a = getContext().obtainStyledAttributes(
+                attrs, R.styleable.IngredientList, defStyle, 0);
+/*
+        mExampleString = a.getString(
+                R.styleable.IngredientList_exampleString);
+*/
+        setSaveEnabled(true);
+        showEditText = a.getBoolean(R.styleable.IngredientList_showEditText, true);
+
         a.recycle();
-    }
 
-    public static IngredientListFragment newInstance(boolean showEditText) {
-        IngredientListFragment fragment = new IngredientListFragment();
-        Bundle args = new Bundle();
-        args.putBoolean(IS_EDIT_TEXT, showEditText);
-        fragment.setArguments(args);
-        return fragment;
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view;
-        if (getArguments() != null && getArguments().containsKey(IS_EDIT_TEXT)) {
-            showEditText = getArguments().getBoolean(IS_EDIT_TEXT);
-        }
         if (showEditText) {
-            view=inflater.inflate(R.layout.ingredient_list, container, false);
-            adapter = new MyAdapter(getActivity(), R.layout.ingredient_edittext, this);
-            ((ListView) view.findViewById(R.id.listView)).setAdapter(adapter);
+            inflate(getContext(), R.layout.ingredient_list, this);
+            adapter = new MyAdapterNF(getContext(), R.layout.ingredient_edittext, this);
+            ((ListView) findViewById(R.id.listView)).setAdapter(adapter);
         } else {
-            view=inflater.inflate(R.layout.ingredient_grid, container, false);
-            adapter = new MyAdapter(getActivity(), R.layout.ingredient_button, this);
-            ((GridView) view.findViewById(R.id.gridView)).setAdapter(adapter);
-        }
-
-        if (savedInstanceState!=null && savedInstanceState.containsKey(INGREDIENTS_KEY)) {
-            ingredients = (ArrayList<Ingredient>) savedInstanceState.getSerializable(INGREDIENTS_KEY);
-            for (Ingredient ing : ingredients) adapter.add(ing);
+            inflate(getContext(), R.layout.ingredient_grid, this);
+            adapter = new MyAdapterNF(getContext(), R.layout.ingredient_button, this);
+            ((GridView) findViewById(R.id.gridView)).setAdapter(adapter);
         }
         //Log.e("TastyIdea","showEditText: "+showEditText);
 
-        ((ImageButton)view.findViewById(R.id.imageButton)).setOnClickListener(new View.OnClickListener() {
+        ((ImageButton) findViewById(R.id.imageButton)).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 IngredientAdder adder = new IngredientAdder() {
@@ -85,20 +97,20 @@ IngredientListFragment extends Fragment {
                     }
                 };
                 CategorySelector is = new CategorySelector(adder);
-                is.show(((Activity) getActivity()).getFragmentManager(), "ingredient selector");
+                is.show(((Activity) getContext()).getFragmentManager(), "ingredient selector");
             }
         });
-        ((ImageButton)view.findViewById(R.id.clearButton)).setOnClickListener(new View.OnClickListener() {
+        ((ImageButton) findViewById(R.id.clearButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ingredients.clear();
                 adapter.clear();
             }
         });
-        List<String> ings= new ArrayList<String>();
+        List<String> ings = new ArrayList<>();
         for (Ingredient ing : IngCategory.allIngredients) ings.add(ing.name);
-        final AutoCompleteTextView actv = (AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView);
-        actv.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, ings));
+        final AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        actv.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, ings));
         actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -120,14 +132,13 @@ IngredientListFragment extends Fragment {
                 return false;
             }
         });
-        /*
-
+/*
         sug[0]= (ViewGroup) findViewById(R.id.listframe1);
         sug[1]= (ViewGroup) findViewById(R.id.listframe2);
         sug[2]= (ViewGroup) findViewById(R.id.listframe3);
 
         for (View v : sug) {
-            v.setOnClickListener(new View.OnClickListener() {
+            v.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Ingredient ing = (Ingredient) v.getTag();
@@ -137,8 +148,7 @@ IngredientListFragment extends Fragment {
         }
 
         get_suggestions();
-        */
-        return view;
+*/
     }
 
     public void add_ingredient(Ingredient ing) {
@@ -156,49 +166,60 @@ IngredientListFragment extends Fragment {
     }
 
     public void get_suggestions() {
-        //dummy!!!
-        /*
-        int k=0;
-        for (Ingredient ing : IngCategory.allIngredients) {
-            if (k>=3) break;
-            if (ingredients.contains(ing)) continue;
-            ImageView imageView = (ImageView) sug[k].findViewById(R.id.imageView);
-            TextView textView = (TextView) sug[k].findViewById(R.id.textView);
-            textView.setText(ing.name);
-            imageView.setImageResource(ing.picture);
-            sug[k].setTag(ing);
-            k++;
-        }
-        for (;k<3;k++) {
-            sug[k].setTag(null);
-            ImageView imageView = (ImageView) sug[k].findViewById(R.id.imageView);
-            TextView textView = (TextView) sug[k].findViewById(R.id.textView);
-            textView.setText("");
-            imageView.setImageResource(android.R.drawable.stat_sys_warning);
-        }
-        */
+//        //dummy!!!
+//        int k=0;
+//        for (Ingredient ing : IngCategory.allIngredients) {
+//            if (k>=3) break;
+//            if (ingredients.contains(ing)) continue;
+//            ImageView imageView = (ImageView) sug[k].findViewById(R.id.imageView);
+//            TextView textView = (TextView) sug[k].findViewById(R.id.textView);
+//            textView.setText(ing.name);
+//            imageView.setImageResource(ing.picture);
+//            sug[k].setTag(ing);
+//            k++;
+//        }
+//        for (;k<3;k++) {
+//            sug[k].setTag(null);
+//            ImageView imageView = (ImageView) sug[k].findViewById(R.id.imageView);
+//            TextView textView = (TextView) sug[k].findViewById(R.id.textView);
+//            textView.setText("");
+//            imageView.setImageResource(android.R.drawable.stat_sys_warning);
+//        }
     }
+
 
     public List<Ingredient> getList() {
         return ingredients;
     }
 
     @Override
-    public void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
+    public Parcelable onSaveInstanceState() {
+        Log.i("ingredientsList", "onSaveInstanceState");
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("superState", super.onSaveInstanceState());
         bundle.putSerializable(INGREDIENTS_KEY,ingredients);
+        return bundle;
     }
 
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        Log.i("ingredientsList", "onRestoreInstanceState");
+        if (state instanceof Bundle) // implicit null check
+        {
+            Log.i("ingredientsList", "onRestoreInstanceState if");
+            Bundle bundle = (Bundle) state;
+            this.ingredients = (ArrayList<Ingredient>) bundle.getSerializable(INGREDIENTS_KEY);
+            adapter.addAll(ingredients);
+            state = bundle.getParcelable("superState");
+        }
+        super.onRestoreInstanceState(state);
+    }
 
-
-
-}
-
-    class MyAdapter extends ArrayAdapter<Ingredient> {
-        private final IngredientListFragment ingList;
+    class MyAdapterNF extends ArrayAdapter<Ingredient> {
+        private final IngredientList ingList;
         private final int resource;
 
-        public MyAdapter(Context context, int resource, IngredientListFragment ingList) {
+        public MyAdapterNF(Context context, int resource, IngredientList ingList) {
             super(context, resource);
             this.ingList = ingList;
             this.resource = resource;
@@ -221,7 +242,7 @@ IngredientListFragment extends Fragment {
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(final View v) {
-                    new AlertDialog.Builder(ingList.getActivity())
+                    new AlertDialog.Builder(ingList.getContext())
                             .setMessage(R.string.delete_confirmation)
                             .setIcon(android.R.drawable.ic_delete)
                             .setPositiveButton(R.string.delete_confirmation_positive_btn, new DialogInterface.OnClickListener() {
@@ -242,3 +263,5 @@ IngredientListFragment extends Fragment {
             return view;
         }
     }
+
+}

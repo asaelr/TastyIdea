@@ -13,7 +13,7 @@
         <activity android:name=".MainActivity"/>
 
 
-        <activity android:name=".SearchActivity" android:windowSoftInputMode="adjustNothing">
+        <activity android:name=".SearchActivity" android:windowSoftInputMode="adjustNothing" >
             <!--android:theme="@style/splashScreenTheme"-->
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

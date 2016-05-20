@@ -79,7 +79,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:name="com.example.asaelr.tastyidea.IngredientListFragment"
-        android:id="@+id/ingredient_list_fragment"
+        android:id="@+id/excluded_ingredients_list_fragment"
         android:background="@color/listBackground"/>
 
 
