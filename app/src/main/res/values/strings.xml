@@ -135,4 +135,7 @@
     <string name="excluded_ingredients">Excluded Ingredients:</string>
     <string name="general">General</string>
     <string name="advanced_settings">Advanced Settings</string>
+    <string name="category">Category:</string>
+    <string name="save_as_default">Save As Default</string>
+    <string name="settings_saved_as_defalut_message">Saved as default!</string>
 </resources>

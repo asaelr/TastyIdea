@@ -71,8 +71,8 @@ public class TastyDrawerLayout {
         drawMenu();
     }
 
-    private static ITEMS[] loggedItems = {ITEMS.SEARCH,ITEMS.MY_RECIPES,ITEMS.FAVORITES,ITEMS.ADD_RECIPE,ITEMS.PREFERENCE,ITEMS.LOGOUT};
-    private static ITEMS[] loggedOutItems = {ITEMS.SEARCH,ITEMS.FAVORITES,ITEMS.PREFERENCE,ITEMS.LOGIN};
+    private static ITEMS[] loggedItems = {ITEMS.SEARCH,ITEMS.MY_RECIPES,ITEMS.FAVORITES,ITEMS.ADD_RECIPE,ITEMS.LOGOUT};
+    private static ITEMS[] loggedOutItems = {ITEMS.SEARCH,ITEMS.FAVORITES,ITEMS.LOGIN};
 
 
     public void drawMenu() {
@@ -103,40 +103,7 @@ public class TastyDrawerLayout {
         login.handleSignInResult(result);
         drawMenu();
     }
-    /*public static Drawer addDrawer(final Activity activity, Toolbar toolbar) {
-        AccountHeader headerResult = new AccountHeaderBuilder()
-                .withActivity(activity)
-                .withSelectionListEnabledForSingleProfile(false)
-                .withHeaderBackground(R.drawable.drawer_header)
-                .withHeaderBackgroundScaleType(ImageView.ScaleType.CENTER_CROP)
-                .withTextColor(activity.getResources().getColor(R.color.md_white_1000))
-                .withTranslucentStatusBar(true)
-                .addProfiles(
-                        new ProfileDrawerItem().withName("Mike Penz").withEmail("mike@gmail.com").withIcon(activity.getResources().getDrawable(R.drawable.chef_icon))
-                )
-                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
-                    @Override
-                    public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
-                        return false;
-                    }
-                })
-                .build();
 
-        final Drawer result = new DrawerBuilder()
-                .withToolbar(toolbar)
-                .withHeaderPadding(false)
-                .withTranslucentStatusBar(true)
-                .withActionBarDrawerToggle(true)
-                .withAccountHeader(headerResult, false)
-                .withSliderBackgroundColorRes(R.color.material_drawer_background)
-                .withActivity(activity)
-                .withSelectedItem(-1) //disable selected value
-//                .withCloseOnClick(true)
-                .build();
-
-        return result;
-
-    }*/
 
 
     private enum ITEMS
@@ -200,20 +167,20 @@ public class TastyDrawerLayout {
                 drawer.activity.finish();
             }
         },
-        PREFERENCE {
-            @Override
-            public IDrawerItem getItem() {
-                return new PrimaryDrawerItem().withName(R.string.preferences_title).withIcon(R.drawable.settings_icon);
-            }
-            @Override
-            public void handleSelection(TastyDrawerLayout drawer) {
-                if(drawer.activity instanceof SettingsActivity) return;
-                Intent intent = new Intent(drawer.activity,  SettingsActivity.class);
-                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
-                drawer.activity.startActivity(intent);
-                drawer.activity.finish();
-            }
-        },
+//        PREFERENCE {
+//            @Override
+//            public IDrawerItem getItem() {
+//                return new PrimaryDrawerItem().withName(R.string.preferences_title).withIcon(R.drawable.settings_icon);
+//            }
+//            @Override
+//            public void handleSelection(TastyDrawerLayout drawer) {
+//                if(drawer.activity instanceof SettingsActivity) return;
+//                Intent intent = new Intent(drawer.activity,  SettingsActivity.class);
+//                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
+//                drawer.activity.startActivity(intent);
+//                drawer.activity.finish();
+//            }
+//        },
         LOGIN {
             @Override
             public IDrawerItem getItem() {

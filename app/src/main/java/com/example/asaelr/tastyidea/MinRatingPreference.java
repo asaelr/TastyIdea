@@ -34,7 +34,7 @@ public class MinRatingPreference extends Preference {
         View view = li.inflate( R.layout.minimum_rating_pref, parent, false);
         RatingBar ratingBar = (RatingBar) view.findViewById(R.id.rating_bar);
         LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
-        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));  // Full star
+        DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getContext(), R.color.colorAccent));
         return view;
     }
 }

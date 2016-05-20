@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent" android:padding="@dimen/activity_horizontal_margin">
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="3"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal">
@@ -44,8 +47,6 @@
         <include layout="@layout/minimum_rating_pref"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
             android:id="@+id/min_rate"/>
 
         <View style="@style/Divider"/>
@@ -54,8 +55,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
             android:id="@+id/time_Layout">
             <TextView
                 android:layout_width="wrap_content"
@@ -75,14 +74,12 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+
     <View style="@style/Divider"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
         android:id="@+id/difficulty_layout">
         <TextView
             android:layout_width="wrap_content"
@@ -102,12 +99,11 @@
 
 
     </LinearLayout>
-    <View style="@style/Divider"/>
-
+</LinearLayout>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:orientation="vertical">
         <TextView

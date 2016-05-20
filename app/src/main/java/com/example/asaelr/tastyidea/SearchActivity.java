@@ -13,12 +13,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -27,7 +29,7 @@ import networking.Networking;
 
 
 public class SearchActivity extends AppCompatActivity implements ConfirmExitDialog.YesNoListener{
-//    private static final int NUM_ITEMS = SearchPagerItem.values().length;
+    private static final int NUM_ITEMS = SearchPagerItem.values().length;
     private static AtomicBoolean isFirstActivityCreate = new AtomicBoolean(true);
     //initialize some things in application, using context.
     //if we change our launcher activity, we shall move this function to the new one.
@@ -40,8 +42,8 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
         //Login.init(this);
     }
     private TastyDrawerLayout drawer;
-//    private SearchPagerAdapter mAdapter;
-//    private ViewPager mPager;
+    private SearchPagerAdapter mAdapter;
+    private ViewPager mPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(isFirstActivityCreate.getAndSet(false)) initialize();
@@ -53,9 +55,10 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-//        mAdapter = new SearchPagerAdapter(getFragmentManager());
-//        mPager = (ViewPager)findViewById(R.id.pager);
-//        mPager.setAdapter(mAdapter);
+        mAdapter = new SearchPagerAdapter(getFragmentManager());
+        mPager = (ViewPager)findViewById(R.id.pager);
+        mPager.setAdapter(mAdapter);
+
 
         drawer = new TastyDrawerLayout(this,toolbar,new Login(this));
 
@@ -64,21 +67,13 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
         //  getSupportActionBar().setIcon(R.mipmap.ic_launcher);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu, menu);
-        return true;
-    }
-
     public void searchClick(View v) {
         Log.e("TastyIdea","search clicked!");
         //Networking.get1();
-        List<Ingredient> ings;
-//        ings=((IngredientListFragment)getFragmentManager().findFragmentById(R.id.ingredient_list_fragment)).getList();
-        ings=((IngredientList)findViewById(R.id.ingredientSelect)).getList();
-        Log.i("SearchActivity","ings: "+ings);
-        if(ings.isEmpty())
+        List<Ingredient> selectedIngs;
+        selectedIngs=((SearchFragment)mAdapter.getFragmentAtPosition(SearchPagerItem.GENERAL.ordinal())).getSelectedIngredients();
+        Log.i("SearchActivity","ings: "+selectedIngs);
+        if(selectedIngs.isEmpty())
         {
             Toast.makeText(this,
                     getString(R.string.no_ingredients_selected_message), Toast.LENGTH_SHORT).show();
@@ -87,10 +82,10 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
 
 
         Intent intent = new Intent(this,RecipesListActivity.class);
-        RecipesSearcher search = new RecipesSearcher();
-        search.ingredients = new String[ings.size()];
+        RecipesSearcher search = new RecipesSearcher(); //TODO - add all settings to search
+        search.ingredients = new String[selectedIngs.size()];
         int i=0;
-        for (Ingredient ing : ings) search.ingredients[i++]=ing.nameOnServer;
+        for (Ingredient ing : selectedIngs) search.ingredients[i++]=ing.nameOnServer;
         Spinner spinner = (Spinner) findViewById(R.id.categories_spinner);
         search.category =
                 getResources().getStringArray(R.array.recipe_categories_serverName)[spinner.getSelectedItemPosition()];
@@ -112,30 +107,13 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId()==R.id.search_settings) {
-            //PreferenceFragmentTastyIdea pfti = new PreferenceFragmentTastyIdea();
-            //getFragmentManager().beginTransaction().replace(R.id.search_fragment_container,pfti).addToBackStack(null).commit();
-            SearchDialog sd = new SearchDialog(this,null);
-
+        if (item.getItemId()==R.id.save_settings) {
+            ((AdvancedSearchFragment)mAdapter.getFragmentAtPosition(SearchPagerItem.ADVANCED_SETTINGS.ordinal())).saveAsDefault();
+            Toast.makeText(this, getString(R.string.settings_saved_as_defalut_message), Toast.LENGTH_LONG).show();
             return true;
         }
         return false;
     }
-/*
-    public void openDialog(View v) {
-        IngredientAdder adder = new IngredientAdder() {
-            @Override
-            public void addIngredient(Ingredient ing) {
-                //TypedArray ta = getResources().obtainTypedArray(id);
-                //Toast.makeText(getApplicationContext(),"Select food "+ta.getString(0),Toast.LENGTH_SHORT).show();
-                //ta.recycle();
-                Toast.makeText(getApplicationContext(),"Select food "+ing.name,Toast.LENGTH_SHORT).show();
-            }
-        };
-        CategorySelector is = new CategorySelector(adder);
-        is.show(getFragmentManager(),"ingredient selector");
-    }*/
-
 
     @Override
     public void onBackPressed() {
@@ -152,53 +130,69 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
         //do nothing
     }
 
-//    public class SearchPagerAdapter extends FragmentPagerAdapter {
-//        public SearchPagerAdapter(FragmentManager fm) {
-//            super(fm);
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return NUM_ITEMS;
-//        }
-//
-//        @Override
-//        public Fragment getItem(int position) {
-//            return SearchPagerItem.values()[position].newFragInstance();
-//        }
-//
-//        @Override
-//        public CharSequence getPageTitle(int position) {
-//            return getApplicationContext().getString(SearchPagerItem.values()[position].getPageTitle());
-//        }
-//    }
-//
-//    private enum SearchPagerItem
-//    {
-//        GENERAL {
-//            @Override
-//            public Fragment newFragInstance() {
-//                return new SearchFragment();
-//            }
-//
-//            @Override
-//            public int getPageTitle() {
-//                return R.string.general;
-//            }
-//        },
-//        ADVANCED_SETTINGS {
-//            @Override
-//            public Fragment newFragInstance() {
-//                return new AdvancedSearchFragment();
-//            }
-//
-//            @Override
-//            public int getPageTitle() {
-//                return R.string.advanced_settings;
-//            }
-//        };
-//
-//        public abstract Fragment newFragInstance();
-//        public abstract int getPageTitle();
-//    }
+    public class SearchPagerAdapter extends FragmentPagerAdapter {
+        HashMap<Integer, Fragment> registeredFragments = new HashMap<>();
+        public SearchPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return SearchPagerItem.values()[position].newFragInstance();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return getApplicationContext().getString(SearchPagerItem.values()[position].getPageTitle());
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            registeredFragments.remove(position);
+            super.destroyItem(container, position, object);
+        }
+
+        public Fragment getFragmentAtPosition(int pos){return registeredFragments.get(pos);}
+    }
+
+    private enum SearchPagerItem
+    {
+        GENERAL {
+            @Override
+            public Fragment newFragInstance() {
+                return new SearchFragment();
+            }
+
+            @Override
+            public int getPageTitle() {
+                return R.string.general;
+            }
+        },
+        ADVANCED_SETTINGS {
+            @Override
+            public Fragment newFragInstance() {
+                return new AdvancedSearchFragment();
+            }
+
+            @Override
+            public int getPageTitle() {
+                return R.string.advanced_settings;
+            }
+        };
+
+        public abstract Fragment newFragInstance();
+        public abstract int getPageTitle();
+    }
 }

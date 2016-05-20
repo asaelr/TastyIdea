@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/search_settings"
-        android:icon="@drawable/settings_icon"
-        android:title="advanced"
+        android:id="@+id/save_settings"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/save_as_default"
         app:showAsAction="ifRoom"/>
 </menu>

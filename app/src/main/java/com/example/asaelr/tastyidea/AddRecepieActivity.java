@@ -8,9 +8,12 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ViewGroup;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+
+import java.util.HashMap;
 
 import networking.Login;
 
@@ -47,6 +50,7 @@ public class AddRecepieActivity extends AppCompatActivity {
     }
 
     public class AddRecipePagerAdapter extends FragmentPagerAdapter {
+        HashMap<Integer, Fragment> registeredFragments = new HashMap<>();
         public AddRecipePagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -65,6 +69,21 @@ public class AddRecepieActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return getApplicationContext().getString(AddRecipePagerItem.values()[position].getPageTitle());
         }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            registeredFragments.remove(position);
+            super.destroyItem(container, position, object);
+        }
+
+        public Fragment getFragmentAtPosition(int pos){return registeredFragments.get(pos);}
     }
 
     private enum AddRecipePagerItem
@@ -83,8 +102,7 @@ public class AddRecepieActivity extends AppCompatActivity {
         INGREDIENTS {
             @Override
             public Fragment newFragInstance() {
-                boolean showEditText = true;
-                return IngredientListFragment.newInstance(showEditText);
+                return new IngredientsSelectionListFragment();
             }
 
             @Override
