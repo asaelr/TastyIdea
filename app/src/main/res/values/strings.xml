@@ -131,4 +131,8 @@
     <string name="cannot_get_recipes">Cannot get recipes from server</string>
     <string name="cannot_load_recipe">cannot load recipe from server</string>
     <string name="error">Error</string>
+    <string name="no_ingredients_selected_message">No ingredients selected!</string>
+    <string name="excluded_ingredients">Excluded Ingredients:</string>
+    <string name="general">General</string>
+    <string name="advanced_settings">Advanced Settings</string>
 </resources>

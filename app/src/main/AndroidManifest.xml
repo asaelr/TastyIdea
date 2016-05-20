@@ -13,7 +13,7 @@
         <activity android:name=".MainActivity"/>
 
 
-        <activity android:name=".SearchActivity">
+        <activity android:name=".SearchActivity" android:windowSoftInputMode="adjustNothing">
             <!--android:theme="@style/splashScreenTheme"-->
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,8 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"/>
-        <activity android:name=".AddRecepieActivity"/>
+        <activity android:name=".SettingsActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name=".AddRecepieActivity" android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".RecipesListActivity"/>
         <activity android:name=".RecipeViewActivity"/>
     </application>

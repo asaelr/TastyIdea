@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
 import networking.Login;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity  {
     private boolean isFromNavDrawer = false;
     private TastyDrawerLayout drawer;
     @Override

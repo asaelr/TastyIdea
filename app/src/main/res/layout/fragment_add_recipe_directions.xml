@@ -4,15 +4,8 @@
     tools:showIn="@layout/activity_add_recepie"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
-    <ListView
-        android:id="@+id/list"
-        android:clickable="false"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/listBackground" />
+    android:layout_width="match_parent"
+    android:background="@android:drawable/dialog_holo_light_frame">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,4 +33,12 @@
             android:src="@mipmap/ic_add_ingredient"
             android:layout_gravity="right" />
     </LinearLayout>
+    <ListView
+        android:id="@+id/list"
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/listBackground" />
+
 </LinearLayout>
