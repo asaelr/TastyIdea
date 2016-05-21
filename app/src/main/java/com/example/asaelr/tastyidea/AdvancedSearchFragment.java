@@ -53,7 +53,7 @@ public class AdvancedSearchFragment extends Fragment {
         DrawableCompat.setTint(DrawableCompat.wrap(layerDrawable.getDrawable(2)), ContextCompat.getColor(getActivity(), R.color.colorAccent));
 
         maxTime = (Spinner) view.findViewById(R.id.time_spinner);
-        maxDifficulty = (Spinner) view.findViewById(R.id.time_spinner);
+        maxDifficulty = (Spinner) view.findViewById(R.id.difficulty_spinner);
         excludedIngredients = (IngredientList) view.findViewById(R.id.ingredientSelect);
         kosher = (CheckBox) view.findViewById(R.id.kosher_checkbox);
         vegan = (CheckBox) view.findViewById(R.id.vegan_checkbox);
