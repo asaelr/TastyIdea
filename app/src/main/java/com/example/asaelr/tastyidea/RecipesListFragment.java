@@ -119,13 +119,18 @@ public class RecipesListFragment extends Fragment {
         new AlertDialog.Builder(getContext())
                 .setMessage(message)
                 .setTitle(R.string.error)
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        Activity activity = getActivity();
+                        if (activity instanceof RecipesListActivity) activity.finish();
+                    }
+                })
                 .setIcon(android.R.drawable.stat_notify_error)
                 .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        Activity activity = getActivity();
-                        if (activity instanceof RecipesListActivity) activity.finish();
                     }
                 })
                 .create().show();
