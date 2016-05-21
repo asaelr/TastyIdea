@@ -19,6 +19,7 @@ import networking.RecipeMetadata;
 public class RecipesSearcher implements Serializable, RecipesSupplier {
 
     public String[] ingredients;
+    public String[] excluded;
     public boolean vegeterian = false;
     public boolean vegan = false;
     public boolean kosher = false;
@@ -41,6 +42,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
                     search.maxPrepTime = maxPrepTime;
                     search.minRating = minRating;
                     search.category = category;
+                    search.exclude = excluded;
                     return Networking.searchRecipes(search);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -78,7 +80,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
         @Key
         public int minRating;
         @Key
-        public String[] exclude = new String[0]; //temporary initialization. changeME
+        public String[] exclude;
         @Key
         public String category;
     }

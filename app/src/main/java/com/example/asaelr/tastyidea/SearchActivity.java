@@ -82,7 +82,21 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
 
 
         Intent intent = new Intent(this,RecipesListActivity.class);
-        RecipesSearcher search = new RecipesSearcher(); //TODO - add all settings to search
+        RecipesSearcher search = new RecipesSearcher();
+
+        AdvancedSearchFragment advanced = (AdvancedSearchFragment) mAdapter.getFragmentAtPosition(SearchPagerItem.ADVANCED_SETTINGS.ordinal());
+        search.kosher = advanced.isKosher();
+        search.vegan = advanced.isVegan();
+        search.vegeterian = advanced.isVegetarian();
+        search.minRating = advanced.getMinRating();
+        search.maxPrepTime = advanced.getMaxPrepTimeMinutes();
+//        search.maxDifficulty = advanced.getMaxDifficulty(); //TODO - add max difficulty to search
+        List<Ingredient> excludedIngs = advanced.getExcludedIngredients();
+        search.excluded = new String[excludedIngs.size()];
+        int j=0;
+        for (Ingredient ing : excludedIngs) search.excluded[j++] = ing.nameOnServer;
+
+
         search.ingredients = new String[selectedIngs.size()];
         int i=0;
         for (Ingredient ing : selectedIngs) search.ingredients[i++]=ing.nameOnServer;

@@ -12,15 +12,27 @@
     </string-array>
 
 
-    <string-array name="MaxTimeValues">
+    <string-array name="MaxTime">
         <item name="unlimited" value="-1">Unlimited</item>
         <item name="15min" value="15">15 Min</item>
         <item name="30min" value="30">30 Min</item>
-        <item name="45min" value="45">15 Min</item>
+        <item name="45min" value="45">45 Min</item>
         <item name="1hour" value="60">1 Hour</item>
         <item name="2hour" value="120">2 Hours</item>
         <item name="3hour" value="180">3 Hours</item>
     </string-array>
+
+    <!--time in minutes-->
+    <string-array name="MaxTimeValues">
+        <item name="unlimited" value="-1">-1</item>
+        <item name="15min" value="15">15</item>
+        <item name="30min" value="30">30</item>
+        <item name="45min" value="45">45</item>
+        <item name="1hour" value="60">60</item>
+        <item name="2hour" value="120">120</item>
+        <item name="3hour" value="180">180</item>
+    </string-array>
+
     <string-array name="example_steps" >
         <item>"Crack eggs into mug and top with ricotta cheese, tomatoes, and basil"</item>
         <item>"Season with salt, pepper, and oregano"</item>

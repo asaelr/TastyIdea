@@ -18,6 +18,7 @@ import android.widget.Spinner;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -105,5 +106,29 @@ public class AdvancedSearchFragment extends Fragment {
         kosher.setChecked(sp.getBoolean(KOSHER_KEY, false));
         vegan.setChecked(sp.getBoolean(VEGAN_KEY, false));
         vegetarian.setChecked(sp.getBoolean(VEGETARIAN_KEY, false));
+    }
+
+    public boolean isKosher() {
+        return kosher.isChecked();
+    }
+
+    public boolean isVegan() {
+        return vegan.isChecked();
+    }
+
+    public boolean isVegetarian() {
+        return vegetarian.isChecked();
+    }
+
+    public int getMinRating() {
+        return Math.round(minRating.getRating());
+    }
+
+    public List<Ingredient> getExcludedIngredients() {
+        return excludedIngredients.getList();
+    }
+
+    public int getMaxPrepTimeMinutes() {
+        return Integer.parseInt(getResources().getStringArray(R.array.MaxTimeValues)[maxTime.getSelectedItemPosition()]);
     }
 }
