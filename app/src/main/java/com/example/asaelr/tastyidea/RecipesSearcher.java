@@ -25,6 +25,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
     public boolean kosher = false;
     public int maxPrepTime = 500;
     public int minRating = 1;
+    public int maxDifficulty = 0;
     public String category = ""; //empty string for "all categories"
 
     @Override
@@ -43,6 +44,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
                     search.minRating = minRating;
                     search.category = category;
                     search.exclude = excluded;
+                    search.maxDifficulty = maxDifficulty;
                     return Networking.searchRecipes(search);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -83,5 +85,7 @@ public class RecipesSearcher implements Serializable, RecipesSupplier {
         public String[] exclude;
         @Key
         public String category;
+        @Key
+        public int maxDifficulty;
     }
 }

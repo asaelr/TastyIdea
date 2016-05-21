@@ -90,7 +90,7 @@ public class SearchActivity extends AppCompatActivity implements ConfirmExitDial
         search.vegeterian = advanced.isVegetarian();
         search.minRating = advanced.getMinRating();
         search.maxPrepTime = advanced.getMaxPrepTimeMinutes();
-//        search.maxDifficulty = advanced.getMaxDifficulty(); //TODO - add max difficulty to search
+        search.maxDifficulty = advanced.getMaxDifficulty();
         List<Ingredient> excludedIngs = advanced.getExcludedIngredients();
         search.excluded = new String[excludedIngs.size()];
         int j=0;

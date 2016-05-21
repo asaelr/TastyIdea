@@ -131,4 +131,8 @@ public class AdvancedSearchFragment extends Fragment {
     public int getMaxPrepTimeMinutes() {
         return Integer.parseInt(getResources().getStringArray(R.array.MaxTimeValues)[maxTime.getSelectedItemPosition()]);
     }
+
+    public int getMaxDifficulty() {
+        return maxDifficulty.getSelectedItemPosition();
+    }
 }
