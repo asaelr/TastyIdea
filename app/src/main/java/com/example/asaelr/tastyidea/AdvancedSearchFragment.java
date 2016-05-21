@@ -59,7 +59,7 @@ public class AdvancedSearchFragment extends Fragment {
         vegan = (CheckBox) view.findViewById(R.id.vegan_checkbox);
         vegetarian = (CheckBox) view.findViewById(R.id.vegetarian_checkbox);
 
-        if(savedInstanceState ==null) {loadDefault();}
+        if(savedInstanceState == null) {loadDefault();}
 
         return view;
     }
@@ -96,7 +96,7 @@ public class AdvancedSearchFragment extends Fragment {
         SharedPreferences sp = getActivity().getPreferences(Context.MODE_PRIVATE);
         minRating.setRating(sp.getFloat(RATING_KEY, 0));
         maxTime.setSelection(sp.getInt(MAX_TIME_KEY, 0));
-        maxDifficulty.setSelection(sp.getInt(MAX_DIFFICULTY_KEY, 0));
+        maxDifficulty.setSelection(sp.getInt(MAX_DIFFICULTY_KEY, getResources().getStringArray(R.array.DifficultyLevel).length - 1));
 
         Set<String> excludedNames = sp.getStringSet(EXCLUDED_KEY, Collections.EMPTY_SET);
         for (String ingName : excludedNames) {
