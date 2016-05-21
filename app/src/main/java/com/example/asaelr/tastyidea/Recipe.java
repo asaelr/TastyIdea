@@ -31,7 +31,9 @@ public class Recipe implements Serializable {
     private String username;
     private String id;
 
-    public Recipe(RecipeData response){
+    public byte[] image;
+
+    public Recipe(RecipeData response) {
         name = response.name;
         directions = response.directions;
         category = response.category;
@@ -48,7 +50,7 @@ public class Recipe implements Serializable {
         amounts = new ArrayList<>();
         for (RecipeData.Ing ing : response.ingredients) {
             Ingredient i = IngCategory.getIngredient(ing.name);
-            if (i==null) Log.e("TastyIdea","unknown ingredient "+ing.name);
+            if (i == null) Log.e("TastyIdea", "unknown ingredient " + ing.name);
             ingredients.add(i);
             amounts.add(ing.amount);
         }

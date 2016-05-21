@@ -36,6 +36,6 @@ public class RecipeData extends GenericJson {
     public boolean kosher;
     @Key("uploader")
     public String username;
-    @Key
+    @Key("_id")
     public String id;
 }

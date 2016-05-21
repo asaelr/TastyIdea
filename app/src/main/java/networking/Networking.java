@@ -86,6 +86,10 @@ public class Networking {
         AsyncCustomEndpoints<RecipesSearcher.SearchJSON,RecipeMetadata[]> endpoints = client.customEndpoints(RecipeMetadata[].class);
         return endpoints.callEndpointBlocking("searchRecipes",search).execute();
     }
+
+    public static Client getClient() {
+        return client;
+    }
 }
 
 ;

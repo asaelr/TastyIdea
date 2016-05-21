@@ -97,6 +97,8 @@ public class RecipeViewFragment extends Fragment {
         category.setText(recipe.getCategory());
         difficulty.setText(getResources().getStringArray(R.array.DifficultyLevel)[recipe.getDifficulty()]);
         time.setText(recipe.getPrepTimeMinutes() + " " + getString(R.string.minutes)) ;
+
+        new ImageDownloader(recipe,image);
     }
 
     public void setRecipe(Recipe recipe)
