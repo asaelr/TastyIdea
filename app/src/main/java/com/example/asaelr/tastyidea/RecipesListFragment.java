@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,12 +95,18 @@ public class RecipesListFragment extends Fragment {
                     adapter.addAll(recipes);
                     fragmentView.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                     loaded = true;
-                    if (recipes.length==0) alertError(getResources().getString(R.string.recipes_not_found));
+                    if (recipes.length==0) {
+                        Activity activity = getActivity();
+                        if (activity instanceof RecipesListActivity) activity.finish();
+                        Toast.makeText(activity,R.string.recipes_not_found, Toast.LENGTH_LONG).show();
+                    }
                 }
 
                 @Override
                 public void onFailure() {
-                    alertError(getResources().getString(R.string.cannot_get_recipes));
+                    Activity activity = getActivity();
+                    if (activity instanceof RecipesListActivity) activity.finish();
+                    Toast.makeText(activity,R.string.cannot_get_recipes, Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -113,26 +120,5 @@ public class RecipesListFragment extends Fragment {
             bundle.putSerializable("recipes", (ArrayList<RecipeMetadata>) recipesList);
             Log.i("RLFrag", "saveInstance");
         }
-    }
-
-    private void alertError(String message) {
-        new AlertDialog.Builder(getContext())
-                .setMessage(message)
-                .setTitle(R.string.error)
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        Activity activity = getActivity();
-                        if (activity instanceof RecipesListActivity) activity.finish();
-                    }
-                })
-                .setIcon(android.R.drawable.stat_notify_error)
-                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .create().show();
     }
 }

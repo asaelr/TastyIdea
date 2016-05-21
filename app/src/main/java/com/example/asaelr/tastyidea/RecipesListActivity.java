@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -104,17 +105,7 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
             protected void onPostExecute(Recipe recipe) {
                 if (recipe!=null) setRecipe(recipe);
                 else {
-                    new AlertDialog.Builder(RecipesListActivity.this)
-                            .setMessage(R.string.cannot_load_recipe)
-                            .setTitle(R.string.error)
-                            .setIcon(android.R.drawable.stat_notify_error)
-                            .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create().show();
+                    Toast.makeText(RecipesListActivity.this,R.string.cannot_load_recipe, Toast.LENGTH_LONG).show();
                 }
             }
         }.execute();
