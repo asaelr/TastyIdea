@@ -113,7 +113,7 @@ public class RecipeViewFragment extends Fragment {
 
         image.setImageResource(R.drawable.logo_small); //TODO - temp image, add image to Recipe
 
-        category.setText(recipe.getCategory());
+        category.setText(recipe.getCategory(getContext()));
         difficulty.setText(getResources().getStringArray(R.array.DifficultyLevel)[recipe.getDifficulty()]);
         time.setText(recipe.getPrepTimeMinutes() + " " + getString(R.string.minutes)) ;
 

@@ -50,7 +50,7 @@ public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
         difficulty.setText(context.getResources().getStringArray(R.array.DifficultyLevel)[rmd.difficulty]);
 
         TextView category = (TextView) rowView.findViewById(R.id.category);
-        category.setText(rmd.category);
+        category.setText(Recipe.getCategory(context,rmd.category));
 
 //        RatingBar rating = (RatingBar)rowView.findViewById(R.id.rate);
 
