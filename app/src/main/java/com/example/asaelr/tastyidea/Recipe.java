@@ -31,7 +31,7 @@ public class Recipe implements Serializable {
     private String username;
     private String id;
 
-    public byte[] image;
+    //public byte[] image;
 
     public Recipe(RecipeData response) {
         name = response.name;

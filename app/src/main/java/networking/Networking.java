@@ -77,6 +77,7 @@ public class Networking {
         input.put("id",id);
         AsyncCustomEndpoints<GenericJson,RecipeData> endpoints = client.customEndpoints(RecipeData.class);
         RecipeData result = endpoints.callEndpointBlocking("getRecipe",input).execute();
+        Log.i("networking", "got recipe");
         return new Recipe(result);
     }
 

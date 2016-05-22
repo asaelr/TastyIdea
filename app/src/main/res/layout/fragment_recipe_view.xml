@@ -17,14 +17,22 @@
         android:padding="10dp"
         android:orientation="vertical"
         >
-
-            <ImageView
-                android:layout_width="@dimen/recipe_view_image_width"
-                android:layout_height="@dimen/recipe_view_image_height"
-                android:src="@mipmap/ic_pancakes"
-                android:scaleType="centerCrop"
-                android:id="@+id/recipe_pic"
-                android:layout_gravity="center_horizontal"/>
+<RelativeLayout
+    android:layout_width="@dimen/recipe_view_image_width"
+    android:layout_height="@dimen/recipe_view_image_height"
+    android:layout_gravity="center_horizontal">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_pancakes"
+        android:scaleType="centerCrop"
+        android:id="@+id/recipe_pic"/>
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recipe_pic_loading"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
             <TextView
                 android:id="@+id/recipeName"
                 android:layout_width="wrap_content"

@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class RecipeViewFragment extends Fragment {
     private TextView time;
     private TextView difficulty;
     private TextView name;
+    private ProgressBar progressBar;
 
 
     public RecipeViewFragment() {
@@ -59,6 +61,7 @@ public class RecipeViewFragment extends Fragment {
         time = (TextView) fragmentView.findViewById(R.id.time);
         difficulty = (TextView) fragmentView.findViewById(R.id.difficulty);
         name = (TextView) fragmentView.findViewById(R.id.recipeName);
+        progressBar = (ProgressBar) fragmentView.findViewById(R.id.recipe_pic_loading);
 
         if(savedInstanceState!=null) recipe = (Recipe) savedInstanceState.getSerializable("recipe");
 
@@ -92,13 +95,13 @@ public class RecipeViewFragment extends Fragment {
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         username.setText(content);
 
-        image.setImageResource(R.drawable.logo_small); //TODO - add image to Recipe
+        //image.setImageResource(R.drawable.logo_small); //TODO - add image to Recipe
 
         category.setText(recipe.getCategory());
         difficulty.setText(getResources().getStringArray(R.array.DifficultyLevel)[recipe.getDifficulty()]);
         time.setText(recipe.getPrepTimeMinutes() + " " + getString(R.string.minutes)) ;
 
-        new ImageDownloader(recipe,image);
+        new ImageDownloader(recipe.getId(),image, progressBar);
     }
 
     public void setRecipe(Recipe recipe)
