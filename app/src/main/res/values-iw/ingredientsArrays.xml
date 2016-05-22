@@ -236,7 +236,7 @@
         <item>@mipmap/ic_rice</item>
     </string-array>
     <string-array name="bell_pepper">
-        <item>פלפל</item>
+        <item>גמבה</item>
         <item>@mipmap/ic_bell_pepper</item>
     </string-array>
     <string-array name="tuna">
