@@ -9,22 +9,22 @@ tools:context=".RecipesListActivity">
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
     android:id="@+id/toolbar"
-    android:layout_gravity="left"
+    android:layout_gravity="start"
     android:background="?attr/colorPrimary"
 
 
     >
 
-    <ImageView
-        android:layout_width="@dimen/toolbar_icon_size"
-        android:layout_height="@dimen/toolbar_icon_size"
-        android:src="@drawable/chef_icon" />
+    <!--<ImageView-->
+        <!--android:layout_width="@dimen/toolbar_icon_size"-->
+        <!--android:layout_height="@dimen/toolbar_icon_size"-->
+        <!--android:src="@drawable/chef_icon" />-->
 
     <TextView
         android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="start"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
         android:textSize="24sp"
