@@ -43,8 +43,8 @@ public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
         TextView recipe_name = (TextView) rowView.findViewById(R.id.name);
         recipe_name.setText(rmd.name);
 
-        TextView time = (TextView) rowView.findViewById(R.id.time);
-        time.setText(rmd.prepTimeMinutes+" minutes");
+        TextView time = (TextView) rowView.findViewById(R.id.time_min);
+        time.setText(Integer.toString(rmd.prepTimeMinutes));
 
         TextView difficulty = (TextView) rowView.findViewById(R.id.difficulty);
         difficulty.setText(context.getResources().getStringArray(R.array.DifficultyLevel)[rmd.difficulty]);
