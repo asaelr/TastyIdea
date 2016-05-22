@@ -12,6 +12,7 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -20,8 +21,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
+
+import networking.Login;
+import networking.Networking;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -41,8 +46,19 @@ public class RecipeViewFragment extends Fragment {
     private TextView name;
     private ProgressBar progressBar;
 
+    LoginDataSupplier login;
 
     public RecipeViewFragment() {
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            login = (LoginDataSupplier) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement LoginDataSupplier");
+        }
     }
 
     @Override
@@ -95,7 +111,7 @@ public class RecipeViewFragment extends Fragment {
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         username.setText(content);
 
-        //image.setImageResource(R.drawable.logo_small); //TODO - add image to Recipe
+        image.setImageResource(R.drawable.logo_small); //TODO - temp image, add image to Recipe
 
         category.setText(recipe.getCategory());
         difficulty.setText(getResources().getStringArray(R.array.DifficultyLevel)[recipe.getDifficulty()]);
@@ -117,8 +133,18 @@ public class RecipeViewFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_recipe_view, menu);
+//        getActivity().invalidateOptionsMenu();
     }
 
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) { //TODO - set menu items according to currently connected user
+        super.onPrepareOptionsMenu(menu);
+//        if(recipe == null){
+//            menu.clear();
+//            return;
+//        }
+//        menu.findItem(R.id.edit).setVisible(login.isConnected() && login.getUserName() == username.getText());
+    }
 
     @Override
     public void onSaveInstanceState(Bundle bundle) {
@@ -128,7 +154,38 @@ public class RecipeViewFragment extends Fragment {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        boolean handled = true;
+        switch(item.getItemId())
+        {
+            case R.id.edit:
+                handleEditPressed();
+                break;
+            case R.id.share:
+                handleSharePressed();
+                break;
+            case R.id.fav:
+                handleFavoritesPressed();
+                break;
+            default:
+                handled = false;
+                break;
+        }
+        return handled;
+    }
 
+    private void handleFavoritesPressed() { //TODO - implement
+        Toast.makeText(getActivity(), "Favorites" + " " + getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show();
+    }
+
+    private void handleSharePressed() { //TODO - implement
+        Toast.makeText(getActivity(), "Share" + " " + getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show();
+    }
+
+    private void handleEditPressed() { //TODO - implement
+        Toast.makeText(getActivity(), "Edit" + " " + getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show();
+    }
 
     public class RecipeIngAdapter extends ArrayAdapter<Pair<Ingredient, String>> {
         private final Context context;

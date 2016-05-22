@@ -104,6 +104,17 @@ public class TastyDrawerLayout {
         drawMenu();
     }
 
+    public String getUserName() {
+        return login.getUserName();
+    }
+
+    public String getEmail() {
+        return login.getEmail();
+    }
+
+    public boolean isConnected() {
+        return login.isConnected();
+    }
 
 
     private enum ITEMS

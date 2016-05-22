@@ -3,6 +3,7 @@ package com.example.asaelr.tastyidea;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
 
 import networking.RecipeMetadata;
 
@@ -39,6 +41,7 @@ public class ImageDownloader {
             updatePicture();
         }
         else download();
+
     }
 
     public void download() {
@@ -105,5 +108,6 @@ public class ImageDownloader {
             imageView.setImageResource(R.drawable.logo_small);
         }
         //imageView.postInvalidate();
+
     }
 }

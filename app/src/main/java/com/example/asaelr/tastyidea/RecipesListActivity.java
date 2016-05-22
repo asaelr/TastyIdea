@@ -22,7 +22,7 @@ import java.io.IOException;
 import networking.Login;
 import networking.Networking;
 
-public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, OnRecipeSelectedListener {
+public class RecipesListActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, OnRecipeSelectedListener, LoginDataSupplier {
         private boolean isFromNavDrawer = false;
 
     private TastyDrawerLayout drawer;
@@ -147,5 +147,20 @@ public class RecipesListActivity extends AppCompatActivity implements FragmentMa
     public void onBackPressed() {
         super.onBackPressed();
         if(isFromNavDrawer) {startActivity(new Intent(this, SearchActivity.class));}
+    }
+
+    @Override
+    public String getUserName() {
+        return drawer.getUserName();
+    }
+
+    @Override
+    public String getEmail() {
+        return drawer.getEmail();
+    }
+
+    @Override
+    public boolean isConnected() {
+        return drawer.isConnected();
     }
 }

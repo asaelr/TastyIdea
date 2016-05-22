@@ -37,7 +37,7 @@ public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
 
         ImageView imageView = (ImageView) rowView.findViewById(R.id.pic);
         ProgressBar progressBar = null;//(ProgressBar) rowView.findViewById(R.id.pic_loading);
-        new ImageDownloader(rmd.id, imageView, progressBar);
+//        new ImageDownloader(rmd.id, imageView, progressBar);
        // imageView.setImageResource(R.drawable.logo_small); //for now
 
         TextView recipe_name = (TextView) rowView.findViewById(R.id.name);
@@ -60,30 +60,6 @@ public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
 
         rating.setProgress(rmd.rate);
 
-        /*
-        switch (position) {
-            case 0:
-                imageView.setImageResource(R.mipmap.ic_bolonez);
-                rating.setProgress(2);
-                break;
-            case 1:
-                imageView.setImageResource(R.mipmap.ic_pancakes);
-                rating.setProgress(3);
-                break;
-            case 2:
-                imageView.setImageResource(R.mipmap.ic_lazania);
-                rating.setProgress(5);
-                break;
-            case 3:
-                imageView.setImageResource(R.mipmap.ic_tiras);
-                rating.setProgress(1);
-                break;
-            case 4:
-                imageView.setImageResource(R.mipmap.ic_tootim);
-                rating.setProgress(4);
-                break;
-        }
-        */
         return rowView;
     }
 }
