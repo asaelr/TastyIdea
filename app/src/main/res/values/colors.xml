@@ -16,4 +16,5 @@
     <color name="colorBackground" >#f1efef</color>
     <color name="listBackground" >#f9f7f7</color>
     <color name="colorDashboardText" >#1702ab</color>
+    <color name="editTextFrameBackground" >#e0dfdf</color>
 </resources>

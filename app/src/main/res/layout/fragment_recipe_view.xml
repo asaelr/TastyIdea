@@ -36,7 +36,6 @@
                 android:id="@+id/recipeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pancakes"
                 android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/recipe_view_name_size"/>
             <TextView
@@ -102,7 +101,8 @@
                     <ImageView
                         android:layout_width="@dimen/recipe_atrr_indication_image_size"
                         android:layout_height="@dimen/recipe_atrr_indication_image_size"
-                        android:src="@android:drawable/checkbox_on_background"/>
+                        android:src="@android:drawable/checkbox_on_background"
+                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
