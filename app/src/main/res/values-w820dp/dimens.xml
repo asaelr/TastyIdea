@@ -13,4 +13,5 @@
     <dimen name="recipe_view_user_size">18sp</dimen>
     <dimen name="recipe_view_list_title_size">24sp</dimen>
     <dimen name="search_btn_size">120dp</dimen>
+    <dimen name="recipe_atrr_indication_image_size">20dp</dimen>
 </resources>

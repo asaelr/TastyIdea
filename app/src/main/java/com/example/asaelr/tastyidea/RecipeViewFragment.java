@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -45,6 +46,9 @@ public class RecipeViewFragment extends Fragment {
     private TextView difficulty;
     private TextView name;
     private ProgressBar progressBar;
+    private LinearLayout vegeterian;
+    private LinearLayout vegan;
+    private LinearLayout kosher;
 
     LoginDataSupplier login;
 
@@ -78,7 +82,9 @@ public class RecipeViewFragment extends Fragment {
         difficulty = (TextView) fragmentView.findViewById(R.id.difficulty);
         name = (TextView) fragmentView.findViewById(R.id.recipeName);
         progressBar = (ProgressBar) fragmentView.findViewById(R.id.recipe_pic_loading);
-
+        vegeterian = (LinearLayout) fragmentView.findViewById(R.id.vegeterian_indication);
+        vegan = (LinearLayout) fragmentView.findViewById(R.id.vegan_indication);
+        kosher = (LinearLayout) fragmentView.findViewById(R.id.kosher_indication);
         if(savedInstanceState!=null) recipe = (Recipe) savedInstanceState.getSerializable("recipe");
 
         setView();
@@ -116,6 +122,11 @@ public class RecipeViewFragment extends Fragment {
         category.setText(recipe.getCategory(getContext()));
         difficulty.setText(getResources().getStringArray(R.array.DifficultyLevel)[recipe.getDifficulty()]);
         time.setText(recipe.getPrepTimeMinutes() + " " + getString(R.string.minutes)) ;
+
+
+        vegeterian.setVisibility(recipe.isVegeterian() ? View.VISIBLE : View.GONE);
+        vegan.setVisibility(recipe.isVegan() ? View.VISIBLE : View.GONE);
+        kosher.setVisibility(recipe.isKosher() ? View.VISIBLE : View.GONE);
 
         new ImageDownloader(recipe.getId(),image, progressBar);
     }

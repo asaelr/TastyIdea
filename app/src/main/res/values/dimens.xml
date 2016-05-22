@@ -24,4 +24,5 @@
     <dimen name="search_btn_size">90dp</dimen>
     <dimen name="ingredient_pic_size">50dp</dimen>
     <dimen name="recipe_view_image_width">250dp</dimen>
+    <dimen name="recipe_atrr_indication_image_size">20dp</dimen>
 </resources>

@@ -57,30 +57,87 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:padding="2dp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="2dp"
+                    android:id="@+id/vegeterian_indication">
+                    <ImageView
+                        android:layout_width="@dimen/recipe_atrr_indication_image_size"
+                        android:layout_height="@dimen/recipe_atrr_indication_image_size"
+                        android:src="@android:drawable/checkbox_on_background"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/recipe_view_atrr_size"
+                        android:text="@string/vegetarian"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="2dp"
+                    android:id="@+id/vegan_indication">
+                    <ImageView
+                        android:layout_width="@dimen/recipe_atrr_indication_image_size"
+                        android:layout_height="@dimen/recipe_atrr_indication_image_size"
+                        android:src="@android:drawable/checkbox_on_background"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/recipe_view_atrr_size"
+                        android:text="@string/vegan"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="2dp"
+                    android:id="@+id/kosher_indication">
+                    <ImageView
+                        android:layout_width="@dimen/recipe_atrr_indication_image_size"
+                        android:layout_height="@dimen/recipe_atrr_indication_image_size"
+                        android:src="@android:drawable/checkbox_on_background"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/recipe_view_atrr_size"
+                        android:text="@string/kosher"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/properties"
                 android:layout_gravity="center_horizontal"
-                android:padding="5dp"
+                android:padding="2dp"
                 >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/time"
-                        android:text="Time: 30 minutes"
                         android:textSize="@dimen/recipe_view_atrr_size"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/difficulty"
-                        android:text="Difficulty: Easy"
                         android:textSize="@dimen/recipe_view_atrr_size"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/category"
-                        android:text="Category: Desserts"
                         android:textSize="@dimen/recipe_view_atrr_size"/>
              </LinearLayout>
+
+
             <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,8 +147,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ingredients_title"
-                android:text="Ingredients:"
-                android:textSize="@dimen/recipe_view_list_title_size"/>
+                android:text="@string/ingredients_headline"
+                android:textSize="@dimen/recipe_view_list_title_size"
+                android:padding="2dp"/>
             <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,8 +160,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/preparation_title"
-                android:text="Preparation:"
-                android:textSize="@dimen/recipe_view_list_title_size"/>
+                android:text="@string/preparation_headline"
+                android:textSize="@dimen/recipe_view_list_title_size"
+                android:padding="2dp"/>
             <com.example.asaelr.tastyidea.ExpandedListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,31 +183,7 @@
                 <!--android:textSize="16sp"-->
                 <!--android:background="@color/listBackground"/>-->
         </LinearLayout>
-            <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            android:id="@+id/buttons">
-            <!--<ImageButton-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:src="@mipmap/edit_icon"-->
-                <!--android:scaleType="centerCrop"-->
-                <!--android:background="@android:color/transparent"-->
-                <!--android:layout_marginLeft="60dp"-->
-                <!--android:layout_marginRight="60dp"-->
-                <!--android:id="@+id/edit"-->
-                <!--android:text="edit"/>-->
-            <!--<ImageButton-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:id="@+id/share"-->
-                <!--android:scaleType="centerCrop"-->
-                <!--android:background="@android:color/transparent"-->
-                <!--android:src="@mipmap/share_icon"-->
-                <!--android:text="share"/>-->
-        </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
