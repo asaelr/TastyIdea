@@ -1,5 +1,6 @@
 package com.example.asaelr.tastyidea;
 
+import android.content.Context;
 import android.net.Network;
 import android.util.Log;
 import android.util.Pair;
@@ -65,8 +66,22 @@ public class Recipe implements Serializable {
         return directions;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategory(Context context) {
+        String[] serverCategories = context.getResources().getStringArray(R.array.recipe_categories_serverName);
+        String[] userCategories = context.getResources().getStringArray(R.array.recipe_categories);
+        for (int i=0;i<serverCategories.length;i++) {
+            if (serverCategories[i].equals(category)) return userCategories[i];
+        }
+        return null;
+    }
+
+    public static String getCategory(Context context, String Scategory) {
+        String[] serverCategories = context.getResources().getStringArray(R.array.recipe_categories_serverName);
+        String[] userCategories = context.getResources().getStringArray(R.array.recipe_categories);
+        for (int i=0;i<serverCategories.length;i++) {
+            if (serverCategories[i].equals(Scategory)) return userCategories[i];
+        }
+        return null;
     }
 
     public int getPrepTimeMinutes() {

@@ -77,7 +77,7 @@ public class RecipeViewFragment extends Fragment {
         time = (TextView) fragmentView.findViewById(R.id.time);
         difficulty = (TextView) fragmentView.findViewById(R.id.difficulty);
         name = (TextView) fragmentView.findViewById(R.id.recipeName);
-        progressBar = null;//(ProgressBar) fragmentView.findViewById(R.id.recipe_pic_loading);
+        progressBar = (ProgressBar) fragmentView.findViewById(R.id.recipe_pic_loading);
 
         if(savedInstanceState!=null) recipe = (Recipe) savedInstanceState.getSerializable("recipe");
 
@@ -111,9 +111,9 @@ public class RecipeViewFragment extends Fragment {
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         username.setText(content);
 
-        image.setImageResource(R.drawable.logo_small); //TODO - temp image, add image to Recipe
+        //image.setImageResource(R.drawable.logo_small); //TODO - temp image, add image to Recipe
 
-        category.setText(recipe.getCategory());
+        category.setText(recipe.getCategory(getContext()));
         difficulty.setText(getResources().getStringArray(R.array.DifficultyLevel)[recipe.getDifficulty()]);
         time.setText(recipe.getPrepTimeMinutes() + " " + getString(R.string.minutes)) ;
 
