@@ -103,8 +103,23 @@ public class IngredientList extends RelativeLayout {
         ((ImageButton) findViewById(R.id.clearButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ingredients.clear();
-                adapter.clear();
+                if (ingredients.isEmpty()) return;
+                new AlertDialog.Builder(getContext())
+                        .setMessage(R.string.delete_confirmation)
+                        .setIcon(android.R.drawable.ic_delete)
+                        .setPositiveButton(R.string.delete_confirmation_positive_btn, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                ingredients.clear();
+                                adapter.clear();
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton(R.string.delete_confirmation_negative_btn, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .create().show();
             }
         });
         List<String> ings = new ArrayList<>();
