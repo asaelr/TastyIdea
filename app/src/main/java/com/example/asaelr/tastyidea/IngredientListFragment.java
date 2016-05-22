@@ -9,6 +9,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,8 +92,22 @@ IngredientListFragment extends Fragment {
         ((ImageButton)view.findViewById(R.id.clearButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ingredients.clear();
-                adapter.clear();
+                new AlertDialog.Builder(getActivity())
+                    .setMessage(R.string.delete_confirmation)
+                    .setIcon(android.R.drawable.ic_delete)
+                    .setPositiveButton(R.string.delete_confirmation_positive_btn, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ingredients.clear();
+                            adapter.clear();
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton(R.string.delete_confirmation_negative_btn, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
             }
         });
         List<String> ings= new ArrayList<String>();
