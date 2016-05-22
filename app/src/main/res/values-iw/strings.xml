@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">TastyIdea</string>
+    <string name="favoritRecepies">מתכונים מועדפים</string>
+    <string name="myRecepies">המתכונים שלי</string>
+    <string name="prefrences">העדפות</string>
+    <string name="addRecepie">הוסף מתכון</string>
+    <string name="search_recepie">חפש מתכון</string>
+    <string name="title_activity_settings">הגדרות</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">כללי</string>
+
+    <string name="pref_title_social_recommendations">אפשר המלצות חברתיות</string>
+    <string name="pref_description_social_recommendations">המלצות לאנשים לתקשר בהסתמך על היסטורית הודעות</string>
+
+    <string name="pref_title_display_name">הצג שם</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">הוסף חברים להודעות</string>
+    <string-array name="pref_example_list_titles">
+        <item>תמיד</item>
+        <item>כאשר אפשרי</item>
+        <item>לעולם לא</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">תדירות סנכרון</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 דקות</item>
+        <item>30 דקות</item>
+        <item>שעה</item>
+        <item>3 שעות</item>
+        <item>6 שעות</item>
+        <item>לעולם לא</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">הגדרות סנכרון מערכת</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">התראות</string>
+
+    <string name="pref_title_new_message_notifications">התראה על הודעה חדשה</string>
+
+    <string name="pref_title_ringtone">רינגטון</string>
+    <string name="pref_ringtone_silent">שקט</string>
+
+    <string name="pref_title_vibrate">רטט</string>
+    <string name="pref_title_vegetarian_switch">צמחוני</string>
+    <string name="pref_description_vegetarian_switch">החיפוש יראה רק מתכונים צמחוניים</string>
+    <string name="pref_description_vegan_switch">החיפוש יראה רק מתכונים טבעוניים</string>
+    <string name="pref_title_vegan_switch">טבעוני</string>
+    <string name="pref_description_kosher_switch">החיפוש יראה רק מתכונים כשרים</string>
+    <string name="pref_title_kosher_switch">כשר</string>
+    <string name="pref_title_manage_excluded_ingredients">נהל הוצאת מרכיבים מן החיפוש</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="minRatingPreferenceTitle">דירוג מינימלי</string>
+    <string name="cancel">ביטול</string>
+    <string name="ok">אוקיי</string>
+    <string name="pref_display_name_summary">בחר שם משתמש להצגה</string>
+    <string name="pref_display_name_title">שם משתמש</string>
+    <string name="pref_max_time_summary">קבע זמן הכנה מקסימלי שעות:דקות</string>
+    <string name="pref_max_time_title">זמן הכנה מקסימלי</string>
+    <string name="set">אישור</string>
+    <string name="pref_DifficultyLevel_summary">קבע רמת קושי מקסימלית</string>
+    <string name="pref_DifficultyLevel">רמת קושי מקסימלית</string>
+    <string name="pref_excluded_ingredients_summary">החיפוש לא ייראה מתכונים המכלילים את המרכיבים שבחרת להוציא מן החיפוש</string>
+    <string name="name_field">שם: </string>
+    <string name="next_step">לצעד הבא:</string>
+    <string name="ingredients">מרכיבים:</string>
+    <string name="attach_photo">צרף תמונה</string>
+    <string name="directions">הוראות:</string>
+    <string name="cooking_time_title">זמן הכנה:</string>
+    <string name="category_title">קטגוריה: </string>
+    <string name="difficulty_level_title">רמת קושי: </string>
+
+    <string name="action_settings">הגדרות</string>
+    <string name="title_activity_recipe_view">תצוגת מתכון</string>
+    <string name="title_activity_recipes_list">רשימת מתכונים</string>
+    <string name="preferences_title">הגדרות</string>
+    <string name="share">שתף</string>
+    <string name="minutes">דקות</string>
+    <string name="hours">שעות</string>
+    <string name="pancakes">פנקייקים</string>
+    <string name="recipes_list_share_menu_title">שתף</string>
+    <string name="recipes_list_edit_menu_title">ערוך</string>
+    <string name="easy">קל</string>
+    <string name="select_ingredients">בחר מרכיבים</string>
+    <string name="attributes">תכונות</string>
+    <string name="ingredients_title">מרכיבים</string>
+    <string name="directions_title">הוראות</string>
+    <string name="recipes_list_favorites_menu_title">מתכונים מועדפים</string>
+    <string name="vegetarian">צמחוני</string>
+    <string name="vegan">טבעוני</string>
+    <string name="kosher">כשר</string>
+    <string name="advanced_search">חיפוש מתקדם</string>
+    <string name="logout">התנתק</string>
+    <string name="login">התחבר</string>
+    <string name="login_description">התחבר לקבלת פונקציונליות מלאה</string>
+    <string name="exit_confirmation">האם אתה בטוח שברצונך לצאת?</string>
+    <string name="confirmation_positive_btn">כן</string>
+    <string name="confirmation_negative_btn">לא</string>
+    <string name="delete_confirmation">האם ברצונך למחוק?</string>
+    <string name="delete_confirmation_positive_btn">מחק</string>
+    <string name="delete_confirmation_negative_btn">ביטול</string>
+    <string name="logout_confirmation_negative_btn">ביטול</string>
+    <string name="logout_confirmation_positive_btn">התנתק</string>
+    <string name="logout_confirmation">האם אתה בטוח שברצונך להתנתק?</string>
+    <string name="search_results">תוצאות חיפוש</string>
+    <string name="OK">אוקיי</string>
+    <string name="recipes_not_found">לא נמצאו מתכונים</string>
+    <string name="cannot_get_recipes">קבלת מתכונים מהשרת נכשלה</string>
+    <string name="cannot_load_recipe">טעינת מתכון מהשרת נכשלה</string>
+    <string name="error">שגיאה</string>
+    <string name="no_ingredients_selected_message">לא נבחרו מרכיבים</string>
+    <string name="excluded_ingredients">מרכיבים שלא יופיעו בחיפוש:</string>
+    <string name="general">כללי</string>
+    <string name="advanced_settings">הגדרות מתקדמות</string>
+    <string name="category">קטגוריה:</string>
+    <string name="save_as_default">שמור כדיפולט</string>
+    <string name="settings_saved_as_defalut_message">שמור כדיפולט!</string>
+</resources>

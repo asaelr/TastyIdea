@@ -27,6 +27,16 @@
         <item>@array/bell_pepper</item>
         <item>@array/pickle</item>
         <item>@array/zucchini</item>
+        <item>@array/lentil</item>
+        <item>@array/coriander</item>
+        <item>@array/spinach</item>
+        <item>@array/sweet_potato</item>
+        <item>@array/thyme</item>
+        <item>@array/broccoli</item>
+        <item>@array/cauliflower</item>
+        <item>@array/eggplant</item>
+        <item>@array/basil</item>
+        <item>@array/dried_tomatos</item>
     </string-array>
 
     <string-array name="carrot">
@@ -65,7 +75,50 @@
         <item>pumpkin</item>
         <item>@mipmap/ic_pumpkin</item>
     </string-array>
-
+    <string-array name="lentil">
+        <item>lentil</item>
+        <item>@mipmap/ic_lentil</item>
+    </string-array>
+    <string-array name="coriander">
+        <item>coriander</item>
+        <item>@mipmap/ic_coriander</item>
+    </string-array>
+    <string-array name="spinach">
+        <item>spinach</item>
+        <item>@mipmap/ic_spinach</item>
+    </string-array>
+    <string-array name="sweet_potato">
+        <item>sweet_potato</item>
+        <item>@mipmap/ic_sweet_potato</item>
+    </string-array>
+    <string-array name="beet">
+        <item>beet</item>
+        <item>@mipmap/ic_beet</item>
+    </string-array>
+    <string-array name="thyme">
+        <item>thyme</item>
+        <item>@mipmap/ic_thyme</item>
+    </string-array>
+    <string-array name="broccoli">
+        <item>broccoli</item>
+        <item>@mipmap/ic_broccoli</item>
+    </string-array>
+    <string-array name="cauliflower">
+        <item>cauliflower</item>
+        <item>@mipmap/ic_cauliflower</item>
+    </string-array>
+    <string-array name="eggplant">
+        <item>eggplant</item>
+        <item>@mipmap/ic_eggplant</item>
+    </string-array>
+    <string-array name="basil">
+        <item>basil</item>
+        <item>@mipmap/ic_basil</item>
+    </string-array>
+    <string-array name="dried_tomatos">
+        <item>dried tomatos</item>
+        <item>@mipmap/ic_dried_tomatos</item>
+    </string-array>
 
     <string-array name="dairy">
         <item>dairy</item>
@@ -78,6 +131,12 @@
         <item>@array/cottage</item>
         <item>@array/butter</item>
         <item>@array/cream</item>
+        <item>@array/cheddar</item>
+        <item>@array/parmessan</item>
+        <item>@array/mozzarella</item>
+        <item>@array/riccota</item>
+        <item>@array/kashkaval</item>
+        <item>@array/roquefort</item>
     </string-array>
 
     <string-array name="milk">
@@ -92,7 +151,30 @@
         <item>butter</item>
         <item>@mipmap/ic_butter</item>
     </string-array>
-
+    <string-array name="cheddar">
+        <item>cheddar</item>
+        <item>@mipmap/ic_cheddar</item>
+    </string-array>
+    <string-array name="parmessan">
+        <item>parmessan</item>
+        <item>@mipmap/ic_parmessan</item>
+    </string-array>
+    <string-array name="mozzarella">
+        <item>mozzarella</item>
+        <item>@mipmap/ic_mozzarella</item>
+    </string-array>
+    <string-array name="riccota">
+        <item>ricotta</item>
+        <item>@mipmap/ic_ricotta</item>
+    </string-array>
+    <string-array name="kashkaval">
+        <item>kashkaval</item>
+        <item>@mipmap/ic_kashkaval</item>
+    </string-array>
+    <string-array name="roquefort">
+        <item>roquefort</item>
+        <item>@mipmap/ic_roquefort</item>
+    </string-array>
 
     <string-array name="spices">
         <item>spices</item>
@@ -108,6 +190,7 @@
         <item>@array/sugar</item>
         <item>@array/chicken_soup_powder</item>
         <item>@array/sweet_paprika</item>
+        <item>@array/oregano</item>
     </string-array>
 
 
@@ -129,6 +212,15 @@
         <item>@array/chicken_breast</item>
         <item>@array/tomato_juice</item>
         <item>@array/margarine</item>
+        <item>@array/coconut_milk</item>
+        <item>@array/lemon_juice</item>
+        <item>@array/bread_crumbs</item>
+        <item>@array/pasta</item>
+        <item>@array/dough</item>
+        <item>@array/nutmeg</item>
+        <item>@array/puff_pastry</item>
+        <item>@array/walnut</item>
+        <item>@array/vinegar</item>
     </string-array>
 
     <string-array name="water">
@@ -179,7 +271,10 @@
         <item>cinnamon powder</item>
         <item>@mipmap/ic_cinnamon</item>
     </string-array>
-
+    <string-array name="oregano">
+        <item>oregano</item>
+        <item>@mipmap/ic_oregano</item>
+    </string-array>
 
 
     <string-array name="zucchini">
@@ -222,5 +317,40 @@
         <item>margarine</item>
         <item>@mipmap/ic_margarine</item>
     </string-array>
-
+    <string-array name="coconut_milk">
+        <item>coconut_milk</item>
+        <item>@mipmap/ic_cocunut_milk</item>
+    </string-array>
+    <string-array name="lemon_juice">
+        <item>lemon_juice</item>
+        <item>@mipmap/ic_lemon_juice</item>
+    </string-array>
+    <string-array name="bread_crumbs">
+        <item>bread_crumbs</item>
+        <item>@mipmap/ic_bread_crumbs</item>
+    </string-array>
+    <string-array name="pasta">
+        <item>pasta</item>
+        <item>@mipmap/ic_pasta</item>
+    </string-array>
+    <string-array name="dough">
+        <item>dough</item>
+        <item>@mipmap/ic_dough</item>
+    </string-array>
+    <string-array name="nutmeg">
+        <item>nutmeg</item>
+        <item>@mipmap/ic_nutmeg</item>
+    </string-array>
+    <string-array name="puff_pastry">
+        <item>puff pastry</item>
+        <item>@mipmap/ic_puff_pastry</item>
+    </string-array>
+    <string-array name="walnut">
+        <item>walnut</item>
+        <item>@mipmap/ic_walunt</item>
+    </string-array>
+    <string-array name="vinegar">
+        <item>vinegar</item>
+        <item>@mipmap/ic_vinegar</item>
+    </string-array>
 </resources>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>@array/vegetables</item>
+        <item>@array/dairy</item>
+        <item>@array/spices</item>
+        <item>@array/other_ingredients</item>
+    </string-array>
+
+
+    <string-array name="vegetables">
+        <item>ירקות</item>
+        <item>@mipmap/ic_vegetables</item>
+        <item>@array/vegetablesItems</item>
+    </string-array>
+
+    <string-array name="vegetablesItems">
+        <item>@array/carrot</item>
+        <item>@array/cucumber</item>
+        <item>@array/onion</item>
+        <item>@array/tomato</item>
+        <item>@array/potato</item>
+        <item>@array/pepper</item>
+        <item>@array/garlic</item>
+        <item>@array/cabbage</item>
+        <item>@array/pumpkin</item>
+        <item>@array/bell_pepper</item>
+        <item>@array/pickle</item>
+        <item>@array/zucchini</item>
+        <item>@array/lentil</item>
+        <item>@array/coriander</item>
+        <item>@array/spinach</item>
+        <item>@array/sweet_potato</item>
+        <item>@array/thyme</item>
+        <item>@array/broccoli</item>
+        <item>@array/cauliflower</item>
+        <item>@array/eggplant</item>
+        <item>@array/basil</item>
+        <item>@array/dried_tomatos</item>
+    </string-array>
+
+    <string-array name="carrot">
+        <item>גזר</item>
+        <item>@mipmap/ic_carrot</item>
+    </string-array>
+    <string-array name="cucumber">
+        <item>מלפפון</item>
+        <item>@mipmap/ic_cucumber</item>
+    </string-array>
+    <string-array name="onion">
+        <item>בצל</item>
+        <item>@mipmap/ic_onion</item>
+    </string-array>
+    <string-array name="tomato">
+        <item>עגבניה</item>
+        <item>@mipmap/ic_tomato</item>
+    </string-array>
+    <string-array name="potato">
+        <item>תפוח אדמה</item>
+        <item>@mipmap/ic_potato</item>
+    </string-array>
+    <string-array name="pepper">
+        <item>פלפל</item>
+        <item>@mipmap/ic_pepper</item>
+    </string-array>
+    <string-array name="garlic">
+        <item>שום</item>
+        <item>@mipmap/ic_garlic</item>
+    </string-array>
+    <string-array name="cabbage">
+        <item>כרוב</item>
+        <item>@mipmap/ic_cabbage</item>
+    </string-array>
+    <string-array name="pumpkin">
+        <item>דלעת</item>
+        <item>@mipmap/ic_pumpkin</item>
+    </string-array>
+    <string-array name="lentil">
+        <item>עדשים</item>
+        <item>@mipmap/ic_lentil</item>
+    </string-array>
+    <string-array name="coriander">
+        <item>כוסברה</item>
+        <item>@mipmap/ic_coriander</item>
+    </string-array>
+    <string-array name="spinach">
+        <item>תרד</item>
+        <item>@mipmap/ic_spinach</item>
+    </string-array>
+    <string-array name="sweet_potato">
+        <item>בטטה</item>
+        <item>@mipmap/ic_sweet_potato</item>
+    </string-array>
+    <string-array name="beet">
+        <item>סלק</item>
+        <item>@mipmap/ic_beet</item>
+    </string-array>
+    <string-array name="thyme">
+        <item>תימין</item>
+        <item>@mipmap/ic_thyme</item>
+    </string-array>
+    <string-array name="broccoli">
+        <item>ברוקולי</item>
+        <item>@mipmap/ic_broccoli</item>
+    </string-array>
+    <string-array name="cauliflower">
+        <item>כרובית</item>
+        <item>@mipmap/ic_cauliflower</item>
+    </string-array>
+    <string-array name="eggplant">
+        <item>חצילים</item>
+        <item>@mipmap/ic_eggplant</item>
+    </string-array>
+    <string-array name="basil">
+        <item>בזיליקום</item>
+        <item>@mipmap/ic_basil</item>
+    </string-array>
+    <string-array name="dried_tomatos">
+        <item>עגבניות מיובשות</item>
+        <item>@mipmap/ic_dried_tomatos</item>
+    </string-array>
+
+    <string-array name="dairy">
+        <item>חלבי</item>
+        <item>@mipmap/ic_dairy</item>
+        <item>@array/dairyItems</item>
+    </string-array>
+
+    <string-array name="dairyItems">
+        <item>@array/milk</item>
+        <item>@array/cottage</item>
+        <item>@array/butter</item>
+        <item>@array/cream</item>
+        <item>@array/cheddar</item>
+        <item>@array/parmessan</item>
+        <item>@array/mozzarella</item>
+        <item>@array/riccota</item>
+        <item>@array/kashkaval</item>
+        <item>@array/roquefort</item>
+    </string-array>
+
+    <string-array name="milk">
+        <item>חלב</item>
+        <item>@mipmap/ic_milk</item>
+    </string-array>
+    <string-array name="cottage">
+        <item>"קוטג'"</item>
+        <item>@mipmap/ic_cottage</item>
+    </string-array>
+    <string-array name="butter">
+        <item>חמאה</item>
+        <item>@mipmap/ic_butter</item>
+    </string-array>
+    <string-array name="cheddar">
+        <item>"גבינת צ'דר"</item>
+        <item>@mipmap/ic_cheddar</item>
+    </string-array>
+    <string-array name="parmessan">
+        <item>גבינת פרמזן</item>
+        <item>@mipmap/ic_parmessan</item>
+    </string-array>
+    <string-array name="mozzarella">
+        <item>גבינת מוצרלה</item>
+        <item>@mipmap/ic_mozzarella</item>
+    </string-array>
+    <string-array name="riccota">
+        <item>גבינת ריקוטה</item>
+        <item>@mipmap/ic_ricotta</item>
+    </string-array>
+    <string-array name="kashkaval">
+        <item>גבינת קשקבל</item>
+        <item>@mipmap/ic_kashkaval</item>
+    </string-array>
+    <string-array name="roquefort">
+        <item>גבינת רוקפור</item>
+        <item>@mipmap/ic_roquefort</item>
+    </string-array>
+
+    <string-array name="spices">
+        <item>תבלינים</item>
+        <item>@mipmap/ic_spices</item>
+        <item>@array/spicesItems</item>
+    </string-array>
+
+    <string-array name="spicesItems">
+        <item>@array/salt</item>
+        <item>@array/pepper_powder</item>
+        <item>@array/cinnamon_powder</item>
+        <item>@array/curcuma_powder</item>
+        <item>@array/sugar</item>
+        <item>@array/chicken_soup_powder</item>
+        <item>@array/sweet_paprika</item>
+        <item>@array/oregano</item>
+    </string-array>
+
+
+    <string-array name="other_ingredients">
+        <item>אחר</item>
+        <item>@mipmap/ic_other_ingredients</item>
+        <item>@array/other_ingredientsItems</item>
+    </string-array>
+
+    <string-array name="other_ingredientsItems">
+        <item>@array/water</item>
+        <item>@array/egg</item>
+        <item>@array/rice</item>
+        <item>@array/tuna</item>
+        <item>@array/olive</item>
+        <item>@array/canned_corn</item>
+        <item>@array/oil</item>
+        <item>@array/flour</item>
+        <item>@array/chicken_breast</item>
+        <item>@array/tomato_juice</item>
+        <item>@array/margarine</item>
+        <item>@array/coconut_milk</item>
+        <item>@array/lemon_juice</item>
+        <item>@array/bread_crumbs</item>
+        <item>@array/pasta</item>
+        <item>@array/dough</item>
+        <item>@array/nutmeg</item>
+        <item>@array/puff_pastry</item>
+        <item>@array/walnut</item>
+        <item>@array/vinegar</item>
+    </string-array>
+
+    <string-array name="water">
+        <item>מים</item>
+        <item>@mipmap/ic_water</item>
+    </string-array>
+    <string-array name="egg">
+        <item>ביצה</item>
+        <item>@mipmap/ic_egg</item>
+    </string-array>
+    <string-array name="rice">
+        <item>אורז</item>
+        <item>@mipmap/ic_rice</item>
+    </string-array>
+    <string-array name="bell_pepper">
+        <item>פלפל</item>
+        <item>@mipmap/ic_bell_pepper</item>
+    </string-array>
+    <string-array name="tuna">
+        <item>טונה</item>
+        <item>@mipmap/ic_tuna</item>
+    </string-array>
+    <string-array name="olive">
+        <item>זיתים</item>
+        <item>@mipmap/ic_olive</item>
+    </string-array>
+    <string-array name="canned_corn">
+        <item>שימורי תירס</item>
+        <item>@mipmap/ic_canned_corn</item>
+    </string-array>
+    <string-array name="pickle">
+        <item>מלפפון חמוץ</item>
+        <item>@mipmap/ic_pickle</item>
+    </string-array>
+    <string-array name="salt">
+        <item>מלח</item>
+        <item>@mipmap/ic_salt</item>
+    </string-array>
+    <string-array name="pepper_powder">
+        <item>פלפל שחור</item>
+        <item>@mipmap/ic_pepper_powder</item>
+    </string-array>
+    <string-array name="curcuma_powder">
+        <item>כורכום</item>
+        <item>@mipmap/ic_curcuma</item>
+    </string-array>
+    <string-array name="cinnamon_powder">
+        <item>קינמון</item>
+        <item>@mipmap/ic_cinnamon</item>
+    </string-array>
+    <string-array name="oregano">
+        <item>אורגנו</item>
+        <item>@mipmap/ic_oregano</item>
+    </string-array>
+
+
+    <string-array name="zucchini">
+        <item>קישוא</item>
+        <item>@mipmap/ic_zucchini</item>
+    </string-array>
+    <string-array name="flour">
+        <item>קמח</item>
+        <item>@mipmap/ic_flour</item>
+    </string-array>
+    <string-array name="oil">
+        <item>שמן</item>
+        <item>@mipmap/ic_oil</item>
+    </string-array>
+    <string-array name="chicken_soup_powder">
+        <item>אבקת מרק עוף</item>
+        <item>@mipmap/ic_chicken_soup_powder</item>
+    </string-array>
+    <string-array name="tomato_juice">
+        <item>מיץ עגבניות</item>
+        <item>@mipmap/ic_tomato_juice</item>
+    </string-array>
+    <string-array name="sugar">
+        <item>סוכר</item>
+        <item>@mipmap/ic_sugar</item>
+    </string-array>
+    <string-array name="cream">
+        <item>שמנת</item>
+        <item>@mipmap/ic_cream</item>
+    </string-array>
+    <string-array name="chicken_breast">
+        <item>חזה עוף</item>
+        <item>@mipmap/ic_chicken_breast</item>
+    </string-array>
+    <string-array name="sweet_paprika">
+        <item>פפריקה מתוקה</item>
+        <item>@mipmap/ic_sweet_paprika</item>
+    </string-array>
+    <string-array name="margarine">
+        <item>מרגרינה</item>
+        <item>@mipmap/ic_margarine</item>
+    </string-array>
+    <string-array name="coconut_milk">
+        <item>חלב קוקוס</item>
+        <item>@mipmap/ic_cocunut_milk</item>
+    </string-array>
+    <string-array name="lemon_juice">
+        <item>מיץ לימון</item>
+        <item>@mipmap/ic_lemon_juice</item>
+    </string-array>
+    <string-array name="bread_crumbs">
+        <item>פירורי לחם</item>
+        <item>@mipmap/ic_bread_crumbs</item>
+    </string-array>
+    <string-array name="pasta">
+        <item>פסטה</item>
+        <item>@mipmap/ic_pasta</item>
+    </string-array>
+    <string-array name="dough">
+        <item>בצק</item>
+        <item>@mipmap/ic_dough</item>
+    </string-array>
+    <string-array name="nutmeg">
+        <item>אגוז מוסקט</item>
+        <item>@mipmap/ic_nutmeg</item>
+    </string-array>
+    <string-array name="puff_pastry">
+        <item>בצק עלים</item>
+        <item>@mipmap/ic_puff_pastry</item>
+    </string-array>
+    <string-array name="walnut">
+        <item>אגוזי מלך</item>
+        <item>@mipmap/ic_walunt</item>
+    </string-array>
+    <string-array name="vinegar">
+        <item>חומץ</item>
+        <item>@mipmap/ic_vinegar</item>
+    </string-array>
+</resources>

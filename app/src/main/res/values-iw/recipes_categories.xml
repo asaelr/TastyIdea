@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recipe_categories">
+        <item>הכל</item>
+        <item>מרקים</item>
+        <item>בשר</item>
+        <item>סלטים</item>
+        <item>מאפים</item>
+    </string-array>
+
+    <string-array name="recipe_categories_serverName"> <!-- Don't translate this array! -->
+        <item></item>
+        <item>soups</item>
+        <item>meats</item>
+        <item>salads</item>
+        <item>pastries</item>
+    </string-array>
+</resources>

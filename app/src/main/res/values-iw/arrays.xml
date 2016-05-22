@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="DifficultyLevel">
+        <item name="easy">קל</item>
+        <item name="average">בינוני</item>
+        <item name="difficult">קשה</item>
+    </string-array>
+    <string-array name="DifficultyLevelValues">
+        <item name="easy">0</item>
+        <item name="average">1</item>
+        <item name="difficult">2</item>
+    </string-array>
+
+
+    <string-array name="MaxTime">
+        <item name="unlimited" value="-1">ללא הגבלה</item>
+        <item name="15min" value="15">15 דקות</item>
+        <item name="30min" value="30">30 דקות</item>
+        <item name="45min" value="45">45 דקות</item>
+        <item name="1hour" value="60">שעה</item>
+        <item name="2hour" value="120">שעתיים</item>
+        <item name="3hour" value="180">3 שעות</item>
+    </string-array>
+
+    <!--time in minutes-->
+    <string-array name="MaxTimeValues">
+        <item name="unlimited" value="-1">-1</item>
+        <item name="15min" value="15">15</item>
+        <item name="30min" value="30">30</item>
+        <item name="45min" value="45">45</item>
+        <item name="1hour" value="60">60</item>
+        <item name="2hour" value="120">120</item>
+        <item name="3hour" value="180">180</item>
+    </string-array>
+
+    <string-array name="example_steps" >
+        <item>"שבור ביצים לתוך קערה והוסף גבינת ריקוטה, עגבניות ובזיליקום"</item>
+        <item>"תבל עם מלח פלפל ואורגנו"</item>
+        <item>"בשל למשך דקה,ערבב עד שזה יהיה מוכן למשך דקה"</item>
+        <item>"פזר גבינת פרמזן על הביצים"</item>
+    </string-array>
+</resources>
