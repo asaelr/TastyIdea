@@ -61,7 +61,7 @@ public class RecipeViewFragment extends Fragment {
         time = (TextView) fragmentView.findViewById(R.id.time);
         difficulty = (TextView) fragmentView.findViewById(R.id.difficulty);
         name = (TextView) fragmentView.findViewById(R.id.recipeName);
-        progressBar = (ProgressBar) fragmentView.findViewById(R.id.recipe_pic_loading);
+        progressBar = null;//(ProgressBar) fragmentView.findViewById(R.id.recipe_pic_loading);
 
         if(savedInstanceState!=null) recipe = (Recipe) savedInstanceState.getSerializable("recipe");
 
@@ -73,7 +73,7 @@ public class RecipeViewFragment extends Fragment {
     private void setView() {
 
         if (recipe==null) {
-            mainView.setVisibility(View.GONE);
+            mainView.setVisibility(View.INVISIBLE);
             return;
         }
 

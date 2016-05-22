@@ -32,8 +32,8 @@ public class ImageDownloader {
         this.id = id;
         this.imageView = imageView;
         this.progressBar = progressBar;
-        imageView.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
+        //imageView.setVisibility(View.INVISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
         if (map.containsKey(id)) {
             Log.i("downloader","updating from map "+id);
             updatePicture();
@@ -77,8 +77,9 @@ public class ImageDownloader {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.i("downloader",filename+" success, failed="+failed);
-                if (failed) return;
+                if (failed || stream.size()==0) return;
                 Bitmap bm = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
+                Log.i("downloader","putting "+filename+" in map. size: "+stream.size());
                 map.put(id,bm);
                 updatePicture();
             }
@@ -94,15 +95,15 @@ public class ImageDownloader {
     }
 
     private void updatePicture() {
-        progressBar.setVisibility(View.INVISIBLE);
+        //progressBar.setVisibility(View.INVISIBLE);
         Log.i("downloader:updPic","progress->GONE");
-        imageView.setVisibility(View.VISIBLE);
+        //imageView.setVisibility(View.VISIBLE);
         if (map.containsKey(id)) {
             imageView.setImageBitmap(map.get(id));
         }
         else {
             imageView.setImageResource(R.drawable.logo_small);
         }
-        imageView.postInvalidate();
+        //imageView.postInvalidate();
     }
 }

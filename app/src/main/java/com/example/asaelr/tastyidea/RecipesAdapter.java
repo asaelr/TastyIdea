@@ -30,13 +30,13 @@ public class RecipesAdapter extends ArrayAdapter<RecipeMetadata> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView!=null) return convertView;
+        //if (convertView!=null) return convertView; //check this line...
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row_recipe, parent, false);
         RecipeMetadata rmd = getItem(position);
 
         ImageView imageView = (ImageView) rowView.findViewById(R.id.pic);
-        ProgressBar progressBar = (ProgressBar) rowView.findViewById(R.id.pic_loading);
+        ProgressBar progressBar = null;//(ProgressBar) rowView.findViewById(R.id.pic_loading);
         new ImageDownloader(rmd.id, imageView, progressBar);
        // imageView.setImageResource(R.drawable.logo_small); //for now
 
