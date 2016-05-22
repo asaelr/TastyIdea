@@ -134,7 +134,7 @@
     <string name="general">כללי</string>
     <string name="advanced_settings">הגדרות מתקדמות</string>
     <string name="category">קטגוריה:</string>
-    <string name="save_as_default">שמור כדיפולט</string>
+    <string name="save_as_default">שמור כברירת מחדל</string>
     <string name="settings_saved_as_defalut_message">נשמר כברירת מחדל!</string>
     <string name="ingredients_headline">מרכיבים:</string>
     <string name="preparation_headline">הוראות הכנה:</string>
