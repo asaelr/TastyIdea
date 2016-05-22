@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:id="@+id/toolbar"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:title="@string/app_name"
         android:logo="@drawable/logo_small"
 
@@ -19,15 +19,15 @@
 
 
         >
-        <ImageView
-            android:layout_width="@dimen/toolbar_icon_size"
-            android:layout_height="@dimen/toolbar_icon_size"
-            android:src="@drawable/add_recepie"/>
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/toolbar_icon_size"-->
+            <!--android:layout_height="@dimen/toolbar_icon_size"-->
+            <!--android:src="@drawable/add_recepie"/>-->
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="start"
             android:singleLine="true"
             android:text="@string/addRecepie"
             android:textColor="@android:color/white"
@@ -96,6 +96,8 @@
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="5"
+
+                android:onClick="handleAddBtnPressed"
                 />
 
             <!--<android.support.design.widget.FloatingActionButton-->

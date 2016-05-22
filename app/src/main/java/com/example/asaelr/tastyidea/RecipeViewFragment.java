@@ -209,7 +209,7 @@ public class RecipeViewFragment extends Fragment {
             TextView ammount = (TextView)rowView.findViewById(R.id.ammount);
 
             name.setText(item.first.name);
-            ammount.setText(" - " + item.second);
+            ammount.setText(item.second);
             imageView.setImageResource(item.first.picture);
             return rowView;
         }

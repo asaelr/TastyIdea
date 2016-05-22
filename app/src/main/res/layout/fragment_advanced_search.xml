@@ -46,7 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:id="@+id/min_rate"/>
+            android:id="@+id/min_rate"
+            />
 
         <View style="@style/Divider"/>
 

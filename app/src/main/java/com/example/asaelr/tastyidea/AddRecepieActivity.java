@@ -8,7 +8,9 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -144,4 +146,16 @@ public class AddRecepieActivity extends AppCompatActivity {
         if(isFromNavDrawer) {startActivity(new Intent(this, SearchActivity.class));}
     }
 
+
+    public void handleAddBtnPressed(View view)
+    {
+        Toast.makeText(this,
+                getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show(); //TODO - remove after implementation
+    }
+
+    public void handleAttachPhotoPressed(View view)
+    {
+        Toast.makeText(this,
+                getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show(); //TODO - remove after implementation
+    }
 }

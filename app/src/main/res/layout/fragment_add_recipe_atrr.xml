@@ -187,7 +187,7 @@
                     android:layout_width="@dimen/attach_photo_btn_width"
                     android:layout_height="@dimen/attach_photo_btn_height"
                     android:text="@string/attach_photo"
-
+                    android:onClick="handleAttachPhotoPressed"
 
                     android:textColor="#FFFFFF"
                     android:textSize="14sp"

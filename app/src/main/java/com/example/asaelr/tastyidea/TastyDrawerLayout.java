@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -142,11 +143,13 @@ public class TastyDrawerLayout {
             @Override
             public void handleSelection(TastyDrawerLayout drawer) {
                 //TODO - check if my recipes already displayed
-                Intent intent = new Intent(drawer.activity,  RecipesListActivity.class);
-                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
-                intent.putExtra(RecipesSupplier.SUPPLIER_KEY, new MockSupplier());//TODO - add supplier
-                drawer.activity.startActivity(intent);
-                drawer.activity.finish();
+//                Intent intent = new Intent(drawer.activity,  RecipesListActivity.class);
+//                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
+//                intent.putExtra(RecipesSupplier.SUPPLIER_KEY, new MockSupplier());//TODO - add supplier
+//                drawer.activity.startActivity(intent);
+//                drawer.activity.finish();
+                Toast.makeText(drawer.activity,
+                        drawer.activity.getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show(); //TODO - remove after implementation
             }
         },
         FAVORITES {
@@ -157,11 +160,14 @@ public class TastyDrawerLayout {
             @Override
             public void handleSelection(TastyDrawerLayout drawer) {
                 //TODO - check if favorites already displayed
-                Intent intent = new Intent(drawer.activity,  RecipesListActivity.class);
-                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
-                intent.putExtra(RecipesSupplier.SUPPLIER_KEY, new MockSupplier());//TODO - add supplier
-                drawer.activity.startActivity(intent);
-                drawer.activity.finish();
+//                Intent intent = new Intent(drawer.activity,  RecipesListActivity.class);
+//                intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
+//                intent.putExtra(RecipesSupplier.SUPPLIER_KEY, new MockSupplier());//TODO - add supplier
+//                drawer.activity.startActivity(intent);
+//                drawer.activity.finish();
+
+                Toast.makeText(drawer.activity,
+                        drawer.activity.getString(R.string.feature_not_implemented), Toast.LENGTH_SHORT).show(); //TODO - remove after implementation
             }
         },
         ADD_RECIPE {
@@ -176,6 +182,9 @@ public class TastyDrawerLayout {
                 intent.putExtra(TastyDrawerLayout.FROM_DRAWER_KEY, true);
                 drawer.activity.startActivity(intent);
                 drawer.activity.finish();
+
+                Toast.makeText(drawer.activity,
+                        drawer.activity.getString(R.string.feature_not_implemented), Toast.LENGTH_LONG).show(); //TODO - remove after implementation
             }
         },
 //        PREFERENCE {
