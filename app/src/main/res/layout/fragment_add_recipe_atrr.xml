@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:background="@color/listBackground"
-                android:maxLength="25"
+                android:maxLength="30"
                 android:singleLine="true"
                 />
         </LinearLayout>
