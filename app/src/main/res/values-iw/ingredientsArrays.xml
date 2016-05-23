@@ -78,7 +78,6 @@
         <item>@array/dried_tomato</item>
         <item>@array/beet</item>
         <item>@array/leek</item>
-        <item>@array/mentha</item>
         <item>@array/kohlrabi</item>
     </string-array>
 
@@ -166,10 +165,6 @@
         <item>כרישה</item>
         <item>@mipmap/ic_leek</item>
     </string-array>
-    <string-array name="mentha">
-        <item>נענע</item>
-        <item>@mipmap/ic_mentha</item>
-    </string-array>
     <string-array name="kohlrabi">
         <item>קולורבי</item>
         <item>@mipmap/ic_kohlrabi</item>
@@ -246,6 +241,7 @@
         <item>@array/chicken_soup_powder</item>
         <item>@array/sweet_paprika</item>
         <item>@array/oregano</item>
+        <item>@array/mentha</item>
     </string-array>
 
 
@@ -328,7 +324,10 @@
         <item>אורגנו</item>
         <item>@mipmap/ic_oregano</item>
     </string-array>
-
+    <string-array name="mentha">
+        <item>נענע</item>
+        <item>@mipmap/ic_mentha</item>
+    </string-array>
 
     <string-array name="zucchini">
         <item>קישוא</item>
