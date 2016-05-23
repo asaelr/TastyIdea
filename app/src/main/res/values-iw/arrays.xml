@@ -13,7 +13,7 @@
 
 
     <string-array name="MaxTime">
-        <item name="unlimited" value="-1">ללא הגבלה</item>
+        <item name="unlimited" value="-1">ללא הגבלת זמן</item>
         <item name="15min" value="15">15 דקות</item>
         <item name="30min" value="30">30 דקות</item>
         <item name="45min" value="45">45 דקות</item>

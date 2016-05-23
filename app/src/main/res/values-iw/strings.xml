@@ -3,8 +3,8 @@
     <string name="favoritRecepies">מתכונים מועדפים</string>
     <string name="myRecepies">המתכונים שלי</string>
     <string name="prefrences">העדפות</string>
-    <string name="addRecepie">הוסף מתכון</string>
-    <string name="search_recepie">חפש מתכון</string>
+    <string name="addRecepie">הוספת מתכון</string>
+    <string name="search_recepie">חיפוש מתכון</string>
     <string name="title_activity_settings">הגדרות</string>
 
     <!-- Strings related to Settings -->
@@ -16,13 +16,13 @@
     <string name="pref_description_social_recommendations">המלצות לאנשים לתקשר בהסתמך על היסטורית הודעות</string>
 
     <string name="pref_title_display_name">הצג שם</string>
-    <string name="pref_default_display_name">John Smith</string>
+    <string name="pref_default_display_name">שם דיפולטי</string>
 
     <string name="pref_title_add_friends_to_messages">הוסף חברים להודעות</string>
     <string-array name="pref_example_list_titles">
         <item>תמיד</item>
         <item>כאשר אפשרי</item>
-        <item>לעולם לא</item>
+        <item>אף פעם</item>
     </string-array>
     <string-array name="pref_example_list_values">
         <item>1</item>

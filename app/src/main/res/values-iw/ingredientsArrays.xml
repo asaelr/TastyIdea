@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="categories">
+        <item>@array/preserved_food</item>
+        <item>@array/meat</item>
+        <item>@array/fruits</item>
         <item>@array/vegetables</item>
         <item>@array/dairy</item>
         <item>@array/spices</item>
         <item>@array/other_ingredients</item>
     </string-array>
 
+    <string-array name="preserved_food">
+        <item>שימורים</item>
+        <item>@mipmap/ic_preserved_food</item>
+        <item>@array/preservedItems</item>
+    </string-array>
+
+    <string-array name="preservedItems">
+        <item>@array/tuna</item>
+        <item>@array/olive</item>
+        <item>@array/canned_corn</item>
+    </string-array>
+
+    <string-array name="meat">
+        <item>בשר</item>
+        <item>@mipmap/ic_meat</item>
+        <item>@array/meatItems</item>
+    </string-array>
+
+    <string-array name="meatItems">
+        <item>@array/chicken_breast</item>
+    </string-array>
+
+    <string-array name="fruits">
+        <item>פירות</item>
+        <item>@mipmap/ic_fruits</item>
+        <item>@array/fruitsItems</item>
+    </string-array>
+
+    <string-array name="fruitsItems">
+        <item>@array/pear</item>
+    </string-array>
+
+    <string-array name="pear">
+        <item>אגס</item>
+        <item>@mipmap/ic_pear</item>
+    </string-array>
 
     <string-array name="vegetables">
         <item>ירקות</item>
@@ -31,12 +70,16 @@
         <item>@array/coriander</item>
         <item>@array/spinach</item>
         <item>@array/sweet_potato</item>
-        <item>@array/thyme</item>
+        <item>@array/thymus</item>
         <item>@array/broccoli</item>
         <item>@array/cauliflower</item>
         <item>@array/eggplant</item>
         <item>@array/basil</item>
-        <item>@array/dried_tomatos</item>
+        <item>@array/dried_tomato</item>
+        <item>@array/beet</item>
+        <item>@array/leek</item>
+        <item>@array/mentha</item>
+        <item>@array/kohlrabi</item>
     </string-array>
 
     <string-array name="carrot">
@@ -95,7 +138,7 @@
         <item>סלק</item>
         <item>@mipmap/ic_beet</item>
     </string-array>
-    <string-array name="thyme">
+    <string-array name="thymus">
         <item>תימין</item>
         <item>@mipmap/ic_thyme</item>
     </string-array>
@@ -108,16 +151,28 @@
         <item>@mipmap/ic_cauliflower</item>
     </string-array>
     <string-array name="eggplant">
-        <item>חצילים</item>
+        <item>חציל</item>
         <item>@mipmap/ic_eggplant</item>
     </string-array>
     <string-array name="basil">
         <item>בזיליקום</item>
         <item>@mipmap/ic_basil</item>
     </string-array>
-    <string-array name="dried_tomatos">
-        <item>עגבניות מיובשות</item>
-        <item>@mipmap/ic_dried_tomatos</item>
+    <string-array name="dried_tomato">
+        <item>עגבניה מיובשת</item>
+        <item>@mipmap/ic_dried_tomato</item>
+    </string-array>
+    <string-array name="leek">
+        <item>כרישה</item>
+        <item>@mipmap/ic_leek</item>
+    </string-array>
+    <string-array name="mentha">
+        <item>נענע</item>
+        <item>@mipmap/ic_mentha</item>
+    </string-array>
+    <string-array name="kohlrabi">
+        <item>קולורבי</item>
+        <item>@mipmap/ic_kohlrabi</item>
     </string-array>
 
     <string-array name="dairy">
@@ -134,7 +189,7 @@
         <item>@array/cheddar</item>
         <item>@array/parmessan</item>
         <item>@array/mozzarella</item>
-        <item>@array/riccota</item>
+        <item>@array/ricotta</item>
         <item>@array/kashkaval</item>
         <item>@array/roquefort</item>
     </string-array>
@@ -204,15 +259,11 @@
         <item>@array/water</item>
         <item>@array/egg</item>
         <item>@array/rice</item>
-        <item>@array/tuna</item>
-        <item>@array/olive</item>
-        <item>@array/canned_corn</item>
         <item>@array/oil</item>
         <item>@array/flour</item>
-        <item>@array/chicken_breast</item>
         <item>@array/tomato_juice</item>
         <item>@array/margarine</item>
-        <item>@array/coconut_milk</item>
+        <item>@array/cocunut_milk</item>
         <item>@array/lemon_juice</item>
         <item>@array/bread_crumbs</item>
         <item>@array/pasta</item>
@@ -221,6 +272,8 @@
         <item>@array/puff_pastry</item>
         <item>@array/walnut</item>
         <item>@array/vinegar</item>
+        <item>@array/mushrooms</item>
+
     </string-array>
 
     <string-array name="water">
@@ -317,7 +370,7 @@
         <item>מרגרינה</item>
         <item>@mipmap/ic_margarine</item>
     </string-array>
-    <string-array name="coconut_milk">
+    <string-array name="cocunut_milk">
         <item>חלב קוקוס</item>
         <item>@mipmap/ic_cocunut_milk</item>
     </string-array>
@@ -352,5 +405,9 @@
     <string-array name="vinegar">
         <item>חומץ</item>
         <item>@mipmap/ic_vinegar</item>
+    </string-array>
+    <string-array name="mushrooms">
+        <item>פטריות</item>
+        <item>@mipmap/ic_mushrooms</item>
     </string-array>
 </resources>

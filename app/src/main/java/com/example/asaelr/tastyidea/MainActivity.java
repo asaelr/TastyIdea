@@ -1,14 +1,17 @@
 package com.example.asaelr.tastyidea;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.Locale;
+
 import networking.Networking;
 
 public class MainActivity extends AppCompatActivity {
-
     //initialize some things in application, using context.
     //if we change our launcher activity, we shall move this function to the new one.
     private void initialize() {
